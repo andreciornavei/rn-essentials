@@ -109,6 +109,7 @@
       "publishConfig": {
         "access": "public"
       },
+      "skipChecks": true,
       "publishPath": "./lib"
     },
     "github": {
