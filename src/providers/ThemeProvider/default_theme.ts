@@ -14,6 +14,7 @@ export const defaultTheme = {
     white: "#ffffff",
     black: "#000000",
     dark: "#3a3a3a",
+    gray: "#939598",
     transparent: "#ffffff00"
   },
   space: {

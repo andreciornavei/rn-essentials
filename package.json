@@ -1,5 +1,5 @@
 {
-  "name": "rn-essentials",
+  "name": "@andreciornavei/rn-essentials",
   "version": "1.0.0",
   "description": "A React Native library containing all essential providers and components",
   "author": {
@@ -50,7 +50,8 @@
   "react-native": "src/index",
   "source": "src/index",
   "scripts": {
-    "prepare": "yarn bob build"
+    "prepare": "yarn bob build",
+    "release": "release-it"
   },
   "dependencies": {
     "@emotion/native": "^11.0.0",
@@ -83,11 +84,13 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
+    "@release-it/conventional-changelog": "^3.3.0",
     "@types/lodash": "^4.14.172",
     "@types/numeral": "^2.0.1",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
     "react-native-builder-bob": "^0.18.1",
+    "release-it": "^14.11.5",
     "typescript": "~4.0.0"
   },
   "peerDependencies": {
@@ -95,6 +98,28 @@
     "react": "*",
     "react-native": "*",
     "react-native-safe-area-context": "*"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "npm": {
+      "publish": true,
+      "publishConfig": {
+        "access": "public"
+      },
+      "publishPath": "./lib"
+    },
+    "github": {
+      "release": true,
+      "skipChecks": true
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "preset": "angular"
+      }
+    }
   },
   "react-native-builder-bob": {
     "source": "src",

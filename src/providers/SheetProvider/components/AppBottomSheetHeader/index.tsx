@@ -1,7 +1,9 @@
+import { useTheme } from "@emotion/react"
 import React from "react"
 import { Text, View } from "react-native"
 import Ripple from "react-native-advanced-ripple"
 import { useSheet } from "../.."
+
 import { Icon } from "../../../../components/Icon"
 import styles from "./styles"
 
@@ -12,6 +14,7 @@ interface Props {
 
 export const AppBottomSheetHeader = (props: Props): JSX.Element => {
 
+    const theme = useTheme()
     const { closeSheet } = useSheet()
 
     return (
@@ -29,7 +32,7 @@ export const AppBottomSheetHeader = (props: Props): JSX.Element => {
                     slowDuration={250}
                     onPress={closeSheet}
                 >
-                    <Icon pack="Feather" name="x" size={21} color={"#666666"} />
+                    <Icon pack="Feather" name="x" size={21} color={theme.color.gray} />
                 </Ripple>
             }
         </View>

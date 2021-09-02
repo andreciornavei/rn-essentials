@@ -5,7 +5,7 @@ import styles from "./styles"
 import type { ScaffoldAppBarActionProps } from "../../@types/ScaffoldAppBarActionProps"
 import { Icon } from "../../../Icon"
 
-export const ScaffoldAppBarAction = ({ rounded = true, iconPack = "Feather", ...props }: ScaffoldAppBarActionProps) => {
+export const ScaffoldAppBarAction = ({ rounded = true, iconPack = "Feather", ...props }: ScaffoldAppBarActionProps): JSX.Element => {
   return (
     <Ripple
       containerStyle={[

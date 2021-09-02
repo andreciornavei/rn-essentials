@@ -6,7 +6,7 @@ import { useSheet } from "../.."
 
 export const AppBottomSheet = (): JSX.Element => {
 
-    const { content, closeSheet, open } = useSheet()
+    const { content, closeSheet, open, enableGesture } = useSheet()
     const sheetRef = React.useRef<BottomSheet>(null)
 
     React.useEffect(() => {
@@ -27,6 +27,7 @@ export const AppBottomSheet = (): JSX.Element => {
                     </AppBottomSheetContent>
                 )}
                 enabledContentTapInteraction={false}
+                enabledContentGestureInteraction={enableGesture}
                 onCloseEnd={closeSheet}
             />
         </>
