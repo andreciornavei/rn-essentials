@@ -3,7 +3,7 @@
       ["module-resolver", {
         "root": ["."],
         "alias": {
-          "rn-essentials": "./../src/index"
+          "@andreciornavei/rn-essentials": "./../src/index"
         }
       }]
     ]

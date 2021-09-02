@@ -1,7 +1,7 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
 import { View, Text } from "react-native"
-import { HelloWorld, Button, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, useSheet } from "rn-essentials"
+import { HelloWorld, Button, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, useSheet } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { Space } from "../../../../src/components/Space"
 import { useSafeAreaInsets } from "react-native-safe-area-context"

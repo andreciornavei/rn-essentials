@@ -1,6 +1,6 @@
 import React from 'react';
-import { EssentialProviders } from 'rn-essentials';
 import { Home } from './src/pages/Home';
+import { EssentialProviders } from '@andreciornavei/rn-essentials';
 
 export default function App() {
   return (
