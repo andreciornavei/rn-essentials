@@ -1,0 +1,113 @@
+{
+  "name": "rn-essentials",
+  "version": "1.0.0",
+  "description": "A React Native library containing all essential providers and components",
+  "author": {
+    "name": "André Ciornavei",
+    "email": "andre.ciornavei@gmail.com",
+    "url": "https://github.com/andreciornavei"
+  },
+  "maintainers": [
+    {
+      "name": "André Ciornavei",
+      "email": "andre.ciornavei@gmail.com",
+      "url": "https://github.com/andreciornavei"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andreciornavei/rn-essentials.git"
+  },
+  "homepage": "https://github.com/andreciornavei/rn-essentials#readme",
+  "bugs": {
+    "url": "https://github.com/andreciornavei/rn-essentials/issues"
+  },
+  "keywords": [
+    "lib",
+    "ios",
+    "react",
+    "library",
+    "android",
+    "react-native",
+    "design-system"
+  ],
+  "license": "MIT",
+  "files": [
+    "lib",
+    "src",
+    "!*.md",
+    "!*.stories.tsx",
+    "!*.test.tsx",
+    "!*.test.ts"
+  ],
+  "directories": {
+    "example": "example",
+    "lib": "lib"
+  },
+  "main": "lib/commonjs/index",
+  "module": "lib/module/index",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "src/index",
+  "source": "src/index",
+  "scripts": {
+    "prepare": "yarn bob build"
+  },
+  "dependencies": {
+    "@emotion/native": "^11.0.0",
+    "@emotion/react": "^11.4.1",
+    "@react-native-async-storage/async-storage": "~1.15.0",
+    "@react-native-community/hooks": "^2.6.0",
+    "@react-navigation/native": "^6.0.2",
+    "@react-navigation/stack": "^6.0.7",
+    "axios": "^0.21.1",
+    "date-fns": "^2.23.0",
+    "expo": "~42.0.1",
+    "expo-notifications": "~0.12.3",
+    "expo-sqlite": "~9.2.1",
+    "expo-status-bar": "~1.0.4",
+    "initials": "^3.1.1",
+    "lodash": "^4.17.21",
+    "numeral": "^2.0.6",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
+    "react-native-advanced-ripple": "^1.0.0",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.2.0",
+    "react-native-safe-area-context": "3.2.0",
+    "react-native-screens": "~3.4.0",
+    "react-native-web": "~0.13.12",
+    "reanimated-bottom-sheet": "^1.0.0-alpha.22",
+    "socket.io-client": "^4.2.0",
+    "typeorm": "^0.2.37"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@types/lodash": "^4.14.172",
+    "@types/numeral": "^2.0.1",
+    "@types/react": "~16.9.35",
+    "@types/react-native": "~0.63.2",
+    "react-native-builder-bob": "^0.18.1",
+    "typescript": "~4.0.0"
+  },
+  "peerDependencies": {
+    "expo-font": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-safe-area-context": "*"
+  },
+  "react-native-builder-bob": {
+    "source": "src",
+    "output": "lib",
+    "targets": [
+      "commonjs",
+      "module",
+      [
+        "typescript",
+        {
+          "project": "tsconfig.build.json"
+        }
+      ]
+    ]
+  }
+}
