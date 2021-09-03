@@ -1,17 +1,13 @@
 import React from "react"
 import { createStackNavigator } from "@react-navigation/stack";
 import { AppBottomSheet } from "../SheetProvider/components/AppBottomSheet";
+import { RouteProps } from ".";
+import { ParamListBase, RouteProp } from "@react-navigation/native";
+import { View } from "react-native";
 
-interface Props {
-  initialRouteName: string
-  routes: Array<{
-    name: string
-    component: JSX.Element
-  }>
-}
-
-export const RouteWrap = (props: Props) => {
+export const RouteWrap = (props: RouteProps) => {
   const Stack = createStackNavigator();
+
   return (
     <>
       <Stack.Navigator
@@ -20,7 +16,11 @@ export const RouteWrap = (props: Props) => {
           headerShown: false
         }}>
         {props.routes.map((route, index) => (
-          <Stack.Screen key={`screen-id-${index}`} name={route.name} component={() => route.component} />
+          <Stack.Screen
+            key={`screen-id-${index}`}
+            name={route.name}
+            component={route.component}
+          />
         ))}
       </Stack.Navigator>
       <AppBottomSheet />

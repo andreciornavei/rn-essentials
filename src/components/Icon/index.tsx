@@ -16,8 +16,8 @@ import {
     Zocial
 } from "@expo/vector-icons";
 import { View } from "react-native";
+import { IconPackType } from "../..";
 
-export type IconPackType = "AntDesign" | "Entypo" | "EvilIcons" | "Feather" | "FontAwesome" | "FontAwesome5" | "Fontisto" | "Foundation" | "Ionicons" | "MaterialCommunityIcons" | "MaterialIcons" | "Octicons" | "SimpleLineIcons" | "Zocial"
 
 type Props = {
     pack: IconPackType

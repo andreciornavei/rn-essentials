@@ -7,8 +7,6 @@ export default StyleSheet.create({
     },
     container: {
         flexDirection: "row",
-        paddingTop: 15,
-        paddingBottom: 15,
         paddingLeft: 10,
         paddingRight: 35,
         borderRadius: 100,

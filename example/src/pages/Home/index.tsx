@@ -1,29 +1,15 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
-import { View, Text } from "react-native"
-import { HelloWorld, Button, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, useSheet } from "@andreciornavei/rn-essentials"
+import { Text } from "react-native"
+import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Action } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
-import { Space } from "../../../../src/components/Space"
-import { useSafeAreaInsets } from "react-native-safe-area-context"
+import { useNavigation } from "@react-navigation/native"
+import { ScrollView } from "react-native-gesture-handler"
 
 export const Home = (): JSX.Element => {
 
     const theme = useTheme()
-    const { openSheet } = useSheet()
-    const insets = useSafeAreaInsets()
-
-    const handleOpenSheet = () => {
-        openSheet(
-            <View style={{
-                padding: 25,
-                paddingBottom: 25 + insets.bottom,
-                backgroundColor: theme.color.white,
-                alignItems: "center"
-            }}>
-                <Text>Hello World</Text>
-            </View>
-        )
-    }
+    const { navigate } = useNavigation<any>()
 
     return (
         <Scaffold
@@ -45,24 +31,26 @@ export const Home = (): JSX.Element => {
                 />
             }
             body={
-                <View style={[styles.container]}>
-                    <HelloWorld />
-                    <Text style={{ color: theme.color.accentText }}>
-                        Content from example app
+                <ScrollView style={[styles.container]}>
+                    <Text style={styles.title}>
+                        Available Components
                     </Text>
-                    <Space height={15} />
-                    <Button
-                        label="Open Sheet"
-                        theme="accent"
-                        iconPack="Feather"
-                        iconName="plus"
-                        iconPosition="right"
-                        center={true}
-                        wrap={true}
-                        iconColor={theme.color.white}
-                        onPress={handleOpenSheet}
+                    <Text style={styles.descirption}>
+                        This screen implements the acion component, take a look ;)
+                    </Text>
+                    <Action
+                        iconPack="Ionicons"
+                        iconName="list"
+                        label="Accordion"
+                        onPress={() => navigate("/component_accordion")}
                     />
-                </View>
+                    <Action
+                        iconPack="MaterialCommunityIcons"
+                        iconName="gesture-double-tap"
+                        label="Button"
+                        onPress={() => navigate("/component_button")}
+                    />
+                </ScrollView>
             }
         />
     )

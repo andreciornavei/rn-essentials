@@ -1,4 +1,4 @@
-import { IconPackType } from "../../Icon";
+import { IconPackType } from "../../..";
 
 export interface ScaffoldAppBarActionProps {
   iconPack?: IconPackType
