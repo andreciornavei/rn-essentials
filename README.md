@@ -6,7 +6,7 @@
 ### _Fast project setup:_
 As you can see on this little piece of code, everithing is embedded in just one provider, the `EssentialProviders`, that will inject everything you need to setup your project as faster as prossible.
 
-You can see all the providers embbeded later this documentation.
+You can see all the providers embbeded later on this documentation.
 
 ```jsx
 import React from 'react';
