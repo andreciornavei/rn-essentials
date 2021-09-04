@@ -77,6 +77,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
                     themer.sizes()[size].container,
                     themer.shapes()[shape].container,
                     applyProps.disabled && themer.utils().disabled,
+                    applyProps.symetrycSize && { ...styles.symetric, width: applyProps.symetrycSize, height: applyProps.symetrycSize },
                     { backgroundColor: applyProps.backgroundColor || themer.themes()[theme].container?.backgroundColor },
                     applyProps.containerStyle,
                 ]}

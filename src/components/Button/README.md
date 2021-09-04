@@ -17,6 +17,7 @@
 | wrap | boolean | true | If the button is wrapped to prevent automatic expands |
 | center | boolean | false | If button needs to center the text (_by default if is left positioned_) |
 | shadow | boolean | false | If should render a shadow to the button |
+| symetricSize | number | undefined | If defined, will force the width and height to specified value, removing paddings and centering all childrens (_recomended for buttons with only icons or single characters_) |
 | loading | boolean | false | If should render an loading indicator |
 | loadingTheme | [ButtonLoadingType]() | undefned | The loading indicator theme |
 | disabled | boolean | false | If should disable the button |

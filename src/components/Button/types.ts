@@ -46,6 +46,7 @@ export type ButtonProps = {
     loading?: boolean
     loadingTheme?: ButtonLoadingType
     disabled?: boolean
+    symetrycSize?: number
     theme?: ThemeType
     size?: SizeType
     shape?: ShapeType

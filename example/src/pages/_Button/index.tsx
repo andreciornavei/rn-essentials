@@ -150,13 +150,14 @@ export const _Button = (): JSX.Element => {
                         </View>
                     </View>
 
-                    <Text style={styles.label}>3 - Button with only icon / images</Text>
+                    <Text style={styles.label}>5 - Button with only icon / images and symetricSize</Text>
                     <View style={styles.group}>
                         <View style={styles.button_space}>
                             <Button
                                 theme="primary"
                                 wrap={true}
                                 center={true}
+                                symetrycSize={45}
                                 leftIcon={{
                                     pack: "Feather",
                                     name: "github"
@@ -168,6 +169,7 @@ export const _Button = (): JSX.Element => {
                                 theme="primary"
                                 wrap={true}
                                 center={true}
+                                symetrycSize={45}
                                 leftImage={{ src: require("./../../../assets/favicon.png") }}
                             />
                         </View>

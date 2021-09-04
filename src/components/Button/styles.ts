@@ -22,5 +22,13 @@ export default StyleSheet.create({
     },
     rightIcon: {
         marginLeft: 5
-    }
+    },
+    symetric: {
+        alignItems: "center",
+        justifyContent: "center",
+        paddingLeft: 0,
+        paddingRight: 0,
+        paddingBottom: 0,
+        paddingTop: 0
+    },
 })
