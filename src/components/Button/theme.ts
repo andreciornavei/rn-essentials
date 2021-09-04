@@ -40,6 +40,12 @@ interface ButtonSizes {
     "large": ButtonStructure,
 }
 
+interface ButtonShapes {
+    "flat": ButtonStructure
+    "rounded": ButtonStructure
+    "pill": ButtonStructure
+}
+
 export const ButtonTheme = (theme: Theme) => ({
     themes: (): ButtonThemes => ({
         "primary": {
@@ -185,6 +191,17 @@ export const ButtonTheme = (theme: Theme) => ({
                 fontSize: 18,
             },
         },
+    }),
+    shapes: (): ButtonShapes => ({
+        "flat": {
+            "container": { borderRadius: 0 }
+        },
+        "rounded": {
+            "container": { borderRadius: theme.roundSizeBase }
+        },
+        "pill": {
+            "container": { borderRadius: 999 }
+        }
     }),
     utils: () => ({
         center: {

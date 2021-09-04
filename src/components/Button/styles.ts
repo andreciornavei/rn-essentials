@@ -8,14 +8,19 @@ export default StyleSheet.create({
     container: {
         flexDirection: "row",
         paddingLeft: 10,
-        paddingRight: 35,
-        borderRadius: 100,
+        paddingRight: 10,
+        borderRadius: 0,
         overflow: "hidden",
         borderColor: "#000",
         alignItems: "center"
     },
     text: {
-        fontSize: 12,
+        fontSize: 12
+    },
+    leftIcon: {
+        marginRight: 5
+    },
+    rightIcon: {
         marginLeft: 5
     }
 })

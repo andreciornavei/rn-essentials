@@ -119,17 +119,58 @@ export const _Button = (): JSX.Element => {
                         </View>
                     </View>
 
-                    <Text style={styles.label}>3 - Button with only icon</Text>
-                    <View style={{ width: "100%", alignItems: "center" }}>
-                        <Button
-                            theme="primary"
-                            wrap={true}
-                            center={true}
-                            iconPack="Feather"
-                            iconName="github"
-                            iconSize={21}
-                            iconColor={theme.color.white}
-                        />
+                    <Text style={styles.label}>4 - Button shapes</Text>
+                    <View style={styles.group}>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="Flat shape"
+                                theme="primary"
+                                shape="flat"
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="Rounded shape"
+                                theme="primary"
+                                shape="rounded"
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="Pill shape"
+                                theme="primary"
+                                shape="pill"
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                    </View>
+
+                    <Text style={styles.label}>3 - Button with only icon / images</Text>
+                    <View style={styles.group}>
+                        <View style={styles.button_space}>
+                            <Button
+                                theme="primary"
+                                wrap={true}
+                                center={true}
+                                leftIcon={{
+                                    pack: "Feather",
+                                    name: "github"
+                                }}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                theme="primary"
+                                wrap={true}
+                                center={true}
+                                leftImage={{ src: require("./../../../assets/favicon.png") }}
+                            />
+                        </View>
                     </View>
 
                     <Text style={styles.label}>4 - Button with loading property enabled</Text>
@@ -143,30 +184,83 @@ export const _Button = (): JSX.Element => {
                     </View>
 
                     <Text style={styles.label}>6 - Button with side icon</Text>
-                    <View style={{ width: "100%", alignItems: "center" }}>
-                        <Button
-                            label="button with icon"
-                            theme="primary"
-                            iconPack="Feather"
-                            iconName="activity"
-                            iconSize={14}
-                            iconPosition="left"
-                            iconColor={theme.color.white}
-                            wrap={true}
-                            center={true}
-                        />
+                    <View style={styles.group}>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="left"
+                                theme="primary"
+                                leftIcon={{
+                                    pack: "Feather",
+                                    name: "github"
+                                }}
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="right"
+                                theme="primary"
+                                leftIcon={{
+                                    pack: "Feather",
+                                    name: "github"
+                                }}
+                                rightIcon={{
+                                    pack: "Feather",
+                                    name: "github"
+                                }}
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="both"
+                                theme="primary"
+                                leftIcon={{
+                                    pack: "Feather",
+                                    name: "github"
+                                }}
+                                rightIcon={{
+                                    pack: "Feather",
+                                    name: "github"
+                                }}
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
                     </View>
 
-                    <Text style={styles.label}>7 - Button with image</Text>
-                    <View style={{ width: "100%", alignItems: "center" }}>
-                        <Button
-                            label="button with image"
-                            theme="primary"
-                            image={require("./../../../assets/favicon.png")}
-                            iconColor={theme.color.white}
-                            wrap={true}
-                            center={true}
-                        />
+                    <Text style={styles.label}>7 - Button with side image</Text>
+                    <View style={styles.group}>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="left"
+                                theme="primary"
+                                leftImage={{ src: require("./../../../assets/favicon.png") }}
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="right"
+                                theme="primary"
+                                rightImage={{ src: require("./../../../assets/favicon.png") }}
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
+                        <View style={styles.button_space}>
+                            <Button
+                                label="both"
+                                theme="primary"
+                                leftImage={{ src: require("./../../../assets/favicon.png") }}
+                                rightImage={{ src: require("./../../../assets/favicon.png") }}
+                                wrap={true}
+                                center={true}
+                            />
+                        </View>
                     </View>
 
                 </ScrollView >

@@ -1,93 +1,107 @@
-import React, { CSSProperties } from "react"
-import { View, Text, Image, TextStyle, ActivityIndicator, ViewStyle } from "react-native"
+import React from "react"
+import { View, Text, Image, ActivityIndicator } from "react-native"
 import Ripple from "react-native-advanced-ripple"
 import styles from "./styles"
 import { Icon } from "../Icon"
 import _ from "lodash"
-import { useTheme, IconPackType } from "../.."
+import { useTheme } from "../.."
 import { ButtonTheme } from "./theme"
+import { ButtonIconType, ButtonImageType, ButtonLoadingType, ButtonProps, ShapeType, SizeType, ThemeType } from "./types"
+import { ViewStyle } from "react-native"
+import { ImageStyle } from "react-native"
 
+export const Button = (props: ButtonProps): JSX.Element => {
 
-interface Props {
-    label?: string
-    color?: string
-    backgroundColor?: string
-    containerStyle?: CSSProperties
-    textStyle?: TextStyle
-    onPress?: () => void
-    iconName?: string
-    iconPack?: IconPackType
-    iconSize?: number
-    iconColor?: string
-    iconPosition?: IconPositionType
-    image?: any
-    wrap?: boolean
-    center?: boolean
-    shadow?: boolean
-    loading?: boolean
-    disabled?: boolean
-    theme?: ThemeType
-    size?: SizeType
-}
-
-export const Button = ({
-    containerStyle = {},
-    textStyle = {},
-    onPress,
-    iconName,
-    iconPack = "Feather",
-    iconPosition = "left",
-    iconSize = 16,
-    image,
-    wrap = false,
-    center = false,
-    shadow = false,
-    loading = false,
-    theme = "primary",
-    size = "regular",
-    ...props
-}: Props): JSX.Element => {
-
-    const padAdjust = { paddingLeft: !center && !iconName && !image ? 25 : (iconName || image) ? 10 : 35 }
     const theming = useTheme()
     const themer = ButtonTheme(theming)
+    const applyProps = { ...theming.components.button, ...props }
+    const theme: ThemeType = applyProps.theme || "primary"
+    const size: SizeType = applyProps.size || "regular"
+    const shape: ShapeType = applyProps.shape || "flat"
 
+    const leftImageSize = applyProps.leftImage?.size || 16
+    const leftImageSpace = applyProps.leftImage?.space || 5
+
+    const rightImageSize = applyProps.rightImage?.size || 16
+    const rightImageSpace = applyProps.rightImage?.space || 5
+
+    const leftIconColor = applyProps.leftIcon?.size || applyProps.color
+    const leftIconSize = applyProps.leftIcon?.size || 16
+    const leftIconSpace = applyProps.leftIcon?.space || 5
+
+    const rightIconSize = applyProps.rightIcon?.size || 16
+    const rightIconSpace = applyProps.rightIcon?.space || 5
+
+    const needLeftSpace = () => {
+        return props.label || props.leftIcon || props.leftImage
+    }
+
+    const needRightSpace = () => {
+        return props.label || props.rightIcon || props.rightImage
+    }
+
+    const _renderImage = (image: ButtonImageType, style?: ImageStyle) => {
+        return <Image
+            source={image.src}
+            style={{ width: image.size, height: image.size, ...style }}
+            fadeDuration={0}
+        />
+    }
+
+    const _renderIcon = (icon: ButtonIconType, style: ViewStyle) => {
+        return <Icon
+            pack={icon.pack}
+            name={icon.name}
+            size={icon.size || 16}
+            color={icon.color || applyProps.textStyle?.color || themer.themes()[theme].text?.color || theming.color.white}
+            style={style}
+        />
+    }
+
+    const _renderLoading = (loadingTheme: ButtonLoadingType | undefined) => {
+        return <ActivityIndicator
+            size={loadingTheme?.size || "small"}
+            color={loadingTheme?.color || theming.color.white}
+            style={{ marginLeft: 5 }}
+        />
+    }
 
     return (
-        <View style={wrap ? styles.wrapper : {}}>
+        <View style={applyProps.wrap && styles.wrapper}>
             <Ripple
                 containerStyle={[
                     styles.container,
-                    shadow && themer.utils().shadow,
-                    center ? themer.utils().center : padAdjust,
+                    applyProps.shadow && themer.utils().shadow,
+                    applyProps.center && themer.utils().center,
                     themer.themes()[theme].container,
                     themer.sizes()[size].container,
-                    props.disabled && themer.utils().disabled,
-                    { backgroundColor: props.backgroundColor || themer.themes()[theme].container?.backgroundColor },
-                    containerStyle
+                    themer.shapes()[shape].container,
+                    applyProps.disabled && themer.utils().disabled,
+                    { backgroundColor: applyProps.backgroundColor || themer.themes()[theme].container?.backgroundColor },
+                    applyProps.containerStyle,
                 ]}
                 duration={250}
                 slowDuration={250}
-                onPress={onPress}
-                disabled={props.disabled}
+                onPress={applyProps.onPress}
+                disabled={applyProps.disabled}
             >
-                {image && <Image source={image} style={{ width: iconSize, height: iconSize }} fadeDuration={0} />}
-                {iconPosition == "left" && iconName && <Icon pack={iconPack} name={iconName} size={iconSize} color={props.iconColor || theming.color.dark} />}
-                {props.label && (
+                {applyProps.leftImage && _renderImage({ ...applyProps.leftImage, size: leftImageSize }, { marginRight: needRightSpace() ? leftImageSpace : 0 })}
+                {applyProps.leftIcon && _renderIcon({ ...applyProps.leftIcon, size: leftIconSize }, { marginRight: needRightSpace() ? leftIconSpace : 0 })}
+                {applyProps.label && (
                     <Text
                         style={[
                             styles.text,
                             themer.themes()[theme].text,
                             themer.sizes()[size].text,
-                            textStyle,
-                            { color: props.color || themer.themes()[theme].text?.color || theming.color.dark },
-                            { marginLeft: (iconName || image) ? center ? 10 : 5 : 0 }
+                            applyProps.textStyle,
+                            { color: applyProps.color || themer.themes()[theme].text?.color || theming.color.dark }
                         ]}>
-                        {props.label}
+                        {applyProps.label}
                     </Text>
                 )}
-                {iconPosition == "right" && iconName && <Icon pack={iconPack} name={iconName} size={iconSize} color={props.iconColor || theming.color.dark} style={{ marginLeft: 5 }} />}
-                {loading && <ActivityIndicator size="small" color={props.iconColor || theming.color.white} style={{ marginLeft: 5 }} />}
+                {applyProps.rightIcon && _renderIcon({ ...applyProps.rightIcon, size: rightIconSize }, { marginLeft: needLeftSpace() ? rightIconSpace : 0 })}
+                {applyProps.rightImage && _renderImage({ ...applyProps.rightImage, size: rightImageSize }, { marginLeft: needLeftSpace() ? rightImageSpace : 0 })}
+                {applyProps.loading && _renderLoading(applyProps.loadingTheme)}
             </Ripple>
         </View >
     )

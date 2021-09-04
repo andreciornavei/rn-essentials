@@ -17,13 +17,14 @@ import {
 } from "@expo/vector-icons";
 import { View } from "react-native";
 import { IconPackType } from "../..";
+import { ColorValue } from "react-native";
 
 
 type Props = {
     pack: IconPackType
     name: string
     size: number
-    color: string
+    color: ColorValue
     style?: Object
 }
 
