@@ -201,10 +201,6 @@ export const _Button = (): JSX.Element => {
                             <Button
                                 label="right"
                                 theme="primary"
-                                leftIcon={{
-                                    pack: "Feather",
-                                    name: "github"
-                                }}
                                 rightIcon={{
                                     pack: "Feather",
                                     name: "github"
