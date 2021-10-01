@@ -1,57 +1,67 @@
 import React, { useState } from "react"
-import Ripple from "react-native-advanced-ripple"
 import { View, Text } from "react-native"
 import styles from "./styles"
 import { Icon } from "../Icon"
-import { IconPackType, useTheme } from "../.."
+import { useTheme } from "../.."
+import { Ripple } from "../Ripple"
+import { AccordionProps } from "./types"
+import { AccordionTheme } from "./theme"
+import { ViewStyle } from "react-native"
+import { ThemeColorType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 
-interface Props {
-    name: string
-    placeholder?: string
-    value?: any
-    open?: boolean
-    iconPack?: IconPackType
-    iconName?: string
-    onClick?: (name: string) => void
-    children?: JSX.Element | Array<JSX.Element>
-}
+export const Accordion = (props: AccordionProps): JSX.Element => {
 
-export const Accordion = (props: Props): JSX.Element => {
+    const theming = useTheme()
+    const themer = AccordionTheme(theming)
+    const applyProps = { ...theming.components.accordion, ...props }
+    const theme: ThemeColorType = applyProps.theme || "primary"
+    const size: ThemeSizeType = applyProps.size || "regular"
+    const shape: ThemeShapeType = applyProps.shape || "flat"
 
     const [open, setOpen] = useState(props.open || false)
-    const theme = useTheme()
 
     return (
         <View style={styles.container}>
             <Ripple
-                containerStyle={[styles.selectionContainer]}
-                duration={250}
-                slowDuration={250}
+                containerStyle={[
+                    styles.selectionContainer,
+                    themer.themes()[theme].container as ViewStyle,
+                    themer.sizes()[size].container as ViewStyle,
+                    themer.shapes()[shape].container as ViewStyle,
+                    applyProps.containerStye as ViewStyle,
+                ]}
                 onPress={() => {
-                    if (props.open === undefined) setOpen((oldValue) => !oldValue)
-                    props.onClick && props.onClick(props.name)
+                    if (applyProps.open === undefined) setOpen((oldValue) => !oldValue)
+                    applyProps.onClick && applyProps.onClick(props?.name ?? "undefined")
                 }}
             >
-                {(props.iconPack && props.iconName) && (
-                    <Icon
-                        pack={props.iconPack}
-                        name={props.iconName}
-                        size={21}
-                        color={theme.color.gray}
-                        style={{ marginRight: 25 }}
-                    />
-                )}
-
+                <>
+                    {(applyProps.iconPack && applyProps.iconName) && (
+                        <Icon
+                            pack={applyProps.iconPack}
+                            name={applyProps.iconName}
+                            size={(themer.sizes()[size].text?.fontSize || 16) + 7}
+                            color={themer.themes()[theme].text?.color || theming.color.gray}
+                            style={{ marginRight: 25 }}
+                        />
+                    )}
+                </>
                 <Text
-                    style={[styles.selectionValue, { color: theme.color.gray }]}>
-                    {props.value ?? props.placeholder ?? "-- touch to open --"}
+                    style={[
+                        styles.selectionValue,
+                        themer.themes()[theme].text,
+                        themer.sizes()[size].text,
+                        applyProps.textStyle,
+                        { color: themer.themes()[theme].text?.color || theming.color.dark }
+                    ]}>
+                    {applyProps.value ?? applyProps.placeholder ?? "-- touch to open --"}
                 </Text>
 
                 <Icon
                     pack="Feather"
                     name={`chevron-${(props.open === undefined ? open : props.open) ? "up" : "down"}`}
-                    size={14}
-                    color={theme.color.gray}
+                    size={themer.sizes()[size].text?.fontSize || 14}
+                    color={themer.themes()[theme].text?.color || theming.color.gray}
                 />
 
             </Ripple>

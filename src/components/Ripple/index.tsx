@@ -3,7 +3,7 @@ import { ViewStyle } from "react-native"
 import RippleNative from "react-native-advanced-ripple"
 
 type Props = {
-    children: JSX.Element
+    children: JSX.Element | JSX.Element[]
     containerStyle?: ViewStyle | ViewStyle[]
     duration?: number
     slowDuration?: number

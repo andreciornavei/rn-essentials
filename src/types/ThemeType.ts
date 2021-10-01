@@ -1,4 +1,20 @@
+import { IconPackType } from "..";
+import { AccordionProps } from "../components/Accordion/types";
 import { ButtonProps } from "../components/Button/types";
+
+export type ThemeColorType = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark" | "muted" | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-info" | "outline-link" | "outline-light" | "outline-dark" | "outline-muted"
+
+export type ThemeSizeType = "tiny" | "small" | "regular" | "medium" | "large"
+
+export type ThemeShapeType = "flat" | "rounded" | "pill"
+
+export type ThemeIconType = {
+    pack: IconPackType
+    name: string
+    size?: number
+    color?: string
+    space?: number
+}
 
 export type ThemeType = {
     roundSizeBase: number
@@ -32,5 +48,6 @@ export type ThemeType = {
     },
     components: {
       button: ButtonProps
+      accordion: AccordionProps
     }
   }

@@ -43,6 +43,14 @@ export const defaultTheme: ThemeType = {
       center: false,
       shadow: false,
       loading: false
+    },
+    accordion: {
+      open: false,
+      iconPack: undefined,
+      iconName: undefined,
+      onClick: undefined,
+      textStyle: {},
+      containerStye: {},
     }
   }
 };

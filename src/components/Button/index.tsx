@@ -25,7 +25,6 @@ export const Button = (props: ButtonProps): JSX.Element => {
     const rightImageSize = applyProps.rightImage?.size || 16
     const rightImageSpace = applyProps.rightImage?.space || 5
 
-    const leftIconColor = applyProps.leftIcon?.size || applyProps.color
     const leftIconSize = applyProps.leftIcon?.size || 16
     const leftIconSpace = applyProps.leftIcon?.space || 5
 
