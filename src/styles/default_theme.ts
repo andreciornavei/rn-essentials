@@ -45,12 +45,14 @@ export const defaultTheme: ThemeType = {
       loading: false
     },
     accordion: {
-      open: false,
+      theme: "primary",
+      shape: "flat",
+      size: "regular",
+      containerStye: {},
+      textStyle: {},
       iconPack: undefined,
       iconName: undefined,
-      onClick: undefined,
-      textStyle: {},
-      containerStye: {},
+      open: false,
     }
   }
 };
