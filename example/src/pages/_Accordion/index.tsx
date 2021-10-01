@@ -34,17 +34,20 @@ export const _Accordion = (): JSX.Element => {
                         open={selected == "first"}
                         iconPack="MaterialCommunityIcons"
                         iconName="numeric-1"
+                        theme="light"
+                        shape="flat"
+                        size="regular"
                         onClick={setSelected}
                     >
                         <View style={styles.content}>
                             <Text>
-                                Lorem ipsum dolor sit amet, consectetur 
-                                adipiscing elit. Sed tortor tortor, 
-                                pulvinar ultrices pulvinar luctus, 
-                                mollis ac sapien. Cras vel lorem varius 
-                                nunc tempor congue. Ut et turpis facilisis, 
-                                lobortis massa id, vestibulum ipsum. 
-                                Sed porta vulputate purus, quis faucibus 
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Sed tortor tortor,
+                                pulvinar ultrices pulvinar luctus,
+                                mollis ac sapien. Cras vel lorem varius
+                                nunc tempor congue. Ut et turpis facilisis,
+                                lobortis massa id, vestibulum ipsum.
+                                Sed porta vulputate purus, quis faucibus
                                 sapien pretium at. Ut venenatis mollis massa.
                             </Text>
                         </View>
@@ -56,17 +59,20 @@ export const _Accordion = (): JSX.Element => {
                         open={selected == "second"}
                         iconPack="MaterialCommunityIcons"
                         iconName="numeric-2"
+                        theme="light"
+                        shape="flat"
+                        size="regular"
                         onClick={setSelected}
                     >
                         <View style={styles.content}>
                             <Text>
-                                Morbi quis massa nisi. Aenean vel aliquam purus. 
-                                Sed faucibus sodales odio at vestibulum. 
-                                Donec in nunc commodo, porttitor arcu semper, 
-                                pretium dolor. Mauris in leo elementum metus 
-                                condimentum eleifend nec sed enim. Morbi a 
-                                tortor iaculis, ultricies est quis, rhoncus ipsum. 
-                                Etiam et lacus a ligula accumsan ornare. 
+                                Morbi quis massa nisi. Aenean vel aliquam purus.
+                                Sed faucibus sodales odio at vestibulum.
+                                Donec in nunc commodo, porttitor arcu semper,
+                                pretium dolor. Mauris in leo elementum metus
+                                condimentum eleifend nec sed enim. Morbi a
+                                tortor iaculis, ultricies est quis, rhoncus ipsum.
+                                Etiam et lacus a ligula accumsan ornare.
                                 Nam tempus nunc mollis, egestas nulla a, bibendum nisi.
                             </Text>
                         </View>
@@ -78,16 +84,19 @@ export const _Accordion = (): JSX.Element => {
                         open={selected == "third"}
                         iconPack="MaterialCommunityIcons"
                         iconName="numeric-3"
+                        theme="light"
+                        shape="flat"
+                        size="regular"
                         onClick={setSelected}
                     >
                         <View style={styles.content}>
                             <Text>
-                            Ut quis fringilla erat. Sed lectus sapien, mattis ac augue eu, 
-                            sodales euismod libero. Fusce pellentesque massa ornare 
-                            libero varius bibendum. Nam sem turpis, tincidunt tempor 
-                            enim id, dictum mattis metus. Proin justo ante, mollis 
-                            efficitur nisl eu, rhoncus sollicitudin tellus. Ut congue 
-                            nisi velit, ac dapibus est mattis id. Donec a odio tortor.
+                                Ut quis fringilla erat. Sed lectus sapien, mattis ac augue eu,
+                                sodales euismod libero. Fusce pellentesque massa ornare
+                                libero varius bibendum. Nam sem turpis, tincidunt tempor
+                                enim id, dictum mattis metus. Proin justo ante, mollis
+                                efficitur nisl eu, rhoncus sollicitudin tellus. Ut congue
+                                nisi velit, ac dapibus est mattis id. Donec a odio tortor.
                             </Text>
                         </View>
                     </Accordion>
