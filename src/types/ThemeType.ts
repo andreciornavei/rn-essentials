@@ -2,7 +2,7 @@ import { IconPackType } from "..";
 import { AccordionProps } from "../components/Accordion/types";
 import { ButtonProps } from "../components/Button/types";
 
-export type ThemeColorType = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark" | "muted" | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-info" | "outline-link" | "outline-light" | "outline-dark" | "outline-muted"
+export type ThemeColorType = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark" | "muted" | "white" | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-info" | "outline-link" | "outline-light" | "outline-dark" | "outline-muted" | "outline-white"
 
 export type ThemeSizeType = "tiny" | "small" | "regular" | "medium" | "large"
 
@@ -15,6 +15,19 @@ export type ThemeIconType = {
     color?: string
     space?: number
 }
+
+export type ThemeLoadingType = {
+  color: string
+  size: number | "small" | "large" | undefined
+}
+
+export type ThemeImageType = {
+  src: any
+  size?: number,
+  space?: number
+}
+
+export type ThemePositionType = "left" | "right"
 
 export type ThemeType = {
     roundSizeBase: number

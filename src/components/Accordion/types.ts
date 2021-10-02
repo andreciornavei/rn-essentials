@@ -15,6 +15,6 @@ export type AccordionProps = {
     iconName?: string
     onClick?: (name: string) => void
     children?: JSX.Element | Array<JSX.Element>
-    containerStye?: ViewStyle
+    containerStyle?: ViewStyle
     textStyle?: TextStyle
 }

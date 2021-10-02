@@ -20,6 +20,7 @@ interface ButtonThemes {
     "light": ButtonStructure
     "dark": ButtonStructure
     "muted": ButtonStructure
+    "white": ButtonStructure
     "outline-primary": ButtonStructure
     "outline-secondary": ButtonStructure
     "outline-success": ButtonStructure
@@ -30,6 +31,7 @@ interface ButtonThemes {
     "outline-light": ButtonStructure
     "outline-dark": ButtonStructure
     "outline-muted": ButtonStructure
+    "outline-white": ButtonStructure
 }
 
 interface ButtonSizes {
@@ -88,6 +90,10 @@ export const ButtonTheme = (theme: Theme) => ({
             container: { backgroundColor: theme.color.muted },
             text: { color: theme.color.white }
         },
+        "white": {
+            container: { backgroundColor: theme.color.white },
+            text: { color: theme.color.dark }
+        },
 
         "outline-primary": {
             container: { borderColor: theme.color.primary, borderWidth: 1 },
@@ -129,11 +135,15 @@ export const ButtonTheme = (theme: Theme) => ({
             container: { borderColor: theme.color.muted, borderWidth: 1 },
             text: { color: theme.color.muted }
         },
+        "outline-white": {
+            container: { borderColor: theme.color.white, borderWidth: 1 },
+            text: { color: theme.color.white }
+        },
     }),
     sizes: (): ButtonSizes => ({
         "tiny": {
             container: {
-                height: 26,
+                height: 21,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 10,
@@ -145,7 +155,7 @@ export const ButtonTheme = (theme: Theme) => ({
         },
         "small": {
             container: {
-                height: 32,
+                height: 26,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 15,
@@ -157,19 +167,19 @@ export const ButtonTheme = (theme: Theme) => ({
         },
         "regular": {
             container: {
-                height: 42,
+                height: 35,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 20,
                 paddingRight: 20
             },
             text: {
-                fontSize: 14,
+                fontSize: 13,
             },
         },
         "medium": {
             container: {
-                height: 52,
+                height: 42,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 25,
@@ -181,7 +191,7 @@ export const ButtonTheme = (theme: Theme) => ({
         },
         "large": {
             container: {
-                height: 62,
+                height: 52,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 30,

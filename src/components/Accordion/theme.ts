@@ -21,6 +21,7 @@ interface AccordionThemes {
     "light": AccordionStructure
     "dark": AccordionStructure
     "muted": AccordionStructure
+    "white": AccordionStructure
     "outline-primary": AccordionStructure
     "outline-secondary": AccordionStructure
     "outline-success": AccordionStructure
@@ -31,6 +32,7 @@ interface AccordionThemes {
     "outline-light": AccordionStructure
     "outline-dark": AccordionStructure
     "outline-muted": AccordionStructure
+    "outline-white": AccordionStructure
 }
 
 interface AccordionSizes {
@@ -89,6 +91,10 @@ export const AccordionTheme = (theme: Theme) => ({
             container: { backgroundColor: theme.color.muted },
             text: { color: theme.color.white }
         },
+        "white": {
+            container: { backgroundColor: theme.color.white },
+            text: { color: theme.color.dark }
+        },
 
         "outline-primary": {
             container: { borderColor: theme.color.primary, borderWidth: 1 },
@@ -130,11 +136,15 @@ export const AccordionTheme = (theme: Theme) => ({
             container: { borderColor: theme.color.muted, borderWidth: 1 },
             text: { color: theme.color.muted }
         },
+        "outline-white": {
+            container: { borderColor: theme.color.white, borderWidth: 1 },
+            text: { color: theme.color.white }
+        },
     }),
     sizes: (): AccordionSizes => ({
         "tiny": {
             container: {
-                height: 26,
+                height: 21,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 10,
@@ -146,11 +156,11 @@ export const AccordionTheme = (theme: Theme) => ({
         },
         "small": {
             container: {
-                height: 32,
+                height: 26,
                 paddingTop: 0,
                 paddingBottom: 0,
-                paddingLeft: 15,
-                paddingRight: 15
+                paddingLeft: 12,
+                paddingRight: 12
             },
             text: {
                 fontSize: 12,
@@ -158,7 +168,19 @@ export const AccordionTheme = (theme: Theme) => ({
         },
         "regular": {
             container: {
-                height: 42,
+                height: 35,
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingLeft: 15,
+                paddingRight: 15
+            },
+            text: {
+                fontSize: 13,
+            },
+        },
+        "medium": {
+            container: {
+                height: 45,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 20,
@@ -168,9 +190,9 @@ export const AccordionTheme = (theme: Theme) => ({
                 fontSize: 14,
             },
         },
-        "medium": {
+        "large": {
             container: {
-                height: 52,
+                height: 50,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 25,
@@ -178,18 +200,6 @@ export const AccordionTheme = (theme: Theme) => ({
             },
             text: {
                 fontSize: 16,
-            },
-        },
-        "large": {
-            container: {
-                height: 62,
-                paddingTop: 0,
-                paddingBottom: 0,
-                paddingLeft: 30,
-                paddingRight: 30
-            },
-            text: {
-                fontSize: 18,
             },
         },
     }),

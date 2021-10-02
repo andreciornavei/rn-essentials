@@ -64,6 +64,9 @@ export const _Button = (): JSX.Element => {
                         <View style={styles.button_space}>
                             <Button label="muted" theme="muted" center={true} wrap={true} />
                         </View>
+                        <View style={styles.button_space}>
+                            <Button label="white" theme="white" center={true} wrap={true} />
+                        </View>
                     </View>
 
                     <Text style={styles.label}>2 - Outline Themes</Text>
