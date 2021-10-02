@@ -9,7 +9,6 @@ import { ButtonTheme } from "./theme"
 import { ButtonProps } from "./types"
 import { ViewStyle } from "react-native"
 import { ImageStyle } from "react-native"
-import normalize from "react-native-normalize"
 import { normalizeStyleSize } from "../../utils/normalizeStyleSize"
 import { ThemeColorType, ThemeIconType, ThemeImageType, ThemeLoadingType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 
@@ -46,7 +45,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
     const _renderImage = (image: ThemeImageType, style?: ImageStyle) => {
         return <Image
             source={image.src}
-            style={{ width: normalize(image.size as number), height: normalize(image.size as number), ...style }}
+            style={{ width: image.size, height: image.size, ...style }}
             fadeDuration={0}
         />
     }
@@ -55,7 +54,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
         return <Icon
             pack={icon.pack}
             name={icon.name}
-            size={normalize(icon.size || 16)}
+            size={icon.size || 16}
             color={icon.color || applyProps.textStyle?.color || themer.themes()[theme].text?.color || theming.color.white}
             style={style}
         />
@@ -63,9 +62,9 @@ export const Button = (props: ButtonProps): JSX.Element => {
 
     const _renderLoading = (loadingTheme: ThemeLoadingType | undefined) => {
         return <ActivityIndicator
-            size={typeof loadingTheme?.size == "number" ? normalize(loadingTheme?.size) : loadingTheme?.size || "small"}
+            size={loadingTheme?.size || "small"}
             color={loadingTheme?.color || theming.color.white}
-            style={{ marginLeft: normalize(5) }}
+            style={{ marginLeft: 5 }}
         />
     }
 
@@ -82,8 +81,7 @@ export const Button = (props: ButtonProps): JSX.Element => {
                     applyProps.disabled && themer.utils().disabled,
                     { backgroundColor: applyProps.backgroundColor || themer.themes()[theme].container?.backgroundColor },
                     applyProps.containerStyle,
-                    normalizeStyleSize({ ...styles.container, ...themer.sizes()[size].container, ...themer.shapes()[shape].container, ...applyProps.containerStyle }),
-                    applyProps.symetrycSize && { ...styles.symetric, width: normalize(applyProps.symetrycSize), height: normalize(applyProps.symetrycSize) },
+                    applyProps.symetrycSize && { ...styles.symetric, width: applyProps.symetrycSize, height: applyProps.symetrycSize },
                 ]}
                 duration={250}
                 slowDuration={250}
@@ -100,12 +98,6 @@ export const Button = (props: ButtonProps): JSX.Element => {
                             themer.sizes()[size].text,
                             applyProps.textStyle,
                             { color: applyProps.color || themer.themes()[theme].text?.color || theming.color.dark },
-                            normalizeStyleSize({
-                                ...styles.text,
-                                ...themer.sizes()[size].text,
-                                ...themer.shapes()[shape].text,
-                                ...applyProps.textStyle,
-                            }),
                         ]}>
                         {applyProps.label}
                     </Text>

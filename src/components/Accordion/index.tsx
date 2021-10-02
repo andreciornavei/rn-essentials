@@ -9,7 +9,6 @@ import { AccordionTheme } from "./theme"
 import { ViewStyle } from "react-native"
 import { ThemeColorType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 import { normalizeStyleSize } from "../../utils/normalizeStyleSize"
-import normalize from "react-native-normalize"
 
 export const Accordion = (props: AccordionProps): JSX.Element => {
 
@@ -31,11 +30,6 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                     themer.sizes()[size].container as ViewStyle,
                     themer.shapes()[shape].container as ViewStyle,
                     applyProps.containerStyle as ViewStyle,
-                    normalizeStyleSize({
-                        ...styles.selectionContainer,
-                        ...themer.sizes()[size].container as ViewStyle,
-                        ...applyProps.containerStyle as ViewStyle,
-                    })
                 ]}
                 onPress={() => {
                     if (applyProps.open === undefined) setOpen((oldValue) => !oldValue)
@@ -47,9 +41,9 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                         <Icon
                             pack={applyProps.iconPack}
                             name={applyProps.iconName}
-                            size={normalize((themer.sizes()[size].text?.fontSize || 16) + 7)}
+                            size={(themer.sizes()[size].text?.fontSize || 16) + 7}
                             color={themer.themes()[theme].text?.color || theming.color.gray}
-                            style={{ marginRight: normalize(25) }}
+                            style={{ marginRight: 25 }}
                         />
                     )}
                 </>
@@ -60,11 +54,6 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                         themer.sizes()[size].text,
                         applyProps.textStyle,
                         { color: themer.themes()[theme].text?.color || theming.color.dark },
-                        normalizeStyleSize({
-                            ...styles.selectionValue,
-                            ...themer.sizes()[size].text,
-                            ...applyProps.textStyle,
-                        })
                     ]}>
                     {applyProps.value ?? applyProps.placeholder ?? "-- touch to open --"}
                 </Text>
@@ -72,7 +61,7 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                 <Icon
                     pack="Feather"
                     name={`chevron-${(props.open === undefined ? open : props.open) ? "up" : "down"}`}
-                    size={normalize(themer.sizes()[size].text?.fontSize || 14)}
+                    size={themer.sizes()[size].text?.fontSize || 14}
                     color={themer.themes()[theme].text?.color || theming.color.gray}
                 />
 

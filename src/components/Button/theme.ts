@@ -143,7 +143,7 @@ export const ButtonTheme = (theme: Theme) => ({
     sizes: (): ButtonSizes => ({
         "tiny": {
             container: {
-                height: 21,
+                height: 26,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 10,
@@ -155,7 +155,7 @@ export const ButtonTheme = (theme: Theme) => ({
         },
         "small": {
             container: {
-                height: 26,
+                height: 32,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 15,
@@ -167,19 +167,19 @@ export const ButtonTheme = (theme: Theme) => ({
         },
         "regular": {
             container: {
-                height: 35,
+                height: 42,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 20,
                 paddingRight: 20
             },
             text: {
-                fontSize: 13,
+                fontSize: 14,
             },
         },
         "medium": {
             container: {
-                height: 42,
+                height: 52,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 25,
@@ -191,7 +191,7 @@ export const ButtonTheme = (theme: Theme) => ({
         },
         "large": {
             container: {
-                height: 52,
+                height: 62,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 30,
