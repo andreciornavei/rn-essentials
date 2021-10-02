@@ -48,7 +48,7 @@ export const defaultTheme: ThemeType = {
       theme: "primary",
       shape: "flat",
       size: "regular",
-      containerStye: {},
+      containerStyle: {},
       textStyle: {},
       iconPack: undefined,
       iconName: undefined,
