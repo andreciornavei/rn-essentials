@@ -75,6 +75,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-42.0.0.tar.gz",
     "react-native-advanced-ripple": "^1.0.0",
     "react-native-gesture-handler": "~1.10.2",
+    "react-native-masked-text": "^1.13.0",
     "react-native-normalize": "^1.0.1",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",

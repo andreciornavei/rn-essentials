@@ -53,6 +53,11 @@ export const defaultTheme: ThemeType = {
       iconPack: undefined,
       iconName: undefined,
       open: false,
+    },
+    form_input: {
+      theme: "light",
+      shape: "flat",
+      size: "regular",
     }
   }
 };

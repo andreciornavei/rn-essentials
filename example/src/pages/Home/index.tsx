@@ -50,6 +50,18 @@ export const Home = (): JSX.Element => {
                         label="Button"
                         onPress={() => navigate("/component_button")}
                     />
+                    <Action
+                        iconPack="Entypo"
+                        iconName="popup"
+                        label="Modals / Sheets"
+                        onPress={() => navigate("/component_sheet")}
+                    />
+                    <Action
+                        iconPack="MaterialIcons"
+                        iconName="input"
+                        label="Form / Input"
+                        onPress={() => navigate("/component_input")}
+                    />
                 </ScrollView>
             }
         />

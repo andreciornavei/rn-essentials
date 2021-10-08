@@ -21,6 +21,7 @@ export * from "./providers/ThemeProvider"
 
 export * from "./types/ReviewType"
 export * from "./types/IconPackType"
+export * from "./types/ThemeType"
 
 
 //**********************************//
@@ -37,10 +38,17 @@ export * from "./components/Empty"
 export * from "./components/Action"
 export * from "./components/Divider"
 export * from "./components/InputError"
+export * from "./components/FormInput"
 export * from "./components/Scaffold"
 export * from "./components/Scaffold/components/ScaffoldAppBar"
 export * from "./components/Scaffold/components/ScaffoldAppBarAction"
 export * from "./components/Scaffold/components/ScaffoldAppBarTitle"
+
+//**********************************//
+// EXPORTING SHEETS                 //
+//**********************************//
+export * from "./components/SheetConfirmation"
+export * from "./components/SheetActions"
 
 //**********************************//
 // EXPORTING UTILS                  //

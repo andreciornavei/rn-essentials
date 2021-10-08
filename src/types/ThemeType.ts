@@ -1,6 +1,7 @@
 import { IconPackType } from "..";
 import { AccordionProps } from "../components/Accordion/types";
 import { ButtonProps } from "../components/Button/types";
+import { FormInputProps } from "../components/FormInput/types";
 
 export type ThemeColorType = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark" | "muted" | "white" | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-info" | "outline-link" | "outline-light" | "outline-dark" | "outline-muted" | "outline-white"
 
@@ -62,5 +63,6 @@ export type ThemeType = {
     components: {
       button: ButtonProps
       accordion: AccordionProps
+      form_input: FormInputProps
     }
   }

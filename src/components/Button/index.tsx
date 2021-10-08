@@ -9,7 +9,6 @@ import { ButtonTheme } from "./theme"
 import { ButtonProps } from "./types"
 import { ViewStyle } from "react-native"
 import { ImageStyle } from "react-native"
-import { normalizeStyleSize } from "../../utils/normalizeStyleSize"
 import { ThemeColorType, ThemeIconType, ThemeImageType, ThemeLoadingType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 
 
