@@ -1,3 +1,4 @@
+import { ViewStyle } from "react-native";
 import { IconPackType } from "..";
 import { AccordionProps } from "../components/Accordion/types";
 import { ButtonProps } from "../components/Button/types";
@@ -14,7 +15,9 @@ export type ThemeIconType = {
     name: string
     size?: number
     color?: string
-    space?: number
+    space?: number,
+    style?: ViewStyle
+    action?: () => void
 }
 
 export type ThemeLoadingType = {

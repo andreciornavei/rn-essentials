@@ -58,6 +58,10 @@ export const defaultTheme: ThemeType = {
       theme: "light",
       shape: "flat",
       size: "regular",
+      wrapStyle: {},
+      inputStyle: {},
+      legendContainerStyle: {},
+      legendTextStyle: {}
     }
   }
 };

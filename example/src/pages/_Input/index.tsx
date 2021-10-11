@@ -233,6 +233,7 @@ export const _Input = (): JSX.Element => {
                         labelPosition="over"
                         labelEffect="fixed"
                         placeholder="Hello World"
+                        shape="pill"
                         theme="outline-primary"
                     />
                     <FormInput
@@ -372,6 +373,68 @@ export const _Input = (): JSX.Element => {
                         label="Password"
                         placeholder="Should format for password placeholder..."
                         secureTextEntry={true}
+                    />
+                     {/*****************************************************/}
+                    {/*****************************************************/}
+                    <Text style={styles.label}>8 - Icons & Actions</Text>
+                    <FormInput
+                        marginTop={10}
+                        label="Left Icon"
+                        placeholder="Should render a left icon..."
+                        leftIcon={{
+                            pack:"Feather",
+                            name: "search"
+                        }}
+                    />
+                    <FormInput
+                        marginTop={25}
+                        label="Right Icon"
+                        placeholder="Should render a right icon..."
+                        rightIcon={{
+                            pack:"Feather",
+                            name: "eye"
+                        }}
+                    />
+                    <FormInput
+                        marginTop={25}
+                        label="Left & Right Icon"
+                        placeholder="Should render a left and right icon..."
+                        leftIcon={{
+                            pack:"Feather",
+                            name: "search"
+                        }}
+                        rightIcon={{
+                            pack:"Feather",
+                            name: "eye"
+                        }}
+                    />
+                    <FormInput
+                        marginTop={25}
+                        label="Icon with action"
+                        placeholder="Should render a right icon with action..."
+                        rightIcon={{
+                            pack:"Feather",
+                            name: "arrow-right",
+                            action: () => {}
+                        }}
+                    />
+                    <FormInput
+                        marginTop={25}
+                        label="Custom styled icon "
+                        placeholder="Should render custom styled icon..."
+                        rightIcon={{
+                            pack:"Feather",
+                            name: "arrow-right",
+                            action: () => {},
+                            color: theme.color.white,
+                            style: {
+                                backgroundColor: theme.color.primary,
+                                borderRadius: 45,
+                                marginRight: 6,
+                                height: 30,
+                                width: 30
+                            }
+                        }}
                     />
                 </ScrollView>
             }

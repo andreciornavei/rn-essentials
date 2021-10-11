@@ -4,6 +4,7 @@ import { TextStyle, ViewStyle } from "react-native";
 interface FormInputStructure {
     text?: TextStyle
     container?: ViewStyle
+    input?: ViewStyle
     legend_container?: ViewStyle
     legend_text?: TextStyle
 }
@@ -266,15 +267,29 @@ export const FormInputTheme = (theme: Theme) => ({
                 height: 26,
                 paddingTop: 0,
                 paddingBottom: 0,
+                paddingLeft: 0,
+                paddingRight: 0
+            },
+            input: {
+                height: 26,
+                paddingTop: 0,
+                paddingBottom: 0,
                 paddingLeft: 10,
                 paddingRight: 10
             },
             text: {
-                fontSize: 11,
+                fontSize: 11
             },
         },
         "small": {
             container: {
+                height: 32,
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingLeft: 0,
+                paddingRight: 0
+            },
+            input: {
                 height: 32,
                 paddingTop: 0,
                 paddingBottom: 0,
@@ -290,6 +305,13 @@ export const FormInputTheme = (theme: Theme) => ({
                 height: 45,
                 paddingTop: 0,
                 paddingBottom: 0,
+                paddingLeft: 0,
+                paddingRight: 0
+            },
+            input: {
+                height: 45,
+                paddingTop: 0,
+                paddingBottom: 0,
                 paddingLeft: 20,
                 paddingRight: 20
             },
@@ -299,6 +321,13 @@ export const FormInputTheme = (theme: Theme) => ({
         },
         "medium": {
             container: {
+                height: 52,
+                paddingTop: 0,
+                paddingBottom: 0,
+                paddingLeft: 0,
+                paddingRight: 0
+            },
+            input: {
                 height: 52,
                 paddingTop: 0,
                 paddingBottom: 0,
@@ -314,6 +343,13 @@ export const FormInputTheme = (theme: Theme) => ({
                 height: 62,
                 paddingTop: 0,
                 paddingBottom: 0,
+                paddingLeft: 0,
+                paddingRight: 0
+            },
+            input: {
+                height: 62,
+                paddingTop: 0,
+                paddingBottom: 0,
                 paddingLeft: 30,
                 paddingRight: 30
             },
@@ -325,14 +361,17 @@ export const FormInputTheme = (theme: Theme) => ({
     shapes: (): FormInputShapes => ({
         flat: {
             container: { borderRadius: 0 },
+            input: { borderRadius: 0 },
             legend_container: { borderRadius: 0 }
         },
         rounded: {
             container: { borderRadius: theme.roundSizeBase },
+            input: { borderRadius: theme.roundSizeBase },
             legend_container: { borderRadius: theme.roundSizeBase }
         },
         pill: {
             container: { borderRadius: 999 },
+            input: { borderRadius: theme.roundSizeBase },
             legend_container: { borderRadius: 999 }
         }
     }),

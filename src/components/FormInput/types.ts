@@ -1,6 +1,6 @@
-import { KeyboardTypeOptions, TextStyle } from "react-native"
+import { KeyboardTypeOptions, TextStyle, ViewStyle } from "react-native"
 import { TextInputMaskOptionProp, TextInputMaskTypeProp } from "react-native-masked-text"
-import { ThemeColorType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
+import { ThemeColorType, ThemeIconType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 
 export type FormInputLabelPositionType = "over" | "above"
 export type FormInputLabelEffect = "fixed" | "floating"
@@ -17,6 +17,9 @@ export type FormInputProps = {
     labelEffect?: FormInputLabelEffect
     // borders
     bordered?: FormInputBorderType
+    // icons
+    leftIcon?: ThemeIconType
+    rightIcon?: ThemeIconType
     // basics
     theme?: ThemeColorType
     size?: ThemeSizeType
@@ -31,6 +34,11 @@ export type FormInputProps = {
     maskType?: TextInputMaskTypeProp
     maskOptions?: TextInputMaskOptionProp
     width?: string
-    style?: TextStyle
     editable?: boolean
+    // custom styles
+    wrapStyle?: ViewStyle
+    inputContainerStyle?: ViewStyle
+    inputStyle?: TextStyle
+    legendContainerStyle?: ViewStyle
+    legendTextStyle?: TextStyle
 }
