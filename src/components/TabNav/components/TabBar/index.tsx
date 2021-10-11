@@ -60,10 +60,10 @@ export const TabBar = ({ state, descriptors, navigation, ...props }: TabNavItemP
         applyProps.itemTextStyle
     ]
 
-    const iconColor = themer.themes()[theme].icon?.color || applyProps.itemIconStyle?.color || theming.color.light
-    const iconSelectedColor = themer.themes()[theme].iconSelected?.color || applyProps.itemSelectedIconStyle?.color || theming.color.secondary
-    const iconSize = themer.sizes()[size].icon?.fontSize || applyProps.itemIconStyle?.fontSize || 21
-    const iconSizeSelected = themer.sizes()[size].iconSelected?.fontSize || applyProps.itemSelectedIconStyle?.fontSize || 21
+    const iconColor = applyProps.itemIconStyle?.color || themer.themes()[theme].icon?.color || theming.color.light
+    const iconSelectedColor = applyProps.itemSelectedIconStyle?.color || themer.themes()[theme].iconSelected?.color || theming.color.secondary
+    const iconSize = applyProps.itemIconStyle?.fontSize || themer.sizes()[size].icon?.fontSize || 21
+    const iconSizeSelected = applyProps.itemSelectedIconStyle?.fontSize || themer.sizes()[size].iconSelected?.fontSize || 21
 
     return (
         <View style={containerStyle} >

@@ -6,7 +6,7 @@ import { TabNavProps } from "./types";
 const Tab = createBottomTabNavigator();
 export const TabNav = (props: TabNavProps) => {
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor: props.backgroiundColor }}>
             <Tab.Navigator
                 initialRouteName={props.initialRouteName}
                 screenOptions={{ headerShown: false }}

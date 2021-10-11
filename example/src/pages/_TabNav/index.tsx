@@ -28,8 +28,7 @@ export const _TabNav = (): JSX.Element => {
             body={
                 <TabNav
                     theme="primary"
-                    size="large"
-                    shape="flat"
+                    size="regular"
                     initialRouteName="/tab_home"
                     routes={[
                         {

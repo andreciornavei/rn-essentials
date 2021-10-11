@@ -1,4 +1,4 @@
-import { TextStyle } from "react-native";
+import { ColorValue, TextStyle } from "react-native";
 import { ViewStyle } from "react-native";
 import { IconPackType, ThemeColorType, ThemeShapeType, ThemeSizeType } from "../..";
 
@@ -23,6 +23,7 @@ export interface TabNavItemProps extends TabNavStyleProps {
 
 
 export interface TabNavProps extends TabNavStyleProps {
+    backgroiundColor?: ColorValue
     initialRouteName: string
     routes: Array<{
         name: string

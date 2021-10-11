@@ -5,7 +5,8 @@ export const TabThree = (): JSX.Element => {
         <View style={{
             flex: 1,
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
+            backgroundColor: "#f4f4f8"
         }}>
             <Text>Tab Three</Text>
         </View>
