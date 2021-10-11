@@ -16,12 +16,6 @@ export const Home = (): JSX.Element => {
             appbar={
                 <ScaffoldAppBar
                     title={<ScaffoldAppBarTitle value="Home" />}
-                    leads={[{
-                        iconPack: "Feather",
-                        iconName: "arrow-left",
-                        color: theme.color.accentText,
-                        action: () => { }
-                    }]}
                     actions={[{
                         iconPack: "Feather",
                         iconName: "bell",
@@ -36,7 +30,7 @@ export const Home = (): JSX.Element => {
                         Available Components
                     </Text>
                     <Text style={styles.descirption}>
-                        This screen implements the acion component, take a look ;)
+                        This screen implements the action component, take a look ;)
                     </Text>
                     <Action
                         iconPack="Ionicons"
@@ -61,6 +55,12 @@ export const Home = (): JSX.Element => {
                         iconName="input"
                         label="Form / Input"
                         onPress={() => navigate("/component_input")}
+                    />
+                    <Action
+                        iconPack="Ionicons"
+                        iconName="podium-outline"
+                        label="Tab Navigator"
+                        onPress={() => navigate("/component_tabnav")}
                     />
                 </ScrollView>
             }

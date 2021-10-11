@@ -87,9 +87,11 @@ export const Scaffold = ({
           </View>
         </View>
       )}
-      <SafeAreaView style={styles.bottom}>
-        {bottom ?? <View />}
-      </SafeAreaView>
+      {bottom &&
+        <SafeAreaView style={styles.bottom}>
+          {bottom}
+        </SafeAreaView>
+      }
       <StatusBar />
     </View>
   );

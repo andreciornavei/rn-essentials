@@ -62,6 +62,18 @@ export const defaultTheme: ThemeType = {
       inputStyle: {},
       legendContainerStyle: {},
       legendTextStyle: {}
+    },
+    tab_nav: {
+      theme: "light",
+      shape: "flat",
+      size: "regular",
+      containerStyle: {},
+      itemStyle: {},
+      itemTextStyle: {},
+      itemIconStyle: {},
+      itemSelectedStyle: {},
+      itemSelectedTextStyle: {},
+      itemSelectedIconStyle: {}
     }
   }
 };

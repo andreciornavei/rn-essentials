@@ -43,6 +43,8 @@ export * from "./components/Scaffold"
 export * from "./components/Scaffold/components/ScaffoldAppBar"
 export * from "./components/Scaffold/components/ScaffoldAppBarAction"
 export * from "./components/Scaffold/components/ScaffoldAppBarTitle"
+export * from "./components/TabNav"
+export * from "./components/TabNav/components/TabBar"
 
 //**********************************//
 // EXPORTING SHEETS                 //

@@ -2,8 +2,6 @@ import React from "react"
 import { createStackNavigator } from "@react-navigation/stack";
 import { AppBottomSheet } from "../SheetProvider/components/AppBottomSheet";
 import { RouteProps } from ".";
-import { ParamListBase, RouteProp } from "@react-navigation/native";
-import { View } from "react-native";
 
 export const RouteWrap = (props: RouteProps) => {
   const Stack = createStackNavigator();
