@@ -29,6 +29,7 @@ export * from "./types/ThemeType"
 //**********************************//
 
 export * from "./components/_HelloWorld"
+export * from "./components/Paragraph"
 export * from "./components/Accordion"
 export * from "./components/Icon"
 export * from "./components/Ripple"
@@ -45,6 +46,8 @@ export * from "./components/Scaffold/components/ScaffoldAppBarAction"
 export * from "./components/Scaffold/components/ScaffoldAppBarTitle"
 export * from "./components/TabNav"
 export * from "./components/TabNav/components/TabBar"
+export * from "./components/MorphList"
+export * from "./components/MorphList/components/MListItemTitle"
 
 //**********************************//
 // EXPORTING SHEETS                 //
