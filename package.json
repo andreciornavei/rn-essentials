@@ -51,8 +51,7 @@
   "source": "src/index",
   "scripts": {
     "prepare": "yarn bob build",
-    "publish": "npm publish --access public",
-    "release": "release-it"
+    "publish": "npm publish --access public"
   },
   "dependencies": {
     "@emotion/native": "^11.0.0",
