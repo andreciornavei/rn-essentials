@@ -59,8 +59,14 @@ export const Home = (): JSX.Element => {
                     <Action
                         iconPack="Ionicons"
                         iconName="podium-outline"
-                        label="Tab Navigator"
+                        label="Bottom Tab Navigator"
                         onPress={() => navigate("/component_tabnav")}
+                    />
+                    <Action
+                        iconPack="MaterialCommunityIcons"
+                        iconName="format-list-bulleted-type"
+                        label="Polymorphic List Render"
+                        onPress={() => navigate("/component_morphlist")}
                     />
                 </ScrollView>
             }

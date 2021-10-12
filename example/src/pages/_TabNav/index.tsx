@@ -16,7 +16,7 @@ export const _TabNav = (): JSX.Element => {
             backgroundColor={theme.color.white}
             appbar={
                 <ScaffoldAppBar
-                    title={<ScaffoldAppBarTitle value="Tab Navigator" />}
+                    title={<ScaffoldAppBarTitle value="Bottom Tab Navigator" />}
                     leads={[{
                         iconPack: "Feather",
                         iconName: "arrow-left",
