@@ -7,7 +7,7 @@ import { Icon } from "../../components/Icon";
 import { useSheet } from "../../providers/SheetProvider";
 import { useTheme } from "../../providers/ThemeProvider";
 import { createStyle } from "./styles";
-import { Button } from "../Button";
+import { Button } from "../../components/Button";
 
 interface Props {
     title: string

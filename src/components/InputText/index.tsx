@@ -1,22 +1,23 @@
+import _ from 'lodash';
 import React from 'react';
-import { Text, TextInput, View, ViewStyle } from 'react-native';
+import { Text, TextInput, View } from 'react-native';
 import { TextInputMask } from 'react-native-masked-text';
 import { useTheme } from '../../providers/ThemeProvider';
 import { ThemeColorType, ThemeIconType, ThemeShapeType, ThemeSizeType } from '../../types/ThemeType';
 import { Icon } from '../Icon';
 import { Ripple } from '../Ripple';
 import { createStyle } from './styles';
-import { FormInputTheme } from './theme';
-import { FormInputProps } from './types';
+import { InputTextTheme } from './theme';
+import { InputTextProps } from './types';
 
-export const FormInput = ({
+export const InputText = ({
   secureTextEntry = false,
   labelEffect = "fixed",
   ...props
-}: FormInputProps): JSX.Element => {
+}: InputTextProps): JSX.Element => {
 
   const theming = useTheme()
-  const themer = FormInputTheme(theming)
+  const themer = InputTextTheme(theming)
   const styles = createStyle(theming)
   const applyProps = { ...theming.components.form_input, ...props }
   const theme: ThemeColorType = applyProps.theme || "light"
@@ -56,13 +57,18 @@ export const FormInput = ({
     applyProps.inputStyle
   ]
 
-
-
   const [control, setControl] = React.useState<string | undefined>(props.value || props.defaultValue)
+
+  const callDebounce = (value: string, extracted?: any) => {
+    props.onDebounce && props.onDebounce(value, extracted)
+  }
+  
+  const handleDebounceDelayed = _.debounce(callDebounce, props.debounceTime || 1000);
 
   const handleChangeText = (text: string, rawText?: string | undefined) => {
     setControl(text)
     applyProps.onChangeText && applyProps.onChangeText(text, rawText)
+    applyProps.onDebounce && handleDebounceDelayed(text, rawText)
   }
 
   const _renderInput = () => {

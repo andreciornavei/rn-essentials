@@ -39,7 +39,8 @@ export * from "./components/Empty"
 export * from "./components/Action"
 export * from "./components/Divider"
 export * from "./components/InputError"
-export * from "./components/FormInput"
+export * from "./components/InputText"
+export * from "./components/InputSheet"
 export * from "./components/Scaffold"
 export * from "./components/Scaffold/components/ScaffoldAppBar"
 export * from "./components/Scaffold/components/ScaffoldAppBarAction"
@@ -52,8 +53,9 @@ export * from "./components/MorphList/components/MListItemTitle"
 //**********************************//
 // EXPORTING SHEETS                 //
 //**********************************//
-export * from "./components/SheetConfirmation"
-export * from "./components/SheetActions"
+export * from "./sheets/SheetConfirmation"
+export * from "./sheets/SheetActions"
+export * from "./sheets/SheetInputText"
 
 //**********************************//
 // EXPORTING UTILS                  //

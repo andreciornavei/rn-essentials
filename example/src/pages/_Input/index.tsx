@@ -1,6 +1,6 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
-import { FormInput, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Space } from "@andreciornavei/rn-essentials"
+import { InputText, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Space } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
@@ -31,13 +31,13 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>1 - Placeholder Positions</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         label="Hello World - Above (default)"
                         labelPosition="above"
                         placeholder="Must stay above the form input..."
                     />
-                    <FormInput
+                    <InputText
                         marginTop={15}
                         label="Hello World - Over"
                         labelPosition="over"
@@ -47,14 +47,14 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>2 - Placeholder Effect</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         placeholder="nothing should happen when input filled..."
                         label="Hello World - Fixed (default)"
                         labelPosition="above"
                         labelEffect="fixed"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         placeholder="label should apper when input filled..."
                         label="Hello World - Floating"
@@ -65,16 +65,16 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>3 - Border Styles</Text>
-                    <FormInput
+                    <InputText
                         placeholder="should have an outline border (default)"
                         bordered="outline"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={15}
                         placeholder="should have only the border bottom"
                         bordered="underline"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={15}
                         placeholder="should not have a border"
                         bordered="none"
@@ -83,19 +83,19 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>4 - Shape</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         label="Rounded"
                         placeholder="should have a rounded border radius"
                         shape="rounded"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Pill"
                         placeholder="should have a circular border radius"
                         shape="pill"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Flat"
                         placeholder="should not have a border radius"
@@ -105,31 +105,31 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>5 - Sizes</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         label="Tiny"
                         placeholder="should have a tiny size..."
                         size="tiny"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Small"
                         placeholder="should have a small size..."
                         size="small"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Regular (default)"
                         placeholder="should have a regular size..."
                         size="regular"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Medium"
                         placeholder="should have a medium size..."
                         size="medium"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Large"
                         placeholder="should have a large size..."
@@ -139,7 +139,7 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>6 - Theme Colors</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         label="Primary"
                         labelPosition="over"
@@ -147,7 +147,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="primary"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Secondary"
                         labelPosition="over"
@@ -155,7 +155,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="secondary"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Success"
                         labelPosition="over"
@@ -163,7 +163,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="success"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Danger"
                         labelPosition="over"
@@ -171,7 +171,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="danger"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Warning"
                         labelPosition="over"
@@ -179,7 +179,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="warning"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Info"
                         labelPosition="over"
@@ -187,7 +187,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="info"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Link"
                         labelPosition="over"
@@ -195,7 +195,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="link"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Dark"
                         labelPosition="over"
@@ -203,7 +203,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="dark"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Light"
                         labelPosition="over"
@@ -211,7 +211,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="light"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Muted"
                         labelPosition="over"
@@ -219,7 +219,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="muted"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="White"
                         labelPosition="over"
@@ -227,7 +227,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="white"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Parimary"
                         labelPosition="over"
@@ -236,7 +236,7 @@ export const _Input = (): JSX.Element => {
                         shape="pill"
                         theme="outline-primary"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Secondary"
                         labelPosition="over"
@@ -244,7 +244,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-secondary"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Success"
                         labelPosition="over"
@@ -252,7 +252,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-success"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Danger"
                         labelPosition="over"
@@ -260,7 +260,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-danger"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Warning"
                         labelPosition="over"
@@ -268,7 +268,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-warning"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Info"
                         labelPosition="over"
@@ -277,7 +277,7 @@ export const _Input = (): JSX.Element => {
                         theme="outline-info"
 
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Link"
                         labelPosition="over"
@@ -285,7 +285,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-link"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Dark"
                         labelPosition="over"
@@ -293,7 +293,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-dark"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Light"
                         labelPosition="over"
@@ -301,7 +301,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-light"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline Muted"
                         labelPosition="over"
@@ -309,7 +309,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Hello World"
                         theme="outline-muted"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Outline White"
                         labelPosition="over"
@@ -320,55 +320,55 @@ export const _Input = (): JSX.Element => {
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>7 - Masks</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         label="CPF"
                         placeholder="Should format for CPF mask..."
                         maskType="cpf"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="CNPJ"
                         placeholder="Should format for CNPJ mask..."
                         maskType="cnpj"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Credit Card Number"
                         placeholder="Should format for credit card mask..."
                         maskType="credit-card"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Cel Phone"
                         placeholder="Should format for cel-phone mask..."
                         maskType="cel-phone"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Date and Time"
                         placeholder="Should format for date and time mask..."
                         maskType="datetime"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Money"
                         placeholder="Should format for money mask..."
                         maskType="money"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Only numbers"
                         placeholder="Should format for only numbers mask..."
                         maskType="only-numbers"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="ZipCode"
                         placeholder="Should format for zipcode mask..."
                         maskType="zip-code"
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Password"
                         placeholder="Should format for password placeholder..."
@@ -377,7 +377,7 @@ export const _Input = (): JSX.Element => {
                      {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>8 - Icons & Actions</Text>
-                    <FormInput
+                    <InputText
                         marginTop={10}
                         label="Left Icon"
                         placeholder="Should render a left icon..."
@@ -386,7 +386,7 @@ export const _Input = (): JSX.Element => {
                             name: "search"
                         }}
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Right Icon"
                         placeholder="Should render a right icon..."
@@ -395,7 +395,7 @@ export const _Input = (): JSX.Element => {
                             name: "eye"
                         }}
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Left & Right Icon"
                         placeholder="Should render a left and right icon..."
@@ -408,7 +408,7 @@ export const _Input = (): JSX.Element => {
                             name: "eye"
                         }}
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Icon with action"
                         placeholder="Should render a right icon with action..."
@@ -418,7 +418,7 @@ export const _Input = (): JSX.Element => {
                             action: () => {}
                         }}
                     />
-                    <FormInput
+                    <InputText
                         marginTop={25}
                         label="Custom styled icon "
                         placeholder="Should render custom styled icon..."

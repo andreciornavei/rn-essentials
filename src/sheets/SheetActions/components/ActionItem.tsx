@@ -2,9 +2,9 @@ import React from "react"
 import { SheetActionsContext } from "../context"
 import { SheetActionType } from "../types"
 import { resolveErrors } from "../../../utils/resolveErrors"
-import { Button } from "../../Button"
 import { createStyle } from "./../styles"
 import { useTheme } from "../../../providers/ThemeProvider"
+import { Button } from "../../../components/Button"
 
 export const ActionItem = (props: SheetActionType): JSX.Element => {
 

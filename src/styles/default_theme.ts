@@ -74,6 +74,22 @@ export const defaultTheme: ThemeType = {
       itemSelectedStyle: {},
       itemSelectedTextStyle: {},
       itemSelectedIconStyle: {}
+    },
+    input_sheet: {
+      theme: "light",
+      shape: "rounded",
+      size: "regular",
+      leftIcon: undefined,
+      rightIcon: undefined,
+      styles: {
+        container: {},
+        container_data: {},
+        activity_indicator: {},
+        value: {},
+        label: {},
+        left_icon: {},
+        right_icon: {},
+      }
     }
   }
 };

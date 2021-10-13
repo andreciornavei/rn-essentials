@@ -2,21 +2,21 @@ import { KeyboardTypeOptions, TextStyle, ViewStyle } from "react-native"
 import { TextInputMaskOptionProp, TextInputMaskTypeProp } from "react-native-masked-text"
 import { ThemeColorType, ThemeIconType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 
-export type FormInputLabelPositionType = "over" | "above"
-export type FormInputLabelEffect = "fixed" | "floating"
-export type FormInputBorderType = "none" | "outline" | "underline"
+export type InputTextLabelPositionType = "over" | "above"
+export type InputTextLabelEffect = "fixed" | "floating"
+export type InputTextBorderType = "none" | "outline" | "underline"
 
-export type FormInputProps = {
+export type InputTextProps = {
     // values
     defaultValue?: string
     value?: string
     // labels / placeholders
     placeholder?: string
     label?: string
-    labelPosition?: FormInputLabelPositionType
-    labelEffect?: FormInputLabelEffect
+    labelPosition?: InputTextLabelPositionType
+    labelEffect?: InputTextLabelEffect
     // borders
-    bordered?: FormInputBorderType
+    bordered?: InputTextBorderType
     // icons
     leftIcon?: ThemeIconType
     rightIcon?: ThemeIconType
@@ -28,6 +28,9 @@ export type FormInputProps = {
     marginTop?: number
     // events
     onChangeText?: (value: string, extracted?: any) => void
+    onDebounce?: (value: string, extracted?: any) => void
+    debounceTime?: number
+    // native properties
     secureTextEntry?: boolean
     keyboardType?: KeyboardTypeOptions
     mask?: string

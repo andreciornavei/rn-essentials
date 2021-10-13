@@ -3,13 +3,13 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ActionItem } from "./components/ActionItem";
 import { View } from "react-native"
 import { Props } from "./types";
-import _, { create } from "lodash"
 import { SheetActionsContext } from "./context"
 import { useSheet } from "../../providers/SheetProvider";
-import { InputError } from "../InputError";
-import { Button } from "../Button";
-import { createStyle } from "./styles"
 import { useTheme } from "../../providers/ThemeProvider";
+import { createStyle } from "./styles"
+import _ from "lodash"
+import { InputError } from "../../components/InputError";
+import { Button } from "../..";
 
 export const SheetActionsView = (props: Props): JSX.Element => {
 

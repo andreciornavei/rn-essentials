@@ -68,6 +68,12 @@ export const Home = (): JSX.Element => {
                         label="Polymorphic List Render"
                         onPress={() => navigate("/component_morphlist")}
                     />
+                     <Action
+                        iconPack="AntDesign"
+                        iconName="form"
+                        label="Input Sheet"
+                        onPress={() => navigate("/component_inputsheet")}
+                    />
                 </ScrollView>
             }
         />

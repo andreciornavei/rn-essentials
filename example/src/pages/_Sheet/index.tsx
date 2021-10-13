@@ -1,7 +1,6 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
-import { View, Text } from "react-native"
-import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Accordion, Action, useSheet, SheetConfirmation, SheetActions } from "@andreciornavei/rn-essentials"
+import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Accordion, Action, useSheet, SheetConfirmation, SheetActions, SheetInputText } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
@@ -56,6 +55,20 @@ export const _Sheet = (): JSX.Element => {
                                     { label: "Do stuff 2", action: async () => { console.log("Doing stuff 2...") } },
                                     { label: "Do stuff 3", action: async () => { console.log("Doing stuff 3...") } },
                                 ]}
+                            />
+                        )}
+                    />
+                    <Action
+                        iconPack="Ionicons"
+                        iconName="list"
+                        label="Sheet Input Text"
+                        onPress={() => openSheet(
+                            <SheetInputText
+                                title="Hello World"
+                                buttonLabel="Confirmar"
+                                inputTextProps={{
+                                    placeholder: "Hello World Placeholder..."
+                                }}
                             />
                         )}
                     />

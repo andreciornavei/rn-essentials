@@ -10,7 +10,6 @@ export default StyleSheet.create({
     },
     title: {
         fontSize: 16,
-        fontFamily: "moriston-medium",
         letterSpacing: 1,
         color: "#3a3a3a",
         flex: 1,

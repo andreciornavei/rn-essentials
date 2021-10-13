@@ -8,8 +8,7 @@ export const createStyle = (theme: Theme) => {
     // BASE STYLES                        //
     //************************************//
     form_container: {
-      position: "relative",
-      flex: 1
+      position: "relative"
     },
     form_input_container: {
       flexDirection: "row",

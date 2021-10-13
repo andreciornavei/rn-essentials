@@ -1,7 +1,7 @@
 import { Theme } from "@emotion/react";
 import { TextStyle, ViewStyle } from "react-native";
 
-interface FormInputStructure {
+interface InputTextStructure {
     text?: TextStyle
     container?: ViewStyle
     input?: ViewStyle
@@ -9,58 +9,58 @@ interface FormInputStructure {
     legend_text?: TextStyle
 }
 
-interface FormInputThemes {
-    "primary": FormInputStructure
-    "secondary": FormInputStructure
-    "success": FormInputStructure
-    "danger": FormInputStructure
-    "warning": FormInputStructure
-    "info": FormInputStructure
-    "link": FormInputStructure
-    "light": FormInputStructure
-    "dark": FormInputStructure
-    "muted": FormInputStructure
-    "white": FormInputStructure
-    "outline-primary": FormInputStructure
-    "outline-secondary": FormInputStructure
-    "outline-success": FormInputStructure
-    "outline-danger": FormInputStructure
-    "outline-warning": FormInputStructure
-    "outline-info": FormInputStructure
-    "outline-link": FormInputStructure
-    "outline-light": FormInputStructure
-    "outline-dark": FormInputStructure
-    "outline-muted": FormInputStructure
-    "outline-white": FormInputStructure
+interface InputTextThemes {
+    "primary": InputTextStructure
+    "secondary": InputTextStructure
+    "success": InputTextStructure
+    "danger": InputTextStructure
+    "warning": InputTextStructure
+    "info": InputTextStructure
+    "link": InputTextStructure
+    "light": InputTextStructure
+    "dark": InputTextStructure
+    "muted": InputTextStructure
+    "white": InputTextStructure
+    "outline-primary": InputTextStructure
+    "outline-secondary": InputTextStructure
+    "outline-success": InputTextStructure
+    "outline-danger": InputTextStructure
+    "outline-warning": InputTextStructure
+    "outline-info": InputTextStructure
+    "outline-link": InputTextStructure
+    "outline-light": InputTextStructure
+    "outline-dark": InputTextStructure
+    "outline-muted": InputTextStructure
+    "outline-white": InputTextStructure
 }
 
-interface FormInputSizes {
-    "tiny": FormInputStructure,
-    "small": FormInputStructure,
-    "regular": FormInputStructure,
-    "medium": FormInputStructure,
-    "large": FormInputStructure,
+interface InputTextSizes {
+    "tiny": InputTextStructure,
+    "small": InputTextStructure,
+    "regular": InputTextStructure,
+    "medium": InputTextStructure,
+    "large": InputTextStructure,
 }
 
-interface FormInputShapes {
-    "flat": FormInputStructure
-    "rounded": FormInputStructure
-    "pill": FormInputStructure
+interface InputTextShapes {
+    "flat": InputTextStructure
+    "rounded": InputTextStructure
+    "pill": InputTextStructure
 }
 
-interface FormInputBorder {
-    "none": FormInputStructure
-    "outline": FormInputStructure
-    "underline": FormInputStructure
+interface InputTextBorder {
+    "none": InputTextStructure
+    "outline": InputTextStructure
+    "underline": InputTextStructure
 }
 
-interface FormInputPosition {
-    "over": FormInputStructure
-    "above": FormInputStructure
+interface InputTextPosition {
+    "over": InputTextStructure
+    "above": InputTextStructure
 }
 
-export const FormInputTheme = (theme: Theme) => ({
-    themes: (): FormInputThemes => ({
+export const InputTextTheme = (theme: Theme) => ({
+    themes: (): InputTextThemes => ({
         "primary": {
             container: {
                 backgroundColor: theme.color.primary,
@@ -261,7 +261,7 @@ export const FormInputTheme = (theme: Theme) => ({
             legend_text: { color: theme.color.dark }
         },
     }),
-    sizes: (): FormInputSizes => ({
+    sizes: (): InputTextSizes => ({
         "tiny": {
             container: {
                 height: 26,
@@ -358,7 +358,7 @@ export const FormInputTheme = (theme: Theme) => ({
             },
         },
     }),
-    shapes: (): FormInputShapes => ({
+    shapes: (): InputTextShapes => ({
         flat: {
             container: { borderRadius: 0 },
             input: { borderRadius: 0 },
@@ -375,7 +375,7 @@ export const FormInputTheme = (theme: Theme) => ({
             legend_container: { borderRadius: 999 }
         }
     }),
-    bordered: (): FormInputBorder => ({
+    bordered: (): InputTextBorder => ({
         none: {
             container: {
                 borderWidth: 0
@@ -393,7 +393,7 @@ export const FormInputTheme = (theme: Theme) => ({
             }
         }
     }),
-    position: (): FormInputPosition => ({
+    position: (): InputTextPosition => ({
         above: {
             legend_container: {
                 top: -18,
