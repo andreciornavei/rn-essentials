@@ -26,6 +26,7 @@ export type InputTextProps = {
     shape?: ThemeShapeType
     // utils
     marginTop?: number
+    autoFocus?: boolean
     // events
     onChangeText?: (value: string, extracted?: any) => void
     onDebounce?: (value: string, extracted?: any) => void

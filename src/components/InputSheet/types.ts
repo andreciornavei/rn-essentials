@@ -1,6 +1,8 @@
 import { ColorValue } from "react-native"
 import { TextStyle, ViewStyle } from "react-native"
+import { SheetInputStyleProps } from "../../sheets/SheetInputText/types"
 import { ThemeColorType, ThemeIconType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
+import { ButtonStyleProps } from "../Button/types"
 import { InputTextProps } from "../InputText/types"
 
 export interface InputSheetStructure {
@@ -26,6 +28,9 @@ export interface InputSheetStyleProps{
     marginTop?: number
     emptyColor?: ColorValue
     styles?: InputSheetStructure
+    // button style
+    sheetStyle?: SheetInputStyleProps
+    buttonStyle?: ButtonStyleProps
 }
 
 interface MixBaseProps extends InputSheetStyleProps {

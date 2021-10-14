@@ -35,8 +35,12 @@ export const InputSheet = (props: InputSheetProps) => {
                         title={applyProps.label}
                         value={applyProps.value as string}
                         buttonLabel={applyProps.buttonLabel || "confirmar"}
+                        buttonStyle={applyProps.buttonStyle}
                         inputTextProps={applyProps.inputProps}
                         onChange={applyProps.onChange}
+                        theme={applyProps.sheetStyle?.theme}
+                        shape={applyProps.sheetStyle?.shape}
+                        styles={applyProps.sheetStyle?.styles}
                     />
                 ))
                 break;
