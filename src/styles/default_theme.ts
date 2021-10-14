@@ -90,6 +90,11 @@ export const defaultTheme: ThemeType = {
         left_icon: {},
         right_icon: {},
       }
+    },
+    sheet_input_text: {
+      shape: "rounded",
+      theme: "white",
+      styles: {}
     }
   }
 };
