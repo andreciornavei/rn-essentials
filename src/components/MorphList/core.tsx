@@ -3,7 +3,7 @@ import { ActivityIndicator, Text, FlatList } from "react-native"
 import { useTheme } from "../.."
 import { Empty } from "../Empty"
 import { Space } from "../Space"
-import {createStyle} from "./styles"
+import { createStyle } from "./styles"
 import { MorphListLoadFnProps, MorphListItemBaseType } from "./types"
 
 interface Props {
@@ -15,6 +15,7 @@ interface Props {
     handleLoadRecords: (props: MorphListLoadFnProps) => void
     data: Array<MorphListItemBaseType<any>>
     emptyMessage?: string
+    emptyComponent?: JSX.Element
     loadingMessage?: string
     paddingVertical?: number
     enableLoadMore?: boolean
@@ -57,7 +58,7 @@ export const MorphListCore = ({ enableLoadMore = true, ...props }: Props): JSX.E
                 props.paddingVertical != undefined && { paddingVertical: props.paddingVertical }
             ]}
             ItemSeparatorComponent={() => <Space height={props.separator} />}
-            ListEmptyComponent={<Empty message={props.emptyMessage || "Empty..."} />}
+            ListEmptyComponent={props.emptyComponent || <Empty message={props.emptyMessage || "Empty..."} />}
             ListFooterComponentStyle={styles.listFooter}
             ListFooterComponent={renderFooterLoading}
             refreshing={props.loading}

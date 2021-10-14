@@ -11,6 +11,10 @@ type Props = {
     prefix?: MorphListItemBaseType<any>[]
     disableLoadingMessage?: boolean
     disableReachedMessage?: boolean
+    emptyComponent?: JSX.Element
+    separator?: number
+    paddingVertical?: number
+    recordsPerPage?: number
 }
 
 export const MorphList = (props: Props): JSX.Element => {
@@ -56,14 +60,15 @@ export const MorphList = (props: Props): JSX.Element => {
     return (
         <MorphListCore
             data={records}
-            separator={25}
-            paddingVertical={25}
+            separator={props.separator || 0}
+            paddingVertical={props.paddingVertical || 0}
             handleLoadRecords={handleLoadRecords}
             loading={loading}
             reached={reached}
-            recordsPerPage={10}
+            recordsPerPage={props.recordsPerPage || 10}
             startRecord={startRecord}
             emptyMessage="No results to show..."
+            emptyComponent={props.emptyComponent}
             disableLoadingMessage={props.disableLoadingMessage}
             disableReachedMessage={props.disableReachedMessage}
         />
