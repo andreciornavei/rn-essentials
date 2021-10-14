@@ -27,6 +27,8 @@ export * from "./providers/ApiProvider/action"
 export * from "./types/ReviewType"
 export * from "./types/IconPackType"
 export * from "./types/ThemeType"
+export * from "./types/QueryFilterType"
+export * from "./types/QueryPaginationType"
 
 //**********************************//
 // EXPORTING COMPONENTS             //
@@ -53,6 +55,7 @@ export * from "./components/TabNav"
 export * from "./components/TabNav/components/TabBar"
 export * from "./components/MorphList"
 export * from "./components/MorphList/components/MListItemTitle"
+export * from "./components/MorphList/types"
 
 //**********************************//
 // EXPORTING SHEETS                 //
@@ -66,6 +69,12 @@ export * from "./sheets/SheetInputText"
 //**********************************//
 
 export * from "./utils/formatDate"
-export * from "./utils/formatErrors"
 export * from "./utils/formatNumber"
 export * from "./utils/formatText"
+export * from "./utils/resolveErrors"
+export * from "./utils/resolveLodash"
+export * from "./utils/resolveParam"
+export * from "./utils/resolveFilterHttp"
+export * from "./utils/resolvePermissions"
+export * from "./utils/normalizeStyleSize"
+

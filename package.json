@@ -1,6 +1,6 @@
 {
   "name": "@andreciornavei/rn-essentials",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "description": "A React Native library containing all essential providers and components",
   "author": {
     "name": "André Ciornavei",
@@ -64,6 +64,9 @@
     "axios": "^0.21.1",
     "date-fns": "^2.23.0",
     "expo": "~42.0.1",
+    "expo-camera": "~11.2.2",
+    "expo-intent-launcher": "~9.1.0",
+    "expo-location": "~12.1.2",
     "expo-notifications": "~0.12.3",
     "expo-sqlite": "~9.2.1",
     "expo-status-bar": "~1.0.4",
