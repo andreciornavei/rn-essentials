@@ -1,15 +1,21 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
 import { Text } from "react-native"
-import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Action } from "@andreciornavei/rn-essentials"
+import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Action, useApi } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
+import { AuthApi } from "./../../services/api/Auth"
 
 export const Home = (): JSX.Element => {
 
     const theme = useTheme()
     const { navigate } = useNavigation<any>()
+
+    const api = useApi()
+    const handleAction = () => {
+        api.instanceOf<AuthApi>(AuthApi).login()
+    }
 
     return (
         <Scaffold
@@ -68,11 +74,17 @@ export const Home = (): JSX.Element => {
                         label="Polymorphic List Render"
                         onPress={() => navigate("/component_morphlist")}
                     />
-                     <Action
+                    <Action
                         iconPack="AntDesign"
                         iconName="form"
                         label="Input Sheet"
                         onPress={() => navigate("/component_inputsheet")}
+                    />
+                    <Action
+                        iconPack="Feather"
+                        iconName="activity"
+                        label="Testing api provider"
+                        onPress={() => handleAction()}
                     />
                 </ScrollView>
             }

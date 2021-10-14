@@ -8,6 +8,7 @@ import { _Input } from './src/pages/_Input';
 import { _TabNav } from './src/pages/_TabNav';
 import { _MorphList } from './src/pages/_MorphList';
 import { _InputSheet } from './src/pages/_InputSheet';
+import { AuthApi } from "./src/services/api/Auth";
 
 export default function App() {
   return (

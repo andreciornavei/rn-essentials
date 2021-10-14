@@ -6,10 +6,11 @@ import { StorageProvider } from "./StorageProvider"
 import { DatabaseProps, DatabaseProvider } from "./DatabaseProvider"
 import { RefreshProvider } from "./RefreshProvider"
 import { NotificationProvider } from "./NotificationProvider"
-import { ApiProps, ApiProvider } from "./ApiProvider"
+import { ApiProvider } from "./ApiProvider"
 import { SocketProps, SocketProvider } from "./SocketProvider"
 import { SheetProvider } from "./SheetProvider"
 import { RouteProps, RouteProvider } from "./RouteProvider"
+import { ApiProps } from "./ApiProvider/types"
 
 interface Props extends DatabaseProps, ApiProps, SocketProps, RouteProps {
     theme?: Partial<Theme> | ((outerTheme: Theme) => Theme)

@@ -1,17 +1,10 @@
 import React from "react"
 import axios, { AxiosInstance } from "axios"
 import { useStorage } from "../StorageProvider"
+import { ApiProps, ApiStateProps } from "./types"
+import { parseWithOptions } from "date-fns/fp"
+import { ApiAction } from "./action"
 
-export interface ApiProps {
-    children?: JSX.Element
-    apiBaseURL?: string
-}
-
-type ApiStateProps = {
-    token: string | undefined;
-    setToken: React.Dispatch<React.SetStateAction<string | undefined>>;
-    http: AxiosInstance;
-}
 
 const ApiContext = React.createContext<ApiStateProps>({} as ApiStateProps)
 
@@ -28,10 +21,16 @@ export const ApiProvider = (props: ApiProps): JSX.Element => {
         return config;
     });
 
+   
+    const instanceOf = <T extends ApiAction>(action: typeof ApiAction): T => {
+        return new action(http) as T
+    }
+
     const state = {
         token,
         setToken,
-        http
+        http,
+        instanceOf
     }
 
     return (

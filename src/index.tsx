@@ -16,13 +16,17 @@ export * from "./providers/StorageProvider"
 export * from "./providers/ThemeProvider"
 
 //**********************************//
+// EXPORTING CLASSES                //
+//**********************************//
+export * from "./providers/ApiProvider/action"
+
+//**********************************//
 // EXPORTING TYPES                  //
 //**********************************//
 
 export * from "./types/ReviewType"
 export * from "./types/IconPackType"
 export * from "./types/ThemeType"
-
 
 //**********************************//
 // EXPORTING COMPONENTS             //
