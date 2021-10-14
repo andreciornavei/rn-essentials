@@ -569,7 +569,10 @@ export const _InputSheet = (): JSX.Element => {
                         instruction="Informe seu nome aqui..."
                         value={form.name}
                         onChange={(value) => handleUpdateForm({ name: value })}
-                        inputProps={{ value: form.name }}
+                        inputProps={{
+                            theme: "outline-danger",
+                            value: form.name
+                        }}
                         styles={{
                             container: {
                                 borderWidth: 0,
@@ -583,7 +586,7 @@ export const _InputSheet = (): JSX.Element => {
                             value: {
                                 color: "#ffffff"
                             },
-                            placeholder: "#ffffff80"
+                            placeholder: "#ffffff80",
                         }}
                         leftIcon={{
                             pack: "Feather",
@@ -596,6 +599,14 @@ export const _InputSheet = (): JSX.Element => {
                             name: "arrow-right",
                             color: theme.color.white,
                             size: 16
+                        }}
+                        sheetStyle={{
+                            theme: "white",
+                            shape: "flat"
+                        }}
+                        buttonStyle={{
+                            theme: "danger",
+                            shape: "flat"
                         }}
                     />
                     {/*****************************************************/}
