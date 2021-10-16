@@ -8,7 +8,7 @@ import { TabPanelTheme } from '../../theme';
 import { TabPanelControlProps } from '../../types';
 import styles from "./styles"
 
-export const TabPanelHead = (props: TabPanelControlProps): JSX.Element => {
+export const TabPanelHead = ({ itemCounterAnchor = "outer", itemSelectedIndicatorAnchor = "outer", ...props }: TabPanelControlProps): JSX.Element => {
 
     const theming = useTheme()
     const themer = TabPanelTheme(theming)
@@ -89,6 +89,28 @@ export const TabPanelHead = (props: TabPanelControlProps): JSX.Element => {
     const iconSize = applyProps.itemIconStyle?.fontSize || themer.sizes()[size].icon?.fontSize || 21
     const iconSizeSelected = applyProps.itemSelectedIconStyle?.fontSize || themer.sizes()[size].iconSelected?.fontSize || 21
 
+    const _renderSelectedIndicator = (isSelected: boolean): JSX.Element => {
+        if (!isSelected || !props.itemSelectedIndicatorVisible) return <></>
+        return <View style={[selectedIndicatorStyle]} />
+    }
+
+    const _renderCounter = (counter: number | undefined, isSelected?: boolean): JSX.Element => {
+        if (counter == undefined) return <></>
+        return (
+            <View style={[
+                itemCounterContainerStyle,
+                isSelected && itemCounterContainerSelectedStyle
+            ]}>
+                <Text style={[
+                    itemCounterTextStyle,
+                    isSelected && itemCounterTextSelectedStyle
+                ]}>
+                    {counter}
+                </Text>
+            </View>
+        )
+    }
+
     return (
         <View style={containerStyle} >
             {props.tabs.map((entry, index: number) => {
@@ -101,45 +123,35 @@ export const TabPanelHead = (props: TabPanelControlProps): JSX.Element => {
                         onPress={() => props.onChange(index)}
                         style={[
                             itemStyle,
-                            isSelected && itemSelectedStyle,
-                            entry.tab.direction && { flexDirection: entry.tab.direction }
+                            isSelected && itemSelectedStyle
                         ]}
                     >
-                        {(entry.tab.iconPack && entry.tab.iconName) &&
-                            <View style={[
-                                iconContainerStyle,
-                                isSelected && iconContainerSelectedStyle
-                            ]}>
-                                <Icon
-                                    pack={entry.tab.iconPack}
-                                    name={entry.tab.iconName}
-                                    size={isSelected ? iconSizeSelected : iconSize}
-                                    color={isSelected ? iconSelectedColor : iconColor}
-                                />
-                            </View>
-                        }
-                        <Text style={[
-                            textStyle,
-                            isSelected && textSelectedStyle,
-                            entry.tab.direction == "row" && { marginTop: 0, marginLeft: 5 }
-                        ]}>
-                            {entry.tab.title}
-                        </Text>
-                        {(entry.tab.counter) &&
-                            <View style={[
-                                itemCounterContainerStyle,
-                                isSelected && itemCounterContainerSelectedStyle
-                            ]}>
-                                <Text style={[
-                                    itemCounterTextStyle,
-                                    isSelected && itemCounterTextSelectedStyle
+                        <View style={{ flexDirection: props.itemDirection, alignItems: "center", justifyContent: "center" }}>
+                            {(entry.tab.iconPack && entry.tab.iconName) &&
+                                <View style={[
+                                    iconContainerStyle,
+                                    isSelected && iconContainerSelectedStyle
                                 ]}>
-                                    {entry.tab.counter}
-                                </Text>
-                            </View>
-                        }
-
-                        {(isSelected && props.itemSelectedIndicatorVisible) && <View style={[selectedIndicatorStyle]} />}
+                                    <Icon
+                                        pack={entry.tab.iconPack}
+                                        name={entry.tab.iconName}
+                                        size={isSelected ? iconSizeSelected : iconSize}
+                                        color={isSelected ? iconSelectedColor : iconColor}
+                                    />
+                                </View>
+                            }
+                            <Text style={[
+                                textStyle,
+                                isSelected && textSelectedStyle,
+                                props.itemDirection == "row" && { marginTop: 0, marginLeft: 5 }
+                            ]}>
+                                {entry.tab.title}
+                            </Text>
+                            {itemCounterAnchor == "inner" && _renderCounter(entry.tab.counter, isSelected)}
+                            {itemSelectedIndicatorAnchor == "inner" && _renderSelectedIndicator(isSelected)}
+                        </View>
+                        {itemCounterAnchor == "outer" && _renderCounter(entry.tab.counter, isSelected)}
+                        {itemSelectedIndicatorAnchor == "outer" && _renderSelectedIndicator(isSelected)}
                     </TouchableOpacity>
                 );
             })}

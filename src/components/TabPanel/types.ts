@@ -6,6 +6,9 @@ export interface TabPanelStyleProps {
     theme?: ThemeColorType
     size?: ThemeSizeType
     shape?: ThemeShapeType
+    itemSelectedIndicatorAnchor?: "inner" | "outer"
+    itemCounterAnchor?: "inner" | "outer"
+    itemDirection?: "column" | "row"
     containerStyle?: ViewStyle
     itemStyle?: ViewStyle
     itemTextStyle?: TextStyle
@@ -28,7 +31,6 @@ export interface TabPanelItemProps {
     counter?: number
     iconPack?: IconPackType
     iconName?: string
-    direction?: "column" | "row"
 }
 
 export interface TabPanelProps extends TabPanelStyleProps {

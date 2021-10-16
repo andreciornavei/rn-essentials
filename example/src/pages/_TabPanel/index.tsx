@@ -31,13 +31,15 @@ export const _TabPanel = (): JSX.Element => {
                     theme="white"
                     size="regular"
                     shadow={true}
+                    itemCounterAnchor="outer"
+                    itemSelectedIndicatorAnchor="inner"
+                    itemDirection="row"
                     itemSelectedIndicatorVisible={true}
                     itemSelectedIndicatorStyle={{
-                        left: "50%",
-                        bottom: 10,
-                        marginLeft: -3,
-                        width: 6,
-                        height: 6,
+                        left: 23 ,
+                        right: 0,
+                        bottom: -5,
+                        height: 3,
                         borderRadius: 6,
                         backgroundColor: theme.color.accentText
                     }}
@@ -75,7 +77,6 @@ export const _TabPanel = (): JSX.Element => {
                             "component": TabOne,
                             "tab": {
                                 "title": "My Order",
-                                "direction": "row",
                                 "iconPack": "Feather",
                                 "iconName": "edit-3"
                             }
@@ -84,7 +85,6 @@ export const _TabPanel = (): JSX.Element => {
                             "component": TabTwo,
                             "tab": {
                                 "title": "Kitchen",
-                                "direction": "row",
                                 "iconPack": "MaterialIcons",
                                 "iconName": "kitchen"
                             }
@@ -94,7 +94,6 @@ export const _TabPanel = (): JSX.Element => {
                             "tab": {
                                 "title": "Table",
                                 "counter": 15,
-                                "direction": "row",
                                 "iconPack": "MaterialCommunityIcons",
                                 "iconName": "table-furniture"
                             }
