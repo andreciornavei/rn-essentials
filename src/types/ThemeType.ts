@@ -5,6 +5,7 @@ import { ButtonProps } from "../components/Button/types";
 import { InputSheetStyleProps } from "../components/InputSheet/types";
 import { InputTextProps } from "../components/InputText/types";
 import { TabNavStyleProps } from "../components/TabNav/types";
+import { TabPanelStyleProps } from "../components/TabPanel/types";
 import { SheetInputStyleProps, SheetInputTextProps } from "../sheets/SheetInputText/types";
 
 export type ThemeColorType = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark" | "muted" | "white" | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-info" | "outline-link" | "outline-light" | "outline-dark" | "outline-muted" | "outline-white"
@@ -71,6 +72,7 @@ export type ThemeType = {
     accordion: AccordionProps
     form_input: InputTextProps
     tab_nav: TabNavStyleProps
+    tab_panel: TabPanelStyleProps
     input_sheet: InputSheetStyleProps
     sheet_input_text: SheetInputStyleProps
   }

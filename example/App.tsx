@@ -8,7 +8,7 @@ import { _Input } from './src/pages/_Input';
 import { _TabNav } from './src/pages/_TabNav';
 import { _MorphList } from './src/pages/_MorphList';
 import { _InputSheet } from './src/pages/_InputSheet';
-import { AuthApi } from "./src/services/api/Auth";
+import { _TabPanel } from './src/pages/_TabPanel';
 
 export default function App() {
   return (
@@ -24,7 +24,8 @@ export default function App() {
         { name: "/component_input", component: _Input },
         { name: "/component_tabnav", component: _TabNav },
         { name: "/component_morphlist", component: _MorphList },
-        { name: "/component_inputsheet", component: _InputSheet }
+        { name: "/component_inputsheet", component: _InputSheet },
+        { name: "/component_tabpanel", component: _TabPanel }
       ]}
     />
   );

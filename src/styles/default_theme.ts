@@ -75,6 +75,11 @@ export const defaultTheme: ThemeType = {
       itemSelectedTextStyle: {},
       itemSelectedIconStyle: {}
     },
+    tab_panel: {
+      theme: "light",
+      shape: "flat",
+      size: "regular"
+    },
     input_sheet: {
       theme: "light",
       shape: "rounded",

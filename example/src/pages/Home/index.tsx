@@ -81,11 +81,18 @@ export const Home = (): JSX.Element => {
                         onPress={() => navigate("/component_inputsheet")}
                     />
                     <Action
+                        iconPack="MaterialCommunityIcons"
+                        iconName="tab"
+                        label="Tabbed Panel"
+                        onPress={() => navigate("/component_tabpanel")}
+                    />
+                    <Action
                         iconPack="Feather"
                         iconName="activity"
                         label="Testing api provider"
                         onPress={() => handleAction()}
                     />
+                    
                 </ScrollView>
             }
         />

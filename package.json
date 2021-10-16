@@ -81,6 +81,7 @@
     "react-native-gesture-handler": "~1.10.2",
     "react-native-masked-text": "^1.13.0",
     "react-native-normalize": "^1.0.1",
+    "react-native-pager-view": "5.0.12",
     "react-native-reanimated": "~2.2.0",
     "react-native-safe-area-context": "3.2.0",
     "react-native-screens": "~3.4.0",

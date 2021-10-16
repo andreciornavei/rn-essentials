@@ -53,9 +53,12 @@ export * from "./components/Scaffold/components/ScaffoldAppBarAction"
 export * from "./components/Scaffold/components/ScaffoldAppBarTitle"
 export * from "./components/TabNav"
 export * from "./components/TabNav/components/TabBar"
+export * from "./components/TabPanel"
+export * from "./components/TabPanel/components/TabPanelHead"
 export * from "./components/MorphList"
 export * from "./components/MorphList/components/MListItemTitle"
 export * from "./components/MorphList/types"
+
 
 //**********************************//
 // EXPORTING SHEETS                 //
