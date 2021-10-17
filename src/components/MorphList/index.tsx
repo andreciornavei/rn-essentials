@@ -12,6 +12,8 @@ type Props = {
     disableLoadingMessage?: boolean
     disableReachedMessage?: boolean
     emptyComponent?: JSX.Element
+    headerComponent?: JSX.Element
+    footerComponent?: JSX.Element
     separator?: number
     paddingVertical?: number
     recordsPerPage?: number
@@ -69,6 +71,8 @@ export const MorphList = (props: Props): JSX.Element => {
             startRecord={startRecord}
             emptyMessage="No results to show..."
             emptyComponent={props.emptyComponent}
+            headerComponent={props.headerComponent}
+            footerComponent={props.footerComponent}
             disableLoadingMessage={props.disableLoadingMessage}
             disableReachedMessage={props.disableReachedMessage}
         />

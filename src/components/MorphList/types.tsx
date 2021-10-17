@@ -1,5 +1,6 @@
 export interface MorphListItemBaseType<T> {
     props?: T
+    sticky?: boolean
     render: (index: number) => JSX.Element
 }
 

@@ -1,11 +1,9 @@
 import { StyleSheet } from "react-native"
-const HEIGHT = 60
 
 export default StyleSheet.create({
     container: {
         flexDirection: "row",
         justifyContent: "space-between",
-        height: HEIGHT,
         backgroundColor: "#ffffff",
         alignItems: "center",
         paddingLeft: 25,
@@ -19,9 +17,8 @@ export default StyleSheet.create({
         position: "absolute",
         alignItems: "center",
         justifyContent: "center",
-        height: HEIGHT,
         left: 25,
         right: 25,
-        bottom: 0
+        bottom: 0,
     }
 })

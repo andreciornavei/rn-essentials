@@ -16,6 +16,8 @@ interface Props {
     data: Array<MorphListItemBaseType<any>>
     emptyMessage?: string
     emptyComponent?: JSX.Element
+    footerComponent?: JSX.Element
+    headerComponent?: JSX.Element
     loadingMessage?: string
     paddingVertical?: number
     enableLoadMore?: boolean
@@ -47,10 +49,21 @@ export const MorphListCore = ({ enableLoadMore = true, ...props }: Props): JSX.E
 
     if (props.startRecord == 0 && props.loading) return <ActivityIndicator size="small" color={theme.color.primary} />
 
+    const stickyHeaderIndices = React.useMemo((): number[] => {
+        const stickers: number[] = []
+        props.data.forEach((_item, index) => {
+            if (_item.sticky == true) {
+                stickers.push(props.headerComponent ? index + 1 : index)
+            }
+        })
+        return stickers
+    }, [props.data])
+
     return (
         <FlatList
             data={props.data}
             renderItem={(line) => (line.item as MorphListItemBaseType<any>).render(line.index)}
+            stickyHeaderIndices={stickyHeaderIndices}
             keyExtractor={(_, index) => `morph-flatlist-idx-${index}`}
             contentContainerStyle={[
                 styles.list,
@@ -60,7 +73,8 @@ export const MorphListCore = ({ enableLoadMore = true, ...props }: Props): JSX.E
             ItemSeparatorComponent={() => <Space height={props.separator} />}
             ListEmptyComponent={props.emptyComponent || <Empty message={props.emptyMessage || "Empty..."} />}
             ListFooterComponentStyle={styles.listFooter}
-            ListFooterComponent={renderFooterLoading}
+            ListFooterComponent={props.footerComponent || renderFooterLoading}
+            ListHeaderComponent={props.headerComponent}
             refreshing={props.loading}
             inverted={props.inverted && props.data.length > 0 || false}
             onRefresh={() => {

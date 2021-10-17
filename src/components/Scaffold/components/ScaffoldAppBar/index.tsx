@@ -7,6 +7,7 @@ import { ScaffoldAppBarAction } from "../ScaffoldAppBarAction";
 import { useTheme } from "../../../..";
 
 interface Props {
+  height?: number
   title?: JSX.Element
   titleAlign?: FlexAlignType,
   actions?: Array<ScaffoldAppBarActionProps>
@@ -16,8 +17,6 @@ interface Props {
   backgroundColor?: string
 }
 
-export const APP_BAR_HEIGHT: number = 60
-
 export const ScaffoldAppBar = ({
   title,
   titleAlign,
@@ -25,13 +24,14 @@ export const ScaffoldAppBar = ({
   leads = [],
   shadow = true,
   touchable = false,
+  height = 60,
   ...props
 }: Props): JSX.Element => {
   const insets = useSafeAreaInsets();
   const theme = useTheme()
   return (
     <View style={[styles.container, {
-      height: 60 + insets.top,
+      height: height + insets.top,
       paddingTop: insets.top,
       borderBottomColor: shadow ? theme.color.shadow : theme.color.transparent,
       backgroundColor: props.backgroundColor || theme.color.white
@@ -55,7 +55,10 @@ export const ScaffoldAppBar = ({
       </View>
       <View pointerEvents={touchable ? undefined : "none"} style={[
         styles.titleContainer,
-        { alignItems: titleAlign || "center" }
+        {
+          alignItems: titleAlign || "center",
+          height: height
+        }
       ]}>
         {title && title}
       </View>
