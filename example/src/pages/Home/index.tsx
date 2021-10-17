@@ -59,8 +59,14 @@ export const Home = (): JSX.Element => {
                     <Action
                         iconPack="MaterialIcons"
                         iconName="input"
-                        label="Form / Input"
+                        label="Form / Input Text"
                         onPress={() => navigate("/component_input")}
+                    />
+                    <Action
+                        iconPack="Fontisto"
+                        iconName="radio-btn-active"
+                        label="Form / Input Radio"
+                        onPress={() => navigate("/component_input_radio")}
                     />
                     <Action
                         iconPack="Ionicons"
@@ -92,7 +98,7 @@ export const Home = (): JSX.Element => {
                         label="Testing api provider"
                         onPress={() => handleAction()}
                     />
-                    
+
                 </ScrollView>
             }
         />

@@ -9,6 +9,7 @@ import { _TabNav } from './src/pages/_TabNav';
 import { _MorphList } from './src/pages/_MorphList';
 import { _InputSheet } from './src/pages/_InputSheet';
 import { _TabPanel } from './src/pages/_TabPanel';
+import { _InputRadio } from './src/pages/_InputRadio';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         { name: "/component_button", component: _Button },
         { name: "/component_sheet", component: _Sheet },
         { name: "/component_input", component: _Input },
+        { name: "/component_input_radio", component: _InputRadio },
         { name: "/component_tabnav", component: _TabNav },
         { name: "/component_morphlist", component: _MorphList },
         { name: "/component_inputsheet", component: _InputSheet },

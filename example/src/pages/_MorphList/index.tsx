@@ -6,6 +6,7 @@ import { MorphListItemBaseType, MorphListLoadFnProps } from "../../../../src/com
 import { MListItemSample } from "./components/MListItemSample"
 import { MListItemParagraph } from "./components/MListItemParagraph"
 import { MListItemButton } from "./components/MListItemButton"
+import { Text, View } from "react-native"
 
 
 export const _MorphList = (): JSX.Element => {
@@ -59,6 +60,10 @@ export const _MorphList = (): JSX.Element => {
                     ]}
                     handleLoadRecords={handleLoadRecords}
                     disableReachedMessage={true}
+                    separator={25}
+                    paddingVertical={25}
+                    footerComponent={<View><Text>I'm a footer component</Text></View>}
+                    headerComponent={<View><Text>I'm a header component</Text></View>}
                 />
             }
         />

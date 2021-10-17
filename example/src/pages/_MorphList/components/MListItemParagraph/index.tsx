@@ -9,6 +9,7 @@ export type MListItemSampleProps = {
 
 export class MListItemParagraph implements MorphListItemBaseType<any> {
     props: MListItemSampleProps
+    sticky = true
     constructor(props: MListItemSampleProps) {
         this.props = props
     }

@@ -16,7 +16,7 @@ export const _Input = (): JSX.Element => {
             backgroundColor={theme.color.white}
             appbar={
                 <ScaffoldAppBar
-                    title={<ScaffoldAppBarTitle value="Form / Input" />}
+                    title={<ScaffoldAppBarTitle value="Form / Input Text" />}
                     leads={[{
                         iconPack: "Feather",
                         iconName: "arrow-left",
