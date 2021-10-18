@@ -1,27 +1,13 @@
 import React from "react"
-import Ripple from "react-native-advanced-ripple"
 import { Text, View } from "react-native"
 import { createStyle } from "./styles"
 import { Icon } from "../Icon"
 import { FlatList } from "react-native-gesture-handler"
 import _ from "lodash"
-import { IconPackType, useTheme } from "../.."
+import { IconPackType, Ripple, useTheme } from "../.."
+import { ColorValue } from "react-native"
 
-interface Props {
-    options: Array<Option>
-    value?: any[][]
-    textColor?: string
-    textSize?: number
-    textMargin?: number
-    textItalic?: boolean
-    disabled?: boolean
-    virtualized?: boolean
-    renderLastLine?: boolean
-    renderFirstLine?: boolean
-    onSelect: (value: string | number, selected: boolean) => void
-}
-
-interface Option {
+export interface InputRadioOption {
     value: string | number
     label: string
     iconPack?: IconPackType
@@ -29,8 +15,42 @@ interface Option {
     iconSize?: number
 }
 
+interface StyleProps {
+    textColor?: ColorValue
+    selectedTextColor?: ColorValue
+    textSize?: number
+    textMargin?: number
+    textItalic?: boolean
+}
+
+interface BaseProps extends StyleProps {
+    options: Array<InputRadioOption>
+    disabled?: boolean
+    virtualized?: boolean
+    renderLastLine?: boolean
+    renderFirstLine?: boolean
+    loadOptions?: () => Promise<Array<InputRadioOption>>
+    onLoadedOptions?: (options: Array<InputRadioOption>) => void
+}
+
+export type InputRadioSingleValue = String | number | undefined
+export type InputRadioMultipleValue = InputRadioSingleValue[] | undefined
+
+interface SingleProps extends BaseProps {
+    mode: "single"
+    value?: InputRadioSingleValue
+    onSelect: (value: InputRadioSingleValue) => void
+}
+
+interface MultipleProps extends BaseProps {
+    mode: "multiple"
+    value?: InputRadioMultipleValue
+    onSelect: (value: InputRadioMultipleValue) => void
+}
+
+type Props = SingleProps | MultipleProps
+
 export const InputRadio = ({
-    options = [],
     disabled = false,
     textSize = 12,
     renderFirstLine = false,
@@ -42,13 +62,46 @@ export const InputRadio = ({
     const theme = useTheme()
     const styles = createStyle(theme)
     const textColor = props.textColor || theme.color.gray
+    const selectedTextColor = props.selectedTextColor || theme.color.accentText
 
-    const parse_value = {}
-    for (const i of _.get(props, "value", [])) {
-        _.set(parse_value, i[0], i[1])
+    const [loading, setLoading] = React.useState<boolean>(false)
+    const [options, setOptions] = React.useState<Array<InputRadioOption>>(props.options)
+
+    const handleCallback = (option: InputRadioOption) => {
+        if (props.mode == "single") {
+            props.onSelect(option.value as InputRadioSingleValue)
+        } else if (props.mode == "multiple") {
+            const current_options = props.value || []
+            const optionIndex = current_options.findIndex((_entry) => _entry == option.value)
+            if (optionIndex != -1) {
+                props.onSelect(current_options.filter((_entry, index) => index != optionIndex))
+            } else {
+                props.onSelect([...current_options, option.value] as InputRadioMultipleValue)
+            }
+        }
     }
 
-    const renderRadioItem = (item: Option, index: number): JSX.Element => {
+    const isSelected = (option: InputRadioOption): boolean => {
+        if (props.mode == "single") return option.value == props.value
+        else if (props.mode == "multiple") return (props.value || []).includes(option.value)
+        return false
+    }
+
+    React.useEffect(() => {
+        props.onLoadedOptions && props.onLoadedOptions(options)
+    }, [options])
+
+    React.useEffect(() => {
+        if (props.loadOptions) {
+            setLoading(true)
+            props.loadOptions()
+                .then(setOptions)
+                .catch(_ => console.log("Error on load options"))
+                .finally(() => setLoading(false))
+        }
+    }, [])
+
+    const renderRadioItem = (item: InputRadioOption, index: number): JSX.Element => {
         return (
             <Ripple
                 key={`option-idx-${index}`}
@@ -59,38 +112,35 @@ export const InputRadio = ({
                 disabled={disabled}
                 duration={250}
                 slowDuration={250}
-                onPress={() => {
-                    props.onSelect(
-                        item.value,
-                        _.get(parse_value, item.value, false) == true ? false : true
-                    )
-                }}
+                onPress={() => handleCallback(item)}
             >
-                {(item.iconPack && item.iconName) && (
-                    <Icon
-                        pack={item.iconPack}
-                        name={item.iconName}
-                        size={item.iconSize || textSize}
-                        color={_.get(parse_value, item.value, false) ? theme.color.accentText : textColor}
-                        style={{ marginRight: 15 }}
-                    />
-                )}
-                <Text style={[
-                    styles.selectionValue,
-                    {
-                        fontSize: textSize,
-                        fontStyle: props.textItalic ? "italic" : "normal",
-                        marginLeft: props.textMargin ?? 0,
-                        color: _.get(parse_value, item.value, false) ? theme.color.accentText : textColor
-                    }
-                ]}>{item.label}</Text>
-                {_.get(parse_value, item.value, false) && <Icon pack="Feather" name="check" size={textSize ?? 14} color={theme.color.accentText} />}
+                <>
+                    {(item.iconPack && item.iconName) && (
+                        <Icon
+                            pack={item.iconPack}
+                            name={item.iconName}
+                            size={item.iconSize || textSize}
+                            color={isSelected(item) ? selectedTextColor : textColor}
+                            style={{ marginRight: 15 }}
+                        />
+                    )}
+                    <Text style={[
+                        styles.selectionValue,
+                        {
+                            fontSize: textSize,
+                            fontStyle: props.textItalic ? "italic" : "normal",
+                            marginLeft: props.textMargin ?? 0,
+                            color: isSelected(item) ? selectedTextColor : textColor
+                        }
+                    ]}>{item.label}</Text>
+                    {isSelected(item) && <Icon pack="Feather" name="check" size={textSize ?? 14} color={selectedTextColor} />}
+                </>
             </Ripple>
         )
     }
 
     if (virtualized) {
-        return (
+        return React.useMemo(() => (
             <FlatList
                 data={options}
                 keyExtractor={(_, index) => `option-${index}`}
@@ -98,11 +148,11 @@ export const InputRadio = ({
                     backgroundColor: "rgba(0,0,0,0.05)",
                     height: 1
                 }} />}
-                renderItem={({ item, index }: { item: Option, index: number }) => renderRadioItem(item, index)}
+                renderItem={({ item, index }: { item: InputRadioOption, index: number }) => renderRadioItem(item, index)}
             />
-        )
+        ), [options, props.value])
     } else {
-        return (
+        return React.useMemo(() => (
             <>
                 {options.map((option, index) => {
                     return (
@@ -122,6 +172,6 @@ export const InputRadio = ({
                     )
                 })}
             </>
-        )
+        ), [options, props.value])
     }
 }
