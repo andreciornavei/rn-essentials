@@ -81,6 +81,12 @@ export const Home = (): JSX.Element => {
                         onPress={() => navigate("/component_morphlist")}
                     />
                     <Action
+                        iconPack="MaterialCommunityIcons"
+                        iconName="playlist-plus"
+                        label="List Fetcher"
+                        onPress={() => navigate("/component_listfetcher")}
+                    />
+                    <Action
                         iconPack="AntDesign"
                         iconName="form"
                         label="Input Sheet"

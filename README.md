@@ -31,19 +31,138 @@ export default function App() {
 
 ---
 
+## _Utilities Functions_
+
+> #### **formatDate**
+> _All functions you can see on this [README.md](./src/utils/formatDate/README.md) file._
+
+> #### **formatNumber**
+> _All functions you can see on this [README.md](./src/utils/formatNumber/README.md) file._
+
+> #### **formatText**
+> _All functions you can see on this [README.md](./src/utils/formatText/README.md) file._
+
+> #### **normalizeStyleSize**
+> _All functions you can see on this [README.md](./src/utils/normalizeStyleSize/README.md) file._
+
+> #### **resolveErrors**
+> _All functions you can see on this [README.md](./src/utils/resolveErrors/README.md) file._
+
+> #### **resolveFilterHttp**
+> _All functions you can see on this [README.md](./src/utils/resolveFilterHttp/README.md) file._
+
+> #### **resolveLodash**
+> _All functions you can see on this [README.md](./src/utils/resolveLodash/README.md) file._
+
+> #### **resolveParam**
+> _All functions you can see on this [README.md](./src/utils/resolveParam/README.md) file._
+
+> #### **resolvePermissions**
+> _All functions you can see on this [README.md](./src/utils/resolvePermissions/README.md) file._
+
+---
 ## _Providers_
+
+> #### **ApiProvider**
+> _All api_provider properties you can see on this [README.md](./src/providers/ApiProvider/README.md) file._
+
+> #### **DatabaseProvider**
+> _All database_provider properties you can see on this [README.md](./src/providers/DatabaseProvider/README.md) file._
+
+> #### **NotificationProvider**
+> _All notification_provider properties you can see on this [README.md](./src/providers/NotificationProvider/README.md) file._
+
+> #### **RefreshProvider**
+> _All refresh_provider properties you can see on this [README.md](./src/providers/RefreshProvider/README.md) file._
+
+> #### **RouteProvider**
+> _All route_provider properties you can see on this [README.md](./src/providers/RouteProvider/README.md) file._
+
+> #### **SheetProvider**
+> _All sheet_provider properties you can see on this [README.md](./src/providers/SheetProvider/README.md) file._
+
+> #### **SocketProvider**
+> _All socket_provider properties you can see on this [README.md](./src/providers/SocketProvider/README.md) file._
+
+> #### **StorageProvider**
+> _All storage_provider properties you can see on this [README.md](./src/providers/StorageProvider/README.md) file._
+
+> #### **ThemeProvider**
+> _All theme_provider properties you can see on this [README.md](./src/providers/ThemeProvider/README.md) file._
+
+---
+## _Background Tasks_
+
+> #### **LocationTask**
+> _All location_task properties you can see on this [README.md](./src/tasks/LocationTask/README.md) file._
+
+> #### **NotificationTask**
+> _All notification_task properties you can see on this [README.md](./src/tasks/NotificationTask/README.md) file._
+
+> #### **FetchTask**
+> _All fetch_task properties you can see on this [README.md](./src/tasks/FetchTask/README.md) file._
 
 ---
 ## _Components_
 
-### Button
-
-The button component is fully customizable in 3 leves:
-* The default custom style implemented by this library, where you can find the style structure on [./src/styles/default_theme.ts](./src/styles/default_theme.ts) inside the **`components.button.property`**;
+All components is fully customizable in 3 leves:
+* The default custom style implemented by this library, where you can find the style structure on [./src/styles/default_theme.ts](./src/styles/default_theme.ts) inside the **`components.[component_name]`**;
 * Your custom style that will override the file mentioned above following the same properties. It will style the button to your entire application;
 * The inline button component style, this will style only a specific button instance, followin the same properties mentioned above;
 
-All button properties you can see on this [README.md](./src/components/Button/README.md) file.
+> #### **Accordion**
+> _All accordion properties you can see on this [README.md](./src/components/Accordion/README.md) file._
+
+> #### **Action**
+> _All action properties you can see on this [README.md](./src/components/Action/README.md) file._
+
+> #### **Button**
+> _All button properties you can see on this [README.md](./src/components/Button/README.md) file._
+
+> #### **Divider**
+> _All divier properties you can see on this [README.md](./src/components/Divider/README.md) file._
+
+> #### **Empty**
+> _All empty properties you can see on this [README.md](./src/components/Empty/README.md) file._
+
+> #### **Icon**
+> _All icon properties you can see on this [README.md](./src/components/Icon/README.md) file._
+
+> #### **InputError**
+> _All input_error properties you can see on this [README.md](./src/components/InputError/README.md) file._
+
+> #### **InputRadio**
+> _All input_radio properties you can see on this [README.md](./src/components/InputRadio/README.md) file._
+
+> #### **InputSheet**
+> _All input_sheet properties you can see on this [README.md](./src/components/InputSheet/README.md) file._
+
+> #### **InputText**
+> _All input_text properties you can see on this [README.md](./src/components/InputText/README.md) file._
+
+> #### **ListFetcher**
+> _All list_fetcher properties you can see on this [README.md](./src/components/ListFetcher/README.md) file._
+
+> #### **MorphList**
+> _All morph_list properties you can see on this [README.md](./src/components/MorphList/README.md) file._
+
+> #### **Paragraph**
+> _All paragraph properties you can see on this [README.md](./src/components/Paragraph/README.md) file._
+
+> #### **Ripple**
+> _All ripple properties you can see on this [README.md](./src/components/Ripple/README.md) file._
+
+> #### **Scaffold**
+> _All scaffold properties you can see on this [README.md](./src/components/Scaffold/README.md) file._
+
+> #### **Space**
+> _All space properties you can see on this [README.md](./src/components/Space/README.md) file._
+
+> #### **TabNav**
+> _All tab_nav properties you can see on this [README.md](./src/components/TabNav/README.md) file._
+
+> #### **TabPanel**
+> _All tab_panel properties you can see on this [README.md](./src/components/TabPanel/README.md) file._
 
 ---
 

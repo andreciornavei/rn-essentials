@@ -59,6 +59,9 @@ export * from "./components/TabPanel/components/TabPanelHead"
 export * from "./components/MorphList"
 export * from "./components/MorphList/components/MListItemTitle"
 export * from "./components/MorphList/types"
+export * from "./components/ListFetcher"
+export * from "./components/ListFetcher/types"
+
 
 
 //**********************************//
