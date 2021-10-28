@@ -31,7 +31,7 @@ export default function App() {
 
 ---
 
-## _Utilities Functions_
+## _Utility functions_
 
 > #### **formatDate**
 > _All functions you can see on this [README.md](./src/utils/formatDate/README.md) file._
