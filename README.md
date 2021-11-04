@@ -4,6 +4,12 @@
 
 ### _Motivations:_
 ### _Fast project setup:_
+
+**_Install the Expo SDK 42:_**
+```bash
+expo init my-app --template expo-template-blank-typescript@~42.0.1
+```
+
 As you can see on this little piece of code, everithing is embedded in just one provider, the `EssentialProviders`, that will inject everything you need to setup your project as faster as prossible.
 
 You can see all the providers embbeded later on this documentation.
