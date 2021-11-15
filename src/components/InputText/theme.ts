@@ -1,4 +1,5 @@
 import { Theme } from "@emotion/react";
+import { Platform } from "react-native";
 import { TextStyle, ViewStyle } from "react-native";
 
 interface InputTextStructure {
@@ -281,7 +282,8 @@ export const InputTextTheme = (theme: Theme) => ({
                 paddingRight: 10
             },
             text: {
-                fontSize: 11
+                fontSize: 11,
+                textAlignVertical: multiline ? "top" : "center"
             },
         },
         "small": {
@@ -301,6 +303,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: {
                 fontSize: 12,
+                textAlignVertical: multiline ? "top" : "center"
             },
         },
         "regular": {
@@ -320,7 +323,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: {
                 fontSize: 14,
-                textAlignVertical: "top"
+                textAlignVertical: multiline ? "top" : "center"
             },
         },
         "medium": {
@@ -340,6 +343,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: {
                 fontSize: 16,
+                textAlignVertical: multiline ? "top" : "center"
             },
         },
         "large": {
@@ -359,6 +363,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: {
                 fontSize: 18,
+                textAlignVertical: multiline ? "top" : "center"
             },
         },
     }),
@@ -457,14 +462,13 @@ export const InputTextTheme = (theme: Theme) => ({
                     fontSize: parseInt(String(size.text?.fontSize || 0)) - 2
                 },
                 input: {
-                    marginTop: 40,
                     paddingTop: 0
                 }
             })
         } else {
             return ({
                 legend_container: {
-                    top: height / 4,
+                    top: (height / 4) - 3,
                     left: parseInt(String(size.input?.paddingLeft || 0)),
                     zIndex: 1,
                     position: "absolute",
@@ -475,11 +479,11 @@ export const InputTextTheme = (theme: Theme) => ({
                     fontSize: parseInt(String(size.text?.fontSize || 0)) - 2
                 },
                 container: {
-                    height: height + height / 4
+                    height: height + (height / 4)
                 },
                 input: {
-                    height: height + height / 4,
-                    paddingTop: (value != undefined && value.length > 0) ? height / 4 : 0
+                    height: height + (height / 4),
+                    paddingTop: (value != undefined && value.length > 0) ? ((height / 4) + 5) : 0
                 }
             })
         }

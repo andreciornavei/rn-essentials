@@ -11,6 +11,8 @@ export const _Input = (): JSX.Element => {
     const theme = useTheme()
     const { goBack } = useNavigation()
 
+    const [control, setControl] = React.useState<string>("")
+
     return (
         <Scaffold
             backgroundColor={theme.color.white}
@@ -49,7 +51,10 @@ export const _Input = (): JSX.Element => {
                         placeholder="Nome"
                         labelPosition="boxed"
                         labelEffect="floating"
-                        bordered="outline"
+                        size="regular"
+                        value={control}
+                        defaultValue={control}
+                        onChangeText={(newvalue) => setControl(newvalue)}
                     />
                     {/*****************************************************/}
                     {/*****************************************************/}

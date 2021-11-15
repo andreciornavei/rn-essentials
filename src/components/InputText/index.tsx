@@ -35,7 +35,7 @@ export const InputText = ({
   // should add legend padding left to stay aligned correcly
   // when shapes is applied
   const [control, setControl] = React.useState<string | undefined>(props.value || props.defaultValue)
-
+  
   const inputStyle = [
     styles.form_input,
     themer.themes(applyProps.labelPosition == "boxed")[theme].input,
