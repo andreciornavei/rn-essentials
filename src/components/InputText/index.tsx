@@ -30,39 +30,38 @@ export const InputText = ({
 
   // should remove padding horizontal when exists icons
   // (icons already have symetric spaces)
-  const inputPaddingLeft = applyProps.leftIcon ? 0 : themer.sizes()[size].input?.paddingLeft || 0
+  const inputPaddingLeft = applyProps.leftIcon ? 0 : themer.sizes(applyProps.multiline)[size].input?.paddingLeft || 0
 
   // should add legend padding left to stay aligned correcly
   // when shapes is applied
-  const legendMarginLeft = shape == "pill" ? ((themer.sizes()[size].input?.paddingLeft || 0) as number / 2) : shape == "rounded" ? themer.shapes()[shape].container?.borderRadius : 0
-
-
-  const containerInputStyle = [
-    styles.form_input_container,
-    themer.themes()[theme].container,
-    themer.shapes()[shape].container,
-    themer.sizes()[size].container,
-    themer.bordered()[bordered].container,
-    applyProps.inputContainerStyle
-  ]
+  const [control, setControl] = React.useState<string | undefined>(props.value || props.defaultValue)
 
   const inputStyle = [
     styles.form_input,
-    themer.themes()[theme].input,
-    themer.shapes()[shape].input,
-    themer.sizes()[size].input,
+    themer.themes(applyProps.labelPosition == "boxed")[theme].input,
+    themer.shapes(themer.sizes(applyProps.multiline)[size])[shape].input,
+    themer.sizes(applyProps.multiline)[size].input,
     themer.bordered()[bordered].input,
-    themer.themes()[theme].text,
-    { ...themer.sizes()[size].text, paddingLeft: inputPaddingLeft },
+    themer.themes(applyProps.labelPosition == "boxed")[theme].text,
+    { ...themer.sizes(applyProps.multiline)[size].text, paddingLeft: inputPaddingLeft },
+    applyProps.labelPosition == "boxed" && themer.boxed(themer.sizes(applyProps.multiline)[size], control).input,
     applyProps.inputStyle
   ]
 
-  const [control, setControl] = React.useState<string | undefined>(props.value || props.defaultValue)
+  const containerInputStyle = [
+    styles.form_input_container,
+    themer.themes(applyProps.labelPosition == "boxed")[theme].container,
+    themer.shapes(themer.sizes(applyProps.multiline)[size])[shape].container,
+    themer.sizes(applyProps.multiline)[size].container,
+    themer.bordered()[bordered].container,
+    applyProps.labelPosition == "boxed" && themer.boxed(themer.sizes(applyProps.multiline)[size], control).container,
+    applyProps.inputContainerStyle
+  ]
 
   const callDebounce = (value: string, extracted?: any) => {
     props.onDebounce && props.onDebounce(value, extracted)
   }
-  
+
   const handleDebounceDelayed = _.debounce(callDebounce, props.debounceTime || 1000);
 
   const handleChangeText = (text: string, rawText?: string | undefined) => {
@@ -73,7 +72,7 @@ export const InputText = ({
 
   const _renderInput = () => {
 
-    const placeholderColor = themer.themes()[theme].text?.color || theming.color.dark
+    const placeholderColor = themer.themes(applyProps.labelPosition == "boxed")[theme].text?.color || theming.color.dark
 
     return (applyProps.mask || applyProps.maskType) ? (
       <TextInputMask
@@ -92,6 +91,8 @@ export const InputText = ({
         type={applyProps.maskType || "custom"}
         options={applyProps.maskType ? applyProps.maskOptions : { mask: applyProps.mask, }}
         editable={applyProps.editable}
+        multiline={applyProps.multiline != undefined}
+        numberOfLines={applyProps.multiline || 1}
       />
     ) : (
       <TextInput
@@ -106,6 +107,8 @@ export const InputText = ({
         defaultValue={applyProps.defaultValue}
         onChangeText={handleChangeText}
         editable={applyProps.editable}
+        multiline={applyProps.multiline != undefined}
+        numberOfLines={applyProps.multiline || 1}
       />
     );
   }
@@ -117,8 +120,8 @@ export const InputText = ({
           overflow: "hidden",
           alignItems: "center",
           justifyContent: "center",
-          width: themer.sizes()[size].container?.height,
-          height: themer.sizes()[size].container?.height,
+          width: themer.sizes(applyProps.multiline)[size].container?.height,
+          height: themer.sizes(applyProps.multiline)[size].container?.height,
         }, icon.style]}
         onPress={icon.action}
         disabled={icon.action == undefined}
@@ -126,8 +129,8 @@ export const InputText = ({
         <Icon
           pack={icon.pack}
           name={icon.name}
-          size={icon.size || themer.sizes()[size].text?.fontSize || 16}
-          color={icon.color || applyProps.inputStyle?.color || themer.themes()[theme].text?.color || theming.color.white}
+          size={icon.size || themer.sizes(applyProps.multiline)[size].text?.fontSize || 16}
+          color={icon.color || applyProps.inputStyle?.color || themer.themes(applyProps.labelPosition == "boxed")[theme].text?.color || theming.color.white}
         />
       </Ripple>
     )
@@ -148,16 +151,17 @@ export const InputText = ({
         <View style={[
           styles.form_legend,
           themer.position()[labelPosition].legend_container,
-          props.labelPosition == "over" && themer.themes()[theme].legend_container,
-          themer.shapes()[shape].legend_container,
-          { marginLeft: legendMarginLeft },
+          props.labelPosition == "over" && themer.themes(applyProps.labelPosition == "boxed")[theme].legend_container,
+          themer.shapes(themer.sizes(applyProps.multiline)[size])[shape].legend_container,
+          applyProps.labelPosition == "boxed" && themer.boxed(themer.sizes(applyProps.multiline)[size], control).legend_container,
           applyProps.legendContainerStyle
         ]}>
           <Text style={[
             styles.form_legend_value,
             themer.position()[labelPosition].legend_text,
-            props.labelPosition == "over" && themer.themes()[theme].legend_text,
-            themer.shapes()[shape].legend_text,
+            ["over", "boxed"].includes(String(props.labelPosition)) && themer.themes(applyProps.labelPosition == "boxed")[theme].legend_text,
+            themer.shapes(themer.sizes(applyProps.multiline)[size])[shape].legend_text,
+            applyProps.labelPosition == "boxed" && themer.boxed(themer.sizes(applyProps.multiline)[size], control).legend_text,
             applyProps.legendTextStyle
           ]}>
             {props.label}

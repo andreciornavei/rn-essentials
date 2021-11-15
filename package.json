@@ -1,6 +1,6 @@
 {
   "name": "@andreciornavei/rn-essentials",
-  "version": "1.9.2",
+  "version": "1.10.2",
   "description": "A React Native library containing all essential providers and components",
   "author": {
     "name": "André Ciornavei",

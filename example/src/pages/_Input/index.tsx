@@ -43,7 +43,14 @@ export const _Input = (): JSX.Element => {
                         labelPosition="over"
                         placeholder="Must stay over the form input..."
                     />
-
+                    <InputText
+                        marginTop={15}
+                        label="Nome"
+                        placeholder="Nome"
+                        labelPosition="boxed"
+                        labelEffect="floating"
+                        bordered="outline"
+                    />
                     {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>2 - Placeholder Effect</Text>
@@ -134,6 +141,16 @@ export const _Input = (): JSX.Element => {
                         label="Large"
                         placeholder="should have a large size..."
                         size="large"
+                    />
+
+                    {/*****************************************************/}
+                    {/*****************************************************/}
+                    <Text style={styles.label}>6 - Multiline</Text>
+                    <InputText
+                        marginTop={15}
+                        label="Multiline"
+                        placeholder="should have 4 lines to type..."
+                        multiline={4}
                     />
 
                     {/*****************************************************/}
@@ -374,7 +391,7 @@ export const _Input = (): JSX.Element => {
                         placeholder="Should format for password placeholder..."
                         secureTextEntry={true}
                     />
-                     {/*****************************************************/}
+                    {/*****************************************************/}
                     {/*****************************************************/}
                     <Text style={styles.label}>8 - Icons & Actions</Text>
                     <InputText
@@ -382,7 +399,7 @@ export const _Input = (): JSX.Element => {
                         label="Left Icon"
                         placeholder="Should render a left icon..."
                         leftIcon={{
-                            pack:"Feather",
+                            pack: "Feather",
                             name: "search"
                         }}
                     />
@@ -391,7 +408,7 @@ export const _Input = (): JSX.Element => {
                         label="Right Icon"
                         placeholder="Should render a right icon..."
                         rightIcon={{
-                            pack:"Feather",
+                            pack: "Feather",
                             name: "eye"
                         }}
                     />
@@ -400,11 +417,11 @@ export const _Input = (): JSX.Element => {
                         label="Left & Right Icon"
                         placeholder="Should render a left and right icon..."
                         leftIcon={{
-                            pack:"Feather",
+                            pack: "Feather",
                             name: "search"
                         }}
                         rightIcon={{
-                            pack:"Feather",
+                            pack: "Feather",
                             name: "eye"
                         }}
                     />
@@ -413,9 +430,9 @@ export const _Input = (): JSX.Element => {
                         label="Icon with action"
                         placeholder="Should render a right icon with action..."
                         rightIcon={{
-                            pack:"Feather",
+                            pack: "Feather",
                             name: "arrow-right",
-                            action: () => {}
+                            action: () => { }
                         }}
                     />
                     <InputText
@@ -423,9 +440,9 @@ export const _Input = (): JSX.Element => {
                         label="Custom styled icon "
                         placeholder="Should render custom styled icon..."
                         rightIcon={{
-                            pack:"Feather",
+                            pack: "Feather",
                             name: "arrow-right",
-                            action: () => {},
+                            action: () => { },
                             color: theme.color.white,
                             style: {
                                 backgroundColor: theme.color.primary,

@@ -57,10 +57,13 @@ interface InputTextBorder {
 interface InputTextPosition {
     "over": InputTextStructure
     "above": InputTextStructure
+    "boxed": InputTextStructure
 }
 
+const BOXED_OPACITY = "DD"
+
 export const InputTextTheme = (theme: Theme) => ({
-    themes: (): InputTextThemes => ({
+    themes: (boxed: boolean): InputTextThemes => ({
         "primary": {
             container: {
                 backgroundColor: theme.color.primary,
@@ -68,7 +71,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.primary, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.dark }
         },
         "secondary": {
             container: {
@@ -77,7 +80,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.dark }
         },
         "success": {
             container: {
@@ -86,7 +89,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.dark }
         },
         "danger": {
             container: {
@@ -95,7 +98,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.dark }
         },
         "warning": {
             container: {
@@ -104,7 +107,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.dark },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.dark}${BOXED_OPACITY}` : theme.color.dark }
         },
         "info": {
             container: {
@@ -113,7 +116,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.dark },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.dark}${BOXED_OPACITY}` : theme.color.dark }
         },
         "link": {
             container: {
@@ -122,7 +125,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.light, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.dark }
         },
         "light": {
             container: {
@@ -131,7 +134,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.dark },
             legend_container: { backgroundColor: theme.color.dark, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.light }
+            legend_text: { color: boxed ? `${theme.color.dark}${BOXED_OPACITY}` : theme.color.light }
         },
         "dark": {
             container: {
@@ -140,7 +143,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.dark, borderColor: theme.color.dark, borderWidth: 1 },
-            legend_text: { color: theme.color.light }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.light }
         },
         "muted": {
             container: {
@@ -149,7 +152,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.muted, borderColor: theme.color.light, borderWidth: 1 },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.white }
         },
         "white": {
             container: {
@@ -158,7 +161,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.dark },
             legend_container: { backgroundColor: theme.color.light },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.light}${BOXED_OPACITY}` : theme.color.dark }
         },
 
         "outline-primary": {
@@ -168,7 +171,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.primary },
             legend_container: { backgroundColor: theme.color.primary },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.primary}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-secondary": {
             container: {
@@ -177,7 +180,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.secondary },
             legend_container: { backgroundColor: theme.color.secondary },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.secondary}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-success": {
             container: {
@@ -186,7 +189,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.success },
             legend_container: { backgroundColor: theme.color.success },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.success}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-danger": {
             container: {
@@ -195,7 +198,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.danger },
             legend_container: { backgroundColor: theme.color.danger },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.danger}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-warning": {
             container: {
@@ -204,7 +207,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.warning },
             legend_container: { backgroundColor: theme.color.warning },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.warning}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-info": {
             container: {
@@ -213,7 +216,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.info },
             legend_container: { backgroundColor: theme.color.info },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.info}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-link": {
             container: {
@@ -222,7 +225,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.link },
             legend_container: { backgroundColor: theme.color.link },
-            legend_text: { color: theme.color.white }
+            legend_text: { color: boxed ? `${theme.color.link}${BOXED_OPACITY}` : theme.color.white }
         },
         "outline-dark": {
             container: {
@@ -231,7 +234,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.dark },
             legend_container: { backgroundColor: theme.color.dark },
-            legend_text: { color: theme.color.light }
+            legend_text: { color: boxed ? `${theme.color.dark}${BOXED_OPACITY}` : theme.color.light }
         },
         "outline-light": {
             container: {
@@ -240,7 +243,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.light },
             legend_container: { backgroundColor: theme.color.light },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.light}${BOXED_OPACITY}` : theme.color.dark }
         },
         "outline-muted": {
             container: {
@@ -249,7 +252,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.muted },
             legend_container: { backgroundColor: theme.color.muted },
-            legend_text: { color: theme.color.light }
+            legend_text: { color: boxed ? `${theme.color.muted}${BOXED_OPACITY}` : theme.color.light }
         },
         "outline-white": {
             container: {
@@ -258,22 +261,22 @@ export const InputTextTheme = (theme: Theme) => ({
             },
             text: { color: theme.color.white },
             legend_container: { backgroundColor: theme.color.white },
-            legend_text: { color: theme.color.dark }
+            legend_text: { color: boxed ? `${theme.color.white}${BOXED_OPACITY}` : theme.color.dark }
         },
     }),
-    sizes: (): InputTextSizes => ({
+    sizes: (multiline: number | undefined): InputTextSizes => ({
         "tiny": {
             container: {
-                height: 26,
+                height: multiline ? "auto" : 26,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 0,
                 paddingRight: 0
             },
             input: {
-                height: 26,
-                paddingTop: 0,
-                paddingBottom: 0,
+                height: multiline ? (multiline * 15) + 20 : 26,
+                paddingTop: multiline ? 10 : 0,
+                paddingBottom: multiline ? 10 : 0,
                 paddingLeft: 10,
                 paddingRight: 10
             },
@@ -283,16 +286,16 @@ export const InputTextTheme = (theme: Theme) => ({
         },
         "small": {
             container: {
-                height: 32,
+                height: multiline ? "auto" : 32,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 0,
                 paddingRight: 0
             },
             input: {
-                height: 32,
-                paddingTop: 0,
-                paddingBottom: 0,
+                height: multiline ? (multiline * 16) + 30 : 32,
+                paddingTop: multiline ? 15 : 0,
+                paddingBottom: multiline ? 15 : 0,
                 paddingLeft: 15,
                 paddingRight: 15
             },
@@ -302,35 +305,36 @@ export const InputTextTheme = (theme: Theme) => ({
         },
         "regular": {
             container: {
-                height: 45,
+                height: multiline ? "auto" : 45,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 0,
                 paddingRight: 0
             },
             input: {
-                height: 45,
-                paddingTop: 0,
-                paddingBottom: 0,
+                height: multiline ? (multiline * 18) + 40 : 45,
+                paddingTop: multiline ? 20 : 0,
+                paddingBottom: multiline ? 20 : 0,
                 paddingLeft: 20,
                 paddingRight: 20
             },
             text: {
                 fontSize: 14,
+                textAlignVertical: "top"
             },
         },
         "medium": {
             container: {
-                height: 52,
+                height: multiline ? "auto" : 52,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 0,
                 paddingRight: 0
             },
             input: {
-                height: 52,
-                paddingTop: 0,
-                paddingBottom: 0,
+                height: multiline ? (multiline * 20) + 50 : 52,
+                paddingTop: multiline ? 25 : 0,
+                paddingBottom: multiline ? 25 : 0,
                 paddingLeft: 25,
                 paddingRight: 25
             },
@@ -340,16 +344,16 @@ export const InputTextTheme = (theme: Theme) => ({
         },
         "large": {
             container: {
-                height: 62,
+                height: multiline ? "auto" : 62,
                 paddingTop: 0,
                 paddingBottom: 0,
                 paddingLeft: 0,
                 paddingRight: 0
             },
             input: {
-                height: 62,
-                paddingTop: 0,
-                paddingBottom: 0,
+                height: multiline ? (multiline * 22) + 60 : 62,
+                paddingTop: multiline ? 30 : 0,
+                paddingBottom: multiline ? 30 : 0,
                 paddingLeft: 30,
                 paddingRight: 30
             },
@@ -358,7 +362,7 @@ export const InputTextTheme = (theme: Theme) => ({
             },
         },
     }),
-    shapes: (): InputTextShapes => ({
+    shapes: (size: InputTextStructure): InputTextShapes => ({
         flat: {
             container: { borderRadius: 0 },
             input: { borderRadius: 0 },
@@ -367,12 +371,12 @@ export const InputTextTheme = (theme: Theme) => ({
         rounded: {
             container: { borderRadius: theme.roundSizeBase },
             input: { borderRadius: theme.roundSizeBase },
-            legend_container: { borderRadius: theme.roundSizeBase }
+            legend_container: { borderRadius: theme.roundSizeBase, left: theme.roundSizeBase, }
         },
         pill: {
             container: { borderRadius: 999 },
             input: { borderRadius: theme.roundSizeBase },
-            legend_container: { borderRadius: 999 }
+            legend_container: { borderRadius: 999, left: parseInt(String(size.input?.paddingLeft || 0)), }
         }
     }),
     bordered: (): InputTextBorder => ({
@@ -423,8 +427,63 @@ export const InputTextTheme = (theme: Theme) => ({
                 color: theme.color.light,
                 fontWeight: "500"
             }
-        }
+        },
+        boxed: {
+            legend_container: {
+                zIndex: 1,
+                position: "absolute",
+                borderRadius: 5,
+                paddingHorizontal: 0,
+            },
+            legend_text: {
+                fontSize: 14,
+                fontWeight: "500"
+            }
+        },
     }),
+    boxed: (size: InputTextStructure, value: string | undefined): InputTextStructure => {
+        const height = size.container?.height == "auto" ? 0 : parseInt(String(size.container?.height || 0))
+        if (size.container?.height == "auto") {
+            return ({
+                legend_container: {
+                    top: 15,
+                    left: parseInt(String(size.input?.paddingLeft || 0)),
+                    zIndex: 1,
+                    position: "absolute",
+                    borderRadius: 5
+                },
+                legend_text: {
+                    fontWeight: "500",
+                    fontSize: parseInt(String(size.text?.fontSize || 0)) - 2
+                },
+                input: {
+                    marginTop: 40,
+                    paddingTop: 0
+                }
+            })
+        } else {
+            return ({
+                legend_container: {
+                    top: height / 4,
+                    left: parseInt(String(size.input?.paddingLeft || 0)),
+                    zIndex: 1,
+                    position: "absolute",
+                    borderRadius: 5
+                },
+                legend_text: {
+                    fontWeight: "500",
+                    fontSize: parseInt(String(size.text?.fontSize || 0)) - 2
+                },
+                container: {
+                    height: height + height / 4
+                },
+                input: {
+                    height: height + height / 4,
+                    paddingTop: (value != undefined && value.length > 0) ? height / 4 : 0
+                }
+            })
+        }
+    },
     utils: () => ({
         center: {
             justifyContent: "center",

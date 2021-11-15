@@ -2,7 +2,7 @@ import { KeyboardTypeOptions, TextStyle, ViewStyle } from "react-native"
 import { TextInputMaskOptionProp, TextInputMaskTypeProp } from "react-native-masked-text"
 import { ThemeColorType, ThemeIconType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
 
-export type InputTextLabelPositionType = "over" | "above"
+export type InputTextLabelPositionType = "over" | "above" | "boxed"
 export type InputTextLabelEffect = "fixed" | "floating"
 export type InputTextBorderType = "none" | "outline" | "underline"
 
@@ -39,6 +39,7 @@ export type InputTextProps = {
     maskOptions?: TextInputMaskOptionProp
     width?: string
     editable?: boolean
+    multiline?: number
     // custom styles
     wrapStyle?: ViewStyle
     inputContainerStyle?: ViewStyle
