@@ -10,23 +10,29 @@ const SAMPLE_OPTIONS: InputRadioOption[] = [
     {
         "label": "First option",
         "value": "first_option",
-        "iconPack": "MaterialCommunityIcons",
-        "iconName": "numeric-1",
-        "iconSize": 21
+        "rightIcon": {
+            pack: "MaterialCommunityIcons",
+            name: "numeric-1",
+            space: "auto"
+        }
     },
     {
         "label": "Second option",
         "value": "second_option",
-        "iconPack": "MaterialCommunityIcons",
-        "iconName": "numeric-2",
-        "iconSize": 21
+        "rightIcon": {
+            pack: "MaterialCommunityIcons",
+            name: "numeric-2",
+            space: "auto"
+        }
     },
     {
         "label": "Third option",
         "value": "third_option",
-        "iconPack": "MaterialCommunityIcons",
-        "iconName": "numeric-3",
-        "iconSize": 21
+        "rightIcon": {
+            pack: "MaterialCommunityIcons",
+            name: "numeric-3",
+            space: "auto"
+        }
     }
 ]
 
@@ -63,6 +69,24 @@ export const _InputRadio = (): JSX.Element => {
                         options={SAMPLE_OPTIONS}
                         value={selectedSingleValue}
                         onSelect={setSelectedSingleValue}
+                        selectedOptions={{
+                            theme: "primary",
+                            shape: "flat",
+                            leftIcon: {
+                                pack: "Ionicons",
+                                name: "radio-button-on",
+                                space: 15
+                            }
+                        }}
+                        unselectedOptions={{
+                            theme: "light",
+                            shape: "flat",
+                            leftIcon: {
+                                pack: "Ionicons",
+                                name: "radio-button-off",
+                                space: 15
+                            }
+                        }}
                     />
 
                     {/*****************************************************/}
@@ -73,6 +97,12 @@ export const _InputRadio = (): JSX.Element => {
                         options={SAMPLE_OPTIONS}
                         value={selectedMultipleValue}
                         onSelect={setSelectedMultipleValue}
+                        selectedOptions={{
+                            theme: "primary"
+                        }}
+                        unselectedOptions={{
+                            theme: "white"
+                        }}
                     />
 
                     {/*****************************************************/}
@@ -86,6 +116,12 @@ export const _InputRadio = (): JSX.Element => {
                             return SAMPLE_OPTIONS
                         }}
                         onSelect={setSelectedSingleValue}
+                        selectedOptions={{
+                            theme: "primary"
+                        }}
+                        unselectedOptions={{
+                            theme: "white"
+                        }}
                     />
 
 
@@ -97,8 +133,12 @@ export const _InputRadio = (): JSX.Element => {
                         options={SAMPLE_OPTIONS}
                         value={selectedSingleValue}
                         onSelect={setSelectedSingleValue}
-                        textColor={theme.color.muted}
-                        selectedTextColor={theme.color.primary}
+                        selectedOptions={{
+                            theme: "primary"
+                        }}
+                        unselectedOptions={{
+                            theme: "white"
+                        }}
                     />
                 </ScrollView>
             }

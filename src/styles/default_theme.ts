@@ -52,7 +52,6 @@ export const defaultTheme: ThemeType = {
       textStyle: {},
       iconPack: undefined,
       iconName: undefined,
-      open: false,
     },
     form_input: {
       theme: "light",
@@ -94,6 +93,33 @@ export const defaultTheme: ThemeType = {
         label: {},
         left_icon: {},
         right_icon: {},
+      }
+    },
+    input_select: {
+      theme: "outline-dark",
+      shape: "flat",
+      size: "regular",
+      containerStyle: {},
+      textStyle: {},
+      iconPack: undefined,
+      iconName: undefined,
+      selectedOptions: {
+        theme: "light",
+        shape: "flat",
+        leftIcon: {
+          pack: "Ionicons",
+          name: "radio-button-on",
+          space: 15
+        },
+      },
+      unselectedOptions: {
+        theme: "light",
+        shape: "flat",
+        leftIcon: {
+          pack: "Ionicons",
+          name: "radio-button-off",
+          space: 15
+        }
       }
     },
     sheet_input_text: {

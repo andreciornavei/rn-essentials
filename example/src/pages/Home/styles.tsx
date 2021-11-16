@@ -2,9 +2,9 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
         backgroundColor: '#fff',
-        paddingVertical: 15
+        paddingVertical: 15,
+        paddingBottom: 150
     },
     title: {
         fontSize: 21,

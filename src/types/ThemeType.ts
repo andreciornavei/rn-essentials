@@ -1,12 +1,13 @@
 import { ViewStyle } from "react-native";
 import { IconPackType } from "..";
-import { AccordionProps } from "../components/Accordion/types";
+import { AccordionStyleProps } from "../components/Accordion/types";
 import { ButtonProps } from "../components/Button/types";
+import { InputSelectStyleProps } from "../components/InputSelect/types";
 import { InputSheetStyleProps } from "../components/InputSheet/types";
 import { InputTextProps } from "../components/InputText/types";
 import { TabNavStyleProps } from "../components/TabNav/types";
 import { TabPanelStyleProps } from "../components/TabPanel/types";
-import { SheetInputStyleProps, SheetInputTextProps } from "../sheets/SheetInputText/types";
+import { SheetInputStyleProps } from "../sheets/SheetInputText/types";
 
 export type ThemeColorType = "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark" | "muted" | "white" | "outline-primary" | "outline-secondary" | "outline-success" | "outline-danger" | "outline-warning" | "outline-info" | "outline-link" | "outline-light" | "outline-dark" | "outline-muted" | "outline-white"
 
@@ -19,7 +20,7 @@ export type ThemeIconType = {
   name: string
   size?: number
   color?: string
-  space?: number,
+  space?: number | "auto",
   style?: ViewStyle
   action?: () => void
 }
@@ -32,7 +33,7 @@ export type ThemeLoadingType = {
 export type ThemeImageType = {
   src: any
   size?: number,
-  space?: number
+  space?: number | "auto"
 }
 
 export type ThemePositionType = "left" | "right"
@@ -69,11 +70,12 @@ export type ThemeType = {
   },
   components: {
     button: ButtonProps
-    accordion: AccordionProps
+    accordion: AccordionStyleProps
     form_input: InputTextProps
     tab_nav: TabNavStyleProps
     tab_panel: TabPanelStyleProps
     input_sheet: InputSheetStyleProps
+    input_select: InputSelectStyleProps
     sheet_input_text: SheetInputStyleProps
   }
 }

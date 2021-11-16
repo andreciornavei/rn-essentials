@@ -1,69 +1,24 @@
 import React from "react"
-import { Text, View } from "react-native"
-import { createStyle } from "./styles"
-import { Icon } from "../Icon"
-import { FlatList } from "react-native-gesture-handler"
 import _ from "lodash"
-import { IconPackType, Ripple, useTheme } from "../.."
-import { ColorValue } from "react-native"
+import { View } from "react-native"
+import { createStyle } from "./styles"
+import { FlatList } from "react-native-gesture-handler"
+import { Button, useTheme } from "../.."
+import { InputRadioMultipleValue, InputRadioOption, InputRadioSingleValue, InputRadioProps } from "./types"
 
-export interface InputRadioOption {
-    value: string | number
-    label: string
-    iconPack?: IconPackType
-    iconName?: string
-    iconSize?: number
-}
 
-interface StyleProps {
-    textColor?: ColorValue
-    selectedTextColor?: ColorValue
-    textSize?: number
-    textMargin?: number
-    textItalic?: boolean
-}
 
-interface BaseProps extends StyleProps {
-    options: Array<InputRadioOption>
-    disabled?: boolean
-    virtualized?: boolean
-    renderLastLine?: boolean
-    renderFirstLine?: boolean
-    loadOptions?: () => Promise<Array<InputRadioOption>>
-    onLoadedOptions?: (options: Array<InputRadioOption>) => void
-}
-
-export type InputRadioSingleValue = String | number | undefined
-export type InputRadioMultipleValue = InputRadioSingleValue[] | undefined
-
-interface SingleProps extends BaseProps {
-    mode: "single"
-    value?: InputRadioSingleValue
-    onSelect: (value: InputRadioSingleValue) => void
-}
-
-interface MultipleProps extends BaseProps {
-    mode: "multiple"
-    value?: InputRadioMultipleValue
-    onSelect: (value: InputRadioMultipleValue) => void
-}
-
-type Props = SingleProps | MultipleProps
 
 export const InputRadio = ({
     disabled = false,
-    textSize = 12,
     renderFirstLine = false,
     renderLastLine = true,
     virtualized = false,
     ...props
-}: Props): JSX.Element => {
+}: InputRadioProps): JSX.Element => {
 
     const theme = useTheme()
     const styles = createStyle(theme)
-    const textColor = props.textColor || theme.color.gray
-    const selectedTextColor = props.selectedTextColor || theme.color.accentText
-
     const [loading, setLoading] = React.useState<boolean>(false)
     const [options, setOptions] = React.useState<Array<InputRadioOption>>(props.options)
 
@@ -102,40 +57,20 @@ export const InputRadio = ({
     }, [])
 
     const renderRadioItem = (item: InputRadioOption, index: number): JSX.Element => {
+        const selected = isSelected(item)
         return (
-            <Ripple
+            <Button
                 key={`option-idx-${index}`}
-                containerStyle={[
-                    styles.selectionContainer,
-                    disabled ? { opacity: 0.7 } : {}
-                ]}
+                label={item.label}
                 disabled={disabled}
-                duration={250}
-                slowDuration={250}
                 onPress={() => handleCallback(item)}
-            >
-                <>
-                    {(item.iconPack && item.iconName) && (
-                        <Icon
-                            pack={item.iconPack}
-                            name={item.iconName}
-                            size={item.iconSize || textSize}
-                            color={isSelected(item) ? selectedTextColor : textColor}
-                            style={{ marginRight: 15 }}
-                        />
-                    )}
-                    <Text style={[
-                        styles.selectionValue,
-                        {
-                            fontSize: textSize,
-                            fontStyle: props.textItalic ? "italic" : "normal",
-                            marginLeft: props.textMargin ?? 0,
-                            color: isSelected(item) ? selectedTextColor : textColor
-                        }
-                    ]}>{item.label}</Text>
-                    {isSelected(item) && <Icon pack="Feather" name="check" size={textSize ?? 14} color={selectedTextColor} />}
-                </>
-            </Ripple>
+                {...(selected ? props.selectedOptions : props.unselectedOptions)}
+                leftImage={item.leftImage||selected ? props.selectedOptions?.leftImage : props.unselectedOptions?.leftImage}
+                leftIcon={item.leftIcon ? item.leftIcon : (selected ? props.selectedOptions?.leftIcon : props.unselectedOptions?.leftIcon)}
+                rightImage={item.rightImage || selected ? props.selectedOptions?.rightImage : props.unselectedOptions?.rightImage}
+                rightIcon={item.rightIcon ? item.rightIcon : selected ? props.selectedOptions?.rightIcon : props.unselectedOptions?.rightIcon}
+                containerStyle={{ marginTop: props.space || 0 }}
+            />
         )
     }
 

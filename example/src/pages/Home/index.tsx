@@ -1,7 +1,7 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
 import { Text } from "react-native"
-import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Action, useApi } from "@andreciornavei/rn-essentials"
+import { Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Action, useApi, Button } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
@@ -31,7 +31,7 @@ export const Home = (): JSX.Element => {
                 />
             }
             body={
-                <ScrollView style={[styles.container]}>
+                <ScrollView contentContainerStyle={[styles.container]}>
                     <Text style={styles.title}>
                         Available Components
                     </Text>
@@ -67,6 +67,12 @@ export const Home = (): JSX.Element => {
                         iconName="radio-btn-active"
                         label="Form / Input Radio"
                         onPress={() => navigate("/component_input_radio")}
+                    />
+                    <Action
+                        iconPack="MaterialCommunityIcons"
+                        iconName="form-dropdown"
+                        label="Form / Select"
+                        onPress={() => navigate("/component_input_select")}
                     />
                     <Action
                         iconPack="Ionicons"
@@ -106,7 +112,10 @@ export const Home = (): JSX.Element => {
                     />
 
                 </ScrollView>
-            }
+            }            
+            float={<Button theme="dark" label="Floating button" shape="pill" />}
+            floatLocation="center"
+            floatBottom={25}
         />
     )
 }

@@ -2,11 +2,12 @@ import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
     container: {
-
+        overflow: "hidden"
     },
     selectionContainer: {
         flexDirection: "row",
         alignItems: "center",
+        overflow: "hidden",
         borderBottomWidth: 1,
         borderBottomColor: "rgba(0,0,0,0.05)",
         paddingVertical: 15,
