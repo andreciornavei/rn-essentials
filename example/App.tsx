@@ -12,6 +12,7 @@ import { _TabPanel } from './src/pages/_TabPanel';
 import { _InputRadio } from './src/pages/_InputRadio';
 import { _ListFetcher } from './src/pages/_ListFetcher';
 import { _InputSelect } from './src/pages/_InputSelect';
+import { _InputCheckbox } from './src/pages/_InputCheckbox';
 
 export default function App() {
   return (
@@ -26,8 +27,8 @@ export default function App() {
         { name: "/component_sheet", component: _Sheet },
         { name: "/component_input", component: _Input },
         { name: "/component_input_radio", component: _InputRadio },
-        { name: "/component_input_select", component: _InputSelect },
-        
+        { name: "/component_input_checkbox", component: _InputCheckbox },        
+        { name: "/component_input_select", component: _InputSelect },        
         { name: "/component_tabnav", component: _TabNav },
         { name: "/component_morphlist", component: _MorphList },
         { name: "/component_listfetcher", component: _ListFetcher },        

@@ -69,6 +69,12 @@ export const Home = (): JSX.Element => {
                         onPress={() => navigate("/component_input_radio")}
                     />
                     <Action
+                        iconPack="Fontisto"
+                        iconName="checkbox-active"
+                        label="Form / Checkbox"
+                        onPress={() => navigate("/component_input_checkbox")}
+                    />
+                    <Action
                         iconPack="MaterialCommunityIcons"
                         iconName="form-dropdown"
                         label="Form / Select"

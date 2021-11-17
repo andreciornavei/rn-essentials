@@ -44,6 +44,7 @@ export const defaultTheme: ThemeType = {
       shadow: false,
       loading: false
     },
+    checkbox: {},
     accordion: {
       theme: "primary",
       shape: "flat",

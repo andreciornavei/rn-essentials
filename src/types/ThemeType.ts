@@ -1,5 +1,5 @@
 import { ViewStyle } from "react-native";
-import { IconPackType } from "..";
+import { CheckboxStyleProps, IconPackType } from "..";
 import { AccordionStyleProps } from "../components/Accordion/types";
 import { ButtonProps } from "../components/Button/types";
 import { InputSelectStyleProps } from "../components/InputSelect/types";
@@ -70,6 +70,7 @@ export type ThemeType = {
   },
   components: {
     button: ButtonProps
+    checkbox: CheckboxStyleProps
     accordion: AccordionStyleProps
     form_input: InputTextProps
     tab_nav: TabNavStyleProps
