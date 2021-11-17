@@ -67,11 +67,11 @@ export const _InputSelect = (): JSX.Element => {
                         onSelect={setSelectedSingleValue}
                         size="medium"
                         shape="rounded"
-                        theme="primary"
+                        theme="outline-dark"
                         placeholder="Forma de pagamento"
                         containerStyle={{
                             borderWidth: 1,
-                            borderColor: theme.color.shadow
+                            borderColor: theme.color.dark
                         }}
                     />
                 </ScrollView>
