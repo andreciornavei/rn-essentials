@@ -19,6 +19,7 @@ export const InputText = ({
   const theming = useTheme()
   const themer = InputTextTheme(theming)
   const styles = createStyle(theming)
+  const [debounceTimeout, setDebounceTimeout] = React.useState<NodeJS.Timeout|undefined>()
   const applyProps = { ...theming.components.form_input, ...props }
   const theme: ThemeColorType = applyProps.theme || "light"
   const shape: ThemeShapeType = applyProps.shape || "flat"
@@ -35,7 +36,7 @@ export const InputText = ({
   // should add legend padding left to stay aligned correcly
   // when shapes is applied
   const [control, setControl] = React.useState<string | undefined>(props.value || props.defaultValue)
-  
+
   const inputStyle = [
     styles.form_input,
     themer.themes(applyProps.labelPosition == "boxed")[theme].input,
@@ -59,10 +60,13 @@ export const InputText = ({
   ]
 
   const callDebounce = (value: string, extracted?: any) => {
-    props.onDebounce && props.onDebounce(value, extracted)
+    applyProps.onDebounce && applyProps.onDebounce(value, extracted)
   }
 
-  const handleDebounceDelayed = _.debounce(callDebounce, props.debounceTime || 1000);
+  const handleDebounceDelayed = (text: string, rawText?: any) => {
+    if(debounceTimeout) clearTimeout(debounceTimeout)
+    setDebounceTimeout(setTimeout(() => callDebounce(text, rawText), applyProps.debounceTime || 1000))
+  }
 
   const handleChangeText = (text: string, rawText?: string | undefined) => {
     setControl(text)

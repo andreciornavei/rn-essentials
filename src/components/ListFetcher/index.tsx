@@ -17,7 +17,7 @@ export type ListFectherFunctions<T> = {
 
 type OmitFlatListProps = "data" | "keyExtractor" | "refreshing" | "onRefresh" | "onEndReachedThreshold" | "onEndReached"
 
-interface Props<T> extends Omit<FlatListProps<T>, OmitFlatListProps> {
+export interface ListFectcherProps<T> extends Omit<FlatListProps<T>, OmitFlatListProps> {
     limit?: number
     renderReached?: boolean
     disableLoadMore?: boolean
@@ -28,7 +28,7 @@ interface Props<T> extends Omit<FlatListProps<T>, OmitFlatListProps> {
     onRefresh?: () => void
 }
 
-export const ListFecther = React.forwardRef(<T extends any>({ renderReached = true, ...props }: Props<T>, ref: Ref<ListFectherFunctions<T>>): JSX.Element => {
+export const ListFecther = React.forwardRef(<T extends any>({ renderReached = true, ...props }: ListFectcherProps<T>, ref: Ref<ListFectherFunctions<T>>): JSX.Element => {
 
     const theme = useTheme()
     const flatlistRef = React.createRef<FlatList<T>>()

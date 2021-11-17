@@ -73,6 +73,8 @@ export * from "./components/ListFetcher/types"
 export * from "./sheets/SheetConfirmation"
 export * from "./sheets/SheetActions"
 export * from "./sheets/SheetInputText"
+export * from "./sheets/SheetListFetcher"
+export * from "./sheets/SheetListFetcher/types"
 
 //**********************************//
 // EXPORTING UTILS                  //

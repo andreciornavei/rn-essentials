@@ -42,7 +42,7 @@ export const InputSelect = (props: InputSelectProps): JSX.Element => {
                     value={selectedSingleValue}
                     onSelect={handleSelectValue}
                     renderLastLine={false}
-                    renderFirstLine={true}
+                    renderFirstLine={false}
                     unselectedOptions={applyProps.unselectedOptions}
                     selectedOptions={applyProps.selectedOptions}
                 />
