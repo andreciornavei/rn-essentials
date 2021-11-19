@@ -15,6 +15,7 @@ export const InputSelect = (props: InputSelectProps): JSX.Element => {
     const handleSelectValue = (value: InputRadioSingleValue) => {
         setOpen(false)
         setSelectedSingleValue(value)
+        props.onSelect && props.onSelect(value)
     }
 
     return (
