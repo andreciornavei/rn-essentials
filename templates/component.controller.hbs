@@ -1,0 +1,12 @@
+import React from "react"
+import { {{name}}Context } from "./context"
+import { {{name}}ControllerProps } from "./types"
+
+export const {{name}}Controller = (props: {{name}}ControllerProps): JSX.Element => {
+    const state = {}
+    return (
+        <{{name}}Context.Provider value={state}>
+            { props.children }
+        </{{name}}Context.Provider>
+    )
+}

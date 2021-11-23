@@ -34,6 +34,89 @@ export default function App() {
   );
 }
 ```
+---
+
+## _Using Plopfile_
+
+This library implements some code generator for component boilerplates, so if you want to use it to make your own components following my guidelines for components, then follow these steps:
+
+### 1 - Add plop to your project
+```bash
+$ yarn add -D plop
+```
+
+### 3 - Create the following plopfile.js at the root of your project
+```js
+module.exports = function (plop) {
+    // or in es6/es2015
+    plop.setHelper('upperCase', (txt) => txt.toUpperCase());
+  
+    plop.setGenerator('component', {
+      description: 'Boilerplate component',
+      prompts: [
+        {
+          type: 'input',
+          name: 'name',
+          message: 'Please use UpperCamelCase\n Component name:',
+        },
+        {
+          type: 'input',
+          name: 'path',
+          message: 'Provide the path where the component will be placed;\nDo not use slashes at the beginning or end of the path;\n Component path:',
+        },
+      ],
+      actions: [
+        {
+          type: 'add',
+          path: './{{path}}/{{name}}/context.ts',
+          templateFile: './node_modules/@andreciornavei/rn-essentials/templates/component.context.hbs',
+        },
+        {
+          type: 'add',
+          path: './{{path}}/{{name}}/controller.tsx',
+          templateFile: './node_modules/@andreciornavei/rn-essentials/templates/component.controller.hbs',
+        },
+        {
+          type: 'add',
+          path: './{{path}}/{{name}}/index.tsx',
+          templateFile: './node_modules/@andreciornavei/rn-essentials/templates/component.index.hbs',
+        },
+        {
+          type: 'add',
+          path: './{{path}}/{{name}}/styles.ts',
+          templateFile: './node_modules/@andreciornavei/rn-essentials/templates/component.styles.hbs',
+        },
+        {
+          type: 'add',
+          path: './{{path}}/{{name}}/types.ts',
+          templateFile: './node_modules/@andreciornavei/rn-essentials/templates/component.types.hbs',
+        },
+        {
+          type: 'add',
+          path: './{{path}}/{{name}}/view.tsx',
+          templateFile: './node_modules/@andreciornavei/rn-essentials/templates/component.view.hbs',
+        },
+      ],
+    });
+  };  
+```
+
+### 3 - Add plop command to your package.json scripts
+```json
+{
+  ...
+  "scripts": {
+    ...
+    "generate-component": "plop",
+    ...
+  }
+  ...
+}
+```
+### 4 - Run the command
+```bash
+$ yarn generate-component
+```
 
 ---
 
