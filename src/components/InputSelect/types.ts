@@ -1,12 +1,13 @@
 import { InputRadioProps, InputRadioSingleValue } from "../..";
-import { AccordionStyleProps } from "../Accordion/types";
+import { AccordionProps, AccordionStyleProps } from "../Accordion/types";
 
 
-export interface InputSelectStyleProps extends AccordionStyleProps, Pick<InputRadioProps, "unselectedOptions" | "selectedOptions"> { }
+export type InputSelectStyleProps = AccordionStyleProps & Pick<InputRadioProps, "unselectedOptions" | "selectedOptions">
 
-interface InputSelectMixingProps extends Pick<InputRadioProps, "options" | "value"> { }
+type InputSelectRadioProps = Pick<InputRadioProps, "options" | "value">
 
-export interface InputSelectProps extends InputSelectStyleProps, InputSelectMixingProps {
-    placeholder: string
+type InputSelectAccordionProps = Pick<AccordionProps, "placeholder" | "placeholderStrategy">
+
+export type InputSelectProps = InputSelectStyleProps & InputSelectAccordionProps & InputSelectRadioProps & {
     onSelect?: (value: InputRadioSingleValue) => void
 }

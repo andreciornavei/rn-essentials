@@ -11,13 +11,15 @@ export interface AccordionStyleProps {
     iconName?: string
     containerStyle?: ViewStyle
     textStyle?: TextStyle
+    placeholderStyle?: TextStyle
 }
 
 export interface AccordionProps extends AccordionStyleProps {
     name?: string
     placeholder?: string
+    placeholderStrategy?: "default" | "pushed"
     value?: any
-    open?: boolean    
+    open?: boolean
     onClick?: (name: string) => void
-    children?: JSX.Element | Array<JSX.Element>    
+    children?: JSX.Element | Array<JSX.Element>
 }

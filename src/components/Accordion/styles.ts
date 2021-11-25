@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native"
 
 export default StyleSheet.create({
-    container: {
+    wrapper: {
         overflow: "hidden"
     },
-    selectionContainer: {
+    container: {
         flexDirection: "row",
         alignItems: "center",
         overflow: "hidden",
@@ -13,10 +13,17 @@ export default StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 15
     },
-    selectionValue: {
+    container_text:{
         flex: 1,
         paddingRight: 25,
+        flexDirection: "column",
+    },
+    placeholder: {
+        fontWeight: "400",
+        fontSize: 12
+    },
+    text: {
         fontWeight: "400",
         fontSize: 14
-    }
+    },
 })

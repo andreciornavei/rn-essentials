@@ -10,7 +10,7 @@ export const InputSelect = (props: InputSelectProps): JSX.Element => {
     const applyProps = { ...theme.components.input_select, ...props }
 
     const styles = createStyle(theme)
-    const [selectedSingleValue, setSelectedSingleValue] = React.useState<InputRadioSingleValue>(undefined)
+    const [selectedSingleValue, setSelectedSingleValue] = React.useState<InputRadioSingleValue>(props.value ? String(props.value) : undefined)
     const [open, setOpen] = React.useState<boolean>(false)
     const handleSelectValue = (value: InputRadioSingleValue) => {
         setOpen(false)
@@ -26,6 +26,7 @@ export const InputSelect = (props: InputSelectProps): JSX.Element => {
             shape={applyProps.shape}
             theme={applyProps.theme}
             placeholder={props.placeholder}
+            placeholderStrategy={props.placeholderStrategy}
             onClick={() => setOpen((old) => !old)}
             containerStyle={{
                 ...applyProps.containerStyle,
@@ -33,6 +34,8 @@ export const InputSelect = (props: InputSelectProps): JSX.Element => {
                 borderBottomRightRadius: open ? 0 : 8,
                 borderBottomColor: applyProps.containerStyle?.borderColor || theme.color.dark
             }}
+            textStyle={applyProps.textStyle}
+            placeholderStyle={applyProps.placeholderStyle}
         >
             <View style={[styles.container, {
                 borderColor: applyProps.containerStyle?.borderColor || theme.color.dark

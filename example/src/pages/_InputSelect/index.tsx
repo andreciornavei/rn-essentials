@@ -1,6 +1,6 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
-import { InputRadioOption, InputRadioSingleValue, InputSelect, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle } from "@andreciornavei/rn-essentials"
+import { InputRadioOption, InputRadioSingleValue, InputSelect, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Space } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
@@ -44,7 +44,7 @@ export const _InputSelect = (): JSX.Element => {
     const theme = useTheme()
     const { goBack } = useNavigation()
     const [selectedSingleValue, setSelectedSingleValue] = React.useState<InputRadioSingleValue>(undefined)
-  
+
     return (
         <Scaffold
             backgroundColor={theme.color.white}
@@ -72,6 +72,27 @@ export const _InputSelect = (): JSX.Element => {
                         containerStyle={{
                             borderWidth: 1,
                             borderColor: theme.color.dark
+                        }}
+                    />
+
+                    <Space height={15} />
+
+                    <InputSelect
+                        value={SAMPLE_OPTIONS.find((e => e.value == selectedSingleValue))?.label || "google_pay"}
+                        options={SAMPLE_OPTIONS}
+                        onSelect={setSelectedSingleValue}
+                        size="medium"
+                        shape="rounded"
+                        theme="outline-dark"
+                        placeholder="Default selection"
+                        placeholderStrategy="pushed"
+                        containerStyle={{
+                            borderWidth: 1,
+                            borderColor: theme.color.dark
+                        }}
+                        placeholderStyle={{
+                            color: theme.color.gray,
+                            fontSize: 12
                         }}
                     />
                 </ScrollView>

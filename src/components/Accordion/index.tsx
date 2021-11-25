@@ -8,7 +8,6 @@ import { AccordionProps } from "./types"
 import { AccordionTheme } from "./theme"
 import { ViewStyle } from "react-native"
 import { ThemeColorType, ThemeShapeType, ThemeSizeType } from "../../types/ThemeType"
-import { normalizeStyleSize } from "../../utils/normalizeStyleSize"
 
 export const Accordion = (props: AccordionProps): JSX.Element => {
 
@@ -18,14 +17,13 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
     const theme: ThemeColorType = applyProps.theme || "primary"
     const size: ThemeSizeType = applyProps.size || "regular"
     const shape: ThemeShapeType = applyProps.shape || "flat"
-
     const [open, setOpen] = useState(props.open || false)
 
     return (
-        <View style={styles.container}>
+        <View style={styles.wrapper}>
             <Ripple
                 containerStyle={[
-                    styles.selectionContainer,
+                    styles.container,
                     themer.themes()[theme].container as ViewStyle,
                     themer.sizes()[size].container as ViewStyle,
                     themer.shapes()[shape].container as ViewStyle,
@@ -47,17 +45,30 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                         />
                     )}
                 </>
-                <Text
-                    style={[
-                        styles.selectionValue,
-                        themer.themes()[theme].text,
-                        themer.sizes()[size].text,
-                        applyProps.textStyle,
-                        { color: themer.themes()[theme].text?.color || theming.color.dark },
-                    ]}>
-                    {applyProps.value ?? applyProps.placeholder ?? "-- touch to open --"}
-                </Text>
-
+                <View style={[styles.container_text]}>
+                    {(applyProps.placeholderStrategy == "pushed" && applyProps.value) &&
+                        <Text
+                            style={[
+                                styles.placeholder,
+                                themer.themes()[theme].placeholder,
+                                themer.sizes()[size].placeholder,
+                                applyProps.placeholderStyle,
+                                { color: applyProps.placeholderStyle?.color || themer.themes()[theme].placeholder?.color || theming.color.dark },
+                            ]}>
+                            {applyProps.placeholder ?? "-- touch to open --"}
+                        </Text>
+                    }
+                    <Text
+                        style={[
+                            styles.text,
+                            themer.themes()[theme].text,
+                            themer.sizes()[size].text,
+                            applyProps.textStyle,
+                            { color: applyProps.textStyle?.color || themer.themes()[theme].text?.color || theming.color.dark },
+                        ]}>
+                        {applyProps.value ?? applyProps.placeholder ?? "-- touch to open --"}
+                    </Text>
+                </View>
                 <Icon
                     pack="Feather"
                     name={`chevron-${(props.open === undefined ? open : props.open) ? "up" : "down"}`}
