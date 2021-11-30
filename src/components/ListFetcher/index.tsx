@@ -81,7 +81,7 @@ export const ListFecther = React.forwardRef(<T extends any>({ renderReached = tr
         },
         // Expose reset to be called from parent
         reset() {
-            flatlistRef.current?.scrollToIndex({ index: 0, animated: false })
+            flatlistRef.current?.scrollToOffset({ offset: 0, animated: false })
             loadMoreData({
                 reset: true,
                 start: 0,
