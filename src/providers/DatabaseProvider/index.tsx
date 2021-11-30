@@ -1,11 +1,12 @@
 import React from "react"
 import { ActivityIndicator } from "react-native";
-import { Connection, createConnection, EntitySchema } from "typeorm";
-
+import { Connection, ConnectionOptions, createConnection, EntitySchema } from "typeorm";
+import * as FileSystem from 'expo-file-system';
 
 export interface DatabaseProps {
     dbName?: string
     dbEntities?: (string | Function | EntitySchema<any>)[] | undefined
+    dbOptions?: ConnectionOptions
     children?: JSX.Element
 }
 
@@ -21,13 +22,14 @@ export const DatabaseProvider = (props: DatabaseProps) => {
     const connect = React.useCallback(async () => {
         if (!props.dbName) return
         const createdConnection = await createConnection({
+            ...props.dbOptions,
             type: 'expo',
             database: props.dbName,
             driver: require('expo-sqlite'),
             entities: props.dbEntities,
-            synchronize: true,
         });
-        setConnection(createdConnection);
+        console.log("Loaded sqlite from:", `${FileSystem.documentDirectory}SQLite/${props.dbName}'}`)        
+       setConnection(createdConnection);
     }, []);
 
     React.useEffect(() => {
