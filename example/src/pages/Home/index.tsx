@@ -26,6 +26,9 @@ export const Home = (): JSX.Element => {
                         iconPack: "Feather",
                         iconName: "bell",
                         color: theme.color.accentText,
+                        alert: 5,
+                        alertStyle: { backgroundColor: theme.color.danger, top: 20 },
+                        alertTextStyle: { fontWeight: "bold" },
                         action: () => { }
                     }]}
                 />
@@ -118,7 +121,7 @@ export const Home = (): JSX.Element => {
                     />
 
                 </ScrollView>
-            }            
+            }
             float={<Button theme="dark" label="Floating button" shape="pill" />}
             floatLocation="center"
             floatBottom={25}

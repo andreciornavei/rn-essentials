@@ -30,6 +30,7 @@ export const _TabNav = (): JSX.Element => {
                     theme="primary"
                     size="regular"
                     initialRouteName="/tab_home"
+                    itemSelectedTextStyle={{ color: theme.color.success }}
                     routes={[
                         {
                             "name": "/tab_one",
@@ -46,7 +47,8 @@ export const _TabNav = (): JSX.Element => {
                             "options": {
                                 "title": "tab two",
                                 "iconPack": "MaterialCommunityIcons",
-                                "iconName": "numeric-2"
+                                "iconName": "numeric-2",
+                                "onPress": () => { console.log("PREVENTING...") }
                             }
                         },
                         {

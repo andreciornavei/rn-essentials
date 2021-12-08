@@ -32,6 +32,7 @@ export interface TabNavProps extends TabNavStyleProps {
             title: string
             iconPack: IconPackType
             iconName: string
+            onPress?: () => void
         }
     }>
 

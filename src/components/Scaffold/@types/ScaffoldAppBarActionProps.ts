@@ -1,3 +1,4 @@
+import { TextStyle, ViewStyle } from "react-native";
 import { IconPackType } from "../../..";
 
 export interface ScaffoldAppBarActionProps {
@@ -6,6 +7,8 @@ export interface ScaffoldAppBarActionProps {
   action: () => void
   label?: string
   alert?: number
+  alertStyle?: ViewStyle
+  alertTextStyle?: TextStyle
   rounded?: boolean
   color?: string
   disabled?: boolean

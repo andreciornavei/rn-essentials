@@ -31,8 +31,8 @@ export const ScaffoldAppBarAction = ({ rounded = true, iconPack = "Feather", ...
       }
       {props.iconName && <Icon pack={iconPack} name={props.iconName} size={21} color={props.color || "#000000"} />}
       {(props.alert || 0) > 0 &&
-        <View style={styles.alert} pointerEvents="none">
-          <Text style={styles.alertText}>{props.alert}</Text>
+        <View style={[styles.alert, props.alertStyle]} pointerEvents="none">
+          <Text style={[styles.alertText, props.alertTextStyle]}>{props.alert}</Text>
         </View>
       }
     </Ripple>

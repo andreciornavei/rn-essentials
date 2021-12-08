@@ -57,7 +57,7 @@ export const TabBar = ({ state, descriptors, navigation, ...props }: TabNavItemP
         themer.sizes()[size].textSelected,
         themer.shapes()[shape].textSelected,
         themer.themes()[theme].textSelected,
-        applyProps.itemTextStyle
+        applyProps.itemSelectedTextStyle
     ]
 
     const iconColor = applyProps.itemIconStyle?.color || themer.themes()[theme].icon?.color || theming.color.light
@@ -104,7 +104,7 @@ export const TabBar = ({ state, descriptors, navigation, ...props }: TabNavItemP
                         accessibilityState={isFocused ? { selected: true } : {}}
                         accessibilityLabel={options.tabBarAccessibilityLabel}
                         testID={options.tabBarTestID}
-                        onPress={options.onPress ?? onPress}
+                        onPress={options.onPress ? options.onPress : onPress}
                         onLongPress={onLongPress}
                         style={[itemStyle, isFocused && itemSelectedStyle]}
                     >
