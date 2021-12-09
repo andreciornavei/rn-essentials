@@ -6,7 +6,7 @@ import * as FileSystem from 'expo-file-system';
 export interface DatabaseProps {
     dbName?: string
     dbEntities?: (string | Function | EntitySchema<any>)[] | undefined
-    dbOptions?: ConnectionOptions
+    dbOptions?: Partial<ConnectionOptions>
     children?: JSX.Element
 }
 
