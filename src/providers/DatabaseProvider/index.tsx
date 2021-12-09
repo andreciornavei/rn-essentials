@@ -22,14 +22,14 @@ export const DatabaseProvider = (props: DatabaseProps) => {
     const connect = React.useCallback(async () => {
         if (!props.dbName) return
         const createdConnection = await createConnection({
-            ...props.dbOptions,
             type: 'expo',
             database: props.dbName,
             driver: require('expo-sqlite'),
             entities: props.dbEntities,
-        });
-        console.log("Loaded sqlite from:", `${FileSystem.documentDirectory}SQLite/${props.dbName}'}`)        
-       setConnection(createdConnection);
+            ...props.dbOptions,
+        } as ConnectionOptions);
+        // console.log("Loaded sqlite from:", `${FileSystem.documentDirectory}SQLite/${props.dbName}'}`)        
+        setConnection(createdConnection);
     }, []);
 
     React.useEffect(() => {
