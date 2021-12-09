@@ -46,7 +46,7 @@ export const SheetInputText = (props: SheetInputTextProps): JSX.Element => {
                 label={props.buttonLabel}
                 center={true}
                 size="medium"
-                onPress={handleCallback}
+                onPress={() => props.onConfirm ? props.onConfirm() : handleCallback()}
                 {...props.buttonStyle}
             />
         </View>
