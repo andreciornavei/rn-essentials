@@ -20,6 +20,7 @@ export interface AccordionProps extends AccordionStyleProps {
     placeholderStrategy?: "default" | "pushed"
     value?: any
     open?: boolean
+    numberOfLines?: number | undefined
     onClick?: (name: string) => void
     children?: JSX.Element | Array<JSX.Element>
 }

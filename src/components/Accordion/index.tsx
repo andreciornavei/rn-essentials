@@ -54,7 +54,10 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                                 themer.sizes()[size].placeholder,
                                 applyProps.placeholderStyle,
                                 { color: applyProps.placeholderStyle?.color || themer.themes()[theme].placeholder?.color || theming.color.dark },
-                            ]}>
+                            ]}
+                            numberOfLines={props.numberOfLines}
+                            lineBreakMode="tail"
+                        >
                             {applyProps.placeholder ?? "-- touch to open --"}
                         </Text>
                     }
@@ -65,7 +68,10 @@ export const Accordion = (props: AccordionProps): JSX.Element => {
                             themer.sizes()[size].text,
                             applyProps.textStyle,
                             { color: applyProps.textStyle?.color || themer.themes()[theme].text?.color || theming.color.dark },
-                        ]}>
+                        ]}
+                        numberOfLines={props.numberOfLines}
+                        lineBreakMode="tail"
+                    >
                         {applyProps.value ?? applyProps.placeholder ?? "-- touch to open --"}
                     </Text>
                 </View>

@@ -13,13 +13,15 @@ import { _InputRadio } from './src/pages/_InputRadio';
 import { _ListFetcher } from './src/pages/_ListFetcher';
 import { _InputSelect } from './src/pages/_InputSelect';
 import { _InputCheckbox } from './src/pages/_InputCheckbox';
-
+import { AppDataProvider } from './src/providers/AppDataProvider';
+if (__DEV__) require("./debug_config")
 export default function App() {
   return (
     <EssentialProviders
       dbName="db-rn-essentials-example"
       apiBaseURL="http://localhost:1337"
       initialRouteName="/home"
+      innerProvider={AppDataProvider}
       routes={[
         { name: "/home", component: Home },
         { name: "/component_accordion", component: _Accordion },

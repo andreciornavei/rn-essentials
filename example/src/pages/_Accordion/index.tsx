@@ -100,6 +100,25 @@ export const _Accordion = (): JSX.Element => {
                             </Text>
                         </View>
                     </Accordion>
+                    <Accordion
+                        name="fourth"
+                        placeholder="The fourth accordion tab with big header title"
+                        value="The fourth accordion tab with big header title"
+                        open={selected == "third"}
+                        iconPack="MaterialCommunityIcons"
+                        iconName="numeric-3"
+                        theme="light"
+                        shape="flat"
+                        size="regular"
+                        onClick={setSelected}
+                        numberOfLines={1}
+                    >
+                        <View style={styles.content}>
+                            <Text>
+                                This is an accordion to test max limit of lines on accordion header title.
+                            </Text>
+                        </View>
+                    </Accordion>
                 </ScrollView>
             }
         />
