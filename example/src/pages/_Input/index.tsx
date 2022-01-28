@@ -1,6 +1,6 @@
 import React from "react"
 import { useTheme } from "@emotion/react"
-import { InputText, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Space } from "@andreciornavei/rn-essentials"
+import { Button, InputText, Scaffold, ScaffoldAppBar, ScaffoldAppBarTitle, Space } from "@andreciornavei/rn-essentials"
 import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
