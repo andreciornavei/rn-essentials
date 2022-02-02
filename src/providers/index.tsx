@@ -14,7 +14,7 @@ import { ApiProps } from "./ApiProvider/types"
 
 interface Props extends DatabaseProps, ApiProps, SocketProps, RouteProps {
     theme?: Partial<Theme> | ((outerTheme: Theme) => Theme)
-    innerProvider?: React.FC<{children: JSX.Element}> | undefined
+    innerProvider?: React.FC<{ children: JSX.Element }> | undefined
 }
 
 export const EssentialProviders = (props: Props): JSX.Element => {
@@ -28,13 +28,10 @@ export const EssentialProviders = (props: Props): JSX.Element => {
                                 <SocketProvider apiBaseURL={props.apiBaseURL}>
                                     <SafeAreaProvider>
                                         <SheetProvider>
-                                            {props.innerProvider ? (
-                                                <props.innerProvider>
-                                                    <RouteProvider initialRouteName={props.initialRouteName} routes={props.routes} />
-                                                </props.innerProvider>
-                                            ) : (
-                                                <RouteProvider initialRouteName={props.initialRouteName} routes={props.routes} />
-                                            )}
+                                            <RouteProvider
+                                                innerProvider={props.innerProvider}
+                                                initialRouteName={props.initialRouteName}
+                                                routes={props.routes} />
                                         </SheetProvider>
                                     </SafeAreaProvider>
                                 </SocketProvider>

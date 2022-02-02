@@ -6,10 +6,12 @@ import { styles } from "./styles"
 import { useNavigation } from "@react-navigation/native"
 import { ScrollView } from "react-native-gesture-handler"
 import { AuthApi } from "./../../services/api/Auth"
+import { useAppData } from "./../../providers/AppDataProvider"
 
 export const Home = (): JSX.Element => {
 
     const theme = useTheme()
+    const { navigateToAccordion } = useAppData()
     const { navigate } = useNavigation<any>()
 
     const api = useApi()
@@ -45,7 +47,7 @@ export const Home = (): JSX.Element => {
                         iconPack="Ionicons"
                         iconName="list"
                         label="Accordion"
-                        onPress={() => navigate("/component_accordion")}
+                        onPress={() => navigateToAccordion()}
                     />
                     <Action
                         iconPack="MaterialCommunityIcons"

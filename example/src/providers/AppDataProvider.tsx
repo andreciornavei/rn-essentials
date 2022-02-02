@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native"
 import React from "react"
 import { useSheet } from "../../../src/providers/SheetProvider"
 import { SheetConfirmation } from "../../../src/sheets/SheetConfirmation"
@@ -7,6 +8,7 @@ type AppDataControllerProps = {
 }
 
 type AppDataStateProps = {
+    navigateToAccordion: () => void
 }
 
 const AppDataContext = React.createContext({} as AppDataStateProps)
@@ -14,6 +16,11 @@ const AppDataContext = React.createContext({} as AppDataStateProps)
 export const AppDataProvider = (props: AppDataControllerProps): JSX.Element => {
 
     const { openSheet } = useSheet()
+    const { navigate } = useNavigation<any>()
+    
+    const navigateToAccordion = () => {
+        navigate("/component_accordion")
+    }
 
     React.useEffect(() => {
         console.log("CALLING APP DATA PROVIDER")
@@ -28,7 +35,9 @@ export const AppDataProvider = (props: AppDataControllerProps): JSX.Element => {
         }, 3000)
     }, [])
 
-    const state = {}
+    const state = {
+        navigateToAccordion
+    }
 
     return (
         <AppDataContext.Provider value={state}>
