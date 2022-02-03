@@ -15,7 +15,7 @@ export type ListFectherFunctions<T> = {
     reset: () => void
 }
 
-type OmitFlatListProps = "data" | "keyExtractor" | "refreshing" | "onRefresh" | "onEndReachedThreshold" | "onEndReached"
+type OmitFlatListProps = "data" | "refreshing" | "onRefresh" | "onEndReachedThreshold" | "onEndReached"
 
 export interface ListFectcherProps<T> extends Omit<FlatListProps<T>, OmitFlatListProps> {
     limit?: number
@@ -58,12 +58,13 @@ export const ListFecther = React.forwardRef(<T extends any>({ renderReached = tr
         if (options.reset) setStart(0)
         setLoading(true);
         props.loadData(options).then((result) => {
-            if ((options.reset || options.start === 0) && result.length === 0)
+            if ((options.reset || options.start === 0) && result.length === 0) {
                 setData([])
-            else if (options.reset && result.length > 0)
+            } else if (options.reset && result.length > 0) {
                 setData(result)
-            else if (result.length > 0)
+            } else if (result.length > 0) {
                 setData([...data, ...result])
+            }
             if (result.length < (props.limit || 10)) setReached(true)
             setStart(options.start + options.limit)
         })
@@ -110,10 +111,10 @@ export const ListFecther = React.forwardRef(<T extends any>({ renderReached = tr
 
     return (
         <FlatList
+            keyExtractor={(_, index) => `list-fetcher-item-${index}`}
             {...props}
             data={data}
             ref={flatlistRef}
-            keyExtractor={(_, index) => `list-fetcher-item-${index}`}
             refreshing={loading}
             ListFooterComponent={props.ListFooterComponent || renderFooterLoading}
             onRefresh={() => {
